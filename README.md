@@ -1,6 +1,6 @@
 # Competitive-Programming-data-generator
 
-Seeing the awkward situation happened in The 2023 ICPC Asia Xiaan Regional Contest, The author created this.  
+Seeing the awkward situation happened in the 2023 ICPC Asia Xiaan Regional Contest, The author wrote this.  
 This project aimed at making a useful generator that can safely used in Competitive Programming(ICPC, etc.), and hoping everyone provide his generator to this project to better it.
 Meanwhile, considering the fame of the author, this might be a personal project for ever.
 
