@@ -91,9 +91,9 @@ Method `inline _Tp get_prime(_Tp l, _Tp r)`:
 
 ### class `Tree`
 
-Variable `int n;`: The count of the tree's points.
+Variable `int n`: The count of the tree's points.
 
-Variable `bool weighted;`: Denoting if the **edges** are weighted or not.
+Variable `bool weighted`: Denoting if the **edges** are weighted or not.
 
 Variable `std::vector<int> fa`: `fa[i]` is the no. of node $i$'s father.
 
@@ -181,8 +181,6 @@ Method `inline std::vector<int> get_leaves()`:
 |brief|Get the leave nodes of the current tree.|
 |return|The leaves.|
 |throw|It throws what `std::vector<int>` throws.|
-
-To be continued...
 
 ## FAQs
 
