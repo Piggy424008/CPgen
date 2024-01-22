@@ -28,7 +28,7 @@ To get the latest version of CPgen, download its source code via [repo](https://
 
 ## Usages
 
-When looking through the docs of CPgen, you should note that the first place in std::vector is ignored by CPgen. That's to say, every vector used in CPgen is 1-indexed.
+When looking through the docs of CPgen, you should note that the first place in std::vector is ignored by CPgen. That's to say, every vector used in CPgen is 1-indexed. And, `std::vector<_Tp>().size()` means `*this.size() - 1` in the implement.
 
 ### Basis
 
