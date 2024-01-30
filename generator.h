@@ -10,6 +10,13 @@ using i128_ll = __int128_t;
 
 double eps = 1e-12;
 
+struct GenException : public std::exception {
+    std::string _msg;
+    GenException(std::string msg) { _msg = msg; }
+    GenException(const char* msg) { _msg = msg; }
+    const char* what() const throw() { return _msg.data(); }
+};
+
 template <typename... Args>
 inline void Quit(Args... params) {
     ((std::cout << params << ' '), ...);
@@ -93,6 +100,14 @@ class _random {
     }
 } _rnd;
 
+template <typename T>
+inline void print(std::vector<T> vec, char sep = ' ', char end = '\n') {
+    for (auto&& i : vec) {
+        std::cout << i << sep;
+    }
+    std::cout << end;
+}
+
 #define warn printf
 
 class Tree {
@@ -100,7 +115,7 @@ class Tree {
     int n;
     std::vector<int> fa, leaves;
     bool weighted = false;
-using _Self = Tree;
+    using _Self = Tree;
     /**
      *  @brief  Initiate Tree object with size `size`.
      *  @param  size The count of the nodes that will be generated.
@@ -109,8 +124,9 @@ using _Self = Tree;
      */
     inline void init(int size) {
         fa.clear(), leaves.clear();
-        if (n < 1)
-            throw format("Invalid 'n' has been passed in `init`: %d", size);
+        if (size < 1)
+            throw GenException(
+                format("Invalid 'n' has been passed in `init`: %d", size));
         n = size;
         fa.resize(size + 1);
     }
@@ -218,8 +234,8 @@ using _Self = Tree;
      * or chain_percent + flower_percent > 1.
      */
     inline _Self chain_and_flower(int size,
-                                 double chain_percent = 0.3,
-                                 double flower_percent = 0.3) {
+                                  double chain_percent = 0.3,
+                                  double flower_percent = 0.3) {
         ensure(chain_percent + flower_percent <= 1);
         init(size);
         int i = 2;
@@ -267,7 +283,7 @@ using _Self = Tree;
      *  @throw  out_of_range if @a size is an invalid node count, e.g. -1.
      */
     inline _Self print(int shuffled,
-                      std::vector<int> weights = std::vector<int>{}) {
+                       std::vector<int> weights = std::vector<int>{}) {
         bool output_weight = true;
         if (weights.size() == 0)
             output_weight = false;
@@ -282,6 +298,12 @@ using _Self = Tree;
                 println(order.at(i), fa.at(order.at(i)), weights.at(i));
             else
                 println(order.at(i), fa.at(order.at(i)));
+        return *this;
+    }
+    inline _Self print_fa(char sep = ' ', char end = '\n') {
+        for (int i = 2; i <= n; i++)
+            std::cout << fa[i] << sep;
+        std::cout << end;
         return *this;
     }
     /**
@@ -340,6 +362,9 @@ class Array {
      *  @throw  It throws what the _Sequence throws.
      */
     inline void init(int size) {
+        if (size < 1)
+            throw GenException(
+                format("Invalid 'n' has been passed in `init`: %d", size));
         array.clear();
         n = size, array.resize(n + 1);
     }
@@ -349,9 +374,10 @@ class Array {
      *  @return The array itself.
      *  @throw  It throws what the _Sequence throws.
      */
-    inline void print(char sep = ' ') {
+    inline void print(char sep = ' ', char end = '\n') {
         for (int i = 1; i <= n; i++)
             std::cout << array.at(i) << sep;
+        std::cout << end;
     }
     /**
      *  @brief  Get the sum of the elements.
@@ -582,6 +608,9 @@ class Graph {
      *  @throw  It throws what the std::set throws.
      */
     void init(int size, bool directed_graph) {
+        if (size < 1)
+            throw GenException(
+                format("Invalid 'n' has been passed in `init`: %d", size));
         n = size;
         edges.clear();
         directed = directed_graph;
@@ -701,6 +730,13 @@ class Graph {
 class String {
    public:
     std::string str;
+    inline String operator + (String s) {
+        return String{str + s.str};
+    }
+    inline String operator += (String s) {
+        return *this = String{str + s.str};
+    }
+    inline char& operator [](int idx) { return str[idx - 1]; }
     template <typename... Args>
     inline std::string gen(const char* pattern, Args... t) {
         return str = rnd.next(format(pattern, t...));
