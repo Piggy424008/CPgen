@@ -1,15 +1,79 @@
+/*! \mainpage CPgen
+ *
+ * ## Quick Start
+ *
+ * Seeing the awkward situation happened in the 2023 ICPC Asia Xiaan Regional
+ * Contest, The author wrote this.
+ *
+ * CPgen stands for Competitive Programming Data Generator.It is a project aimed
+ * to be a useful generator that can safely and conveniently used in Competitive
+ * Programming(OI, ICPC, etc.).
+ *
+ * CPgen is hoped to be a library that help problem makers to save their time on
+ * data-making.
+ *
+ * Here is an example of a generator using CPgen:
+ * ```cpp
+ * #include "../generator/generator.h"
+ *
+ * int main(int argc, char** argv) {
+ *     registerGen(argc, argv, 1);
+ *     int n = rnd.next(1, 1000), m = rnd.next(1, 1000);
+ *     println(n, m);
+ *     Array<int> arr; arr.basic_gen(m, 1, 10 * sqrt(n)).print();
+ * }
+ * ```
+ * This example generates an array with size of \f$m\f$, whose elements are
+ * integers from \f$1\f$ to \f$10\sqrt{n}\f$, and print \f$n, m\f$ and the array
+ * to the standard output.
+ *
+ * You should note that CPgen is based on testlib. So you are required to have
+ * [testlib.h](https://github.com/MikeMirzayanov/testlib) in your working
+ * directory (or in your environment path).
+ *
+ * To get the latest version of CPgen, download its source code via
+ * [repo](https://github.com/Piggy424008/CPgen).
+ *
+ * ## Usages
+ *
+ * When looking through the docs of CPgen, you should note that the first place
+ * in std::vector is ignored by CPgen. That's to say, every vector used in CPgen
+ * is 1-indexed. And, `std::vector<_Tp>().size()` means `*this.size() - 1` in
+ * the implement.
+ *
+ * Read Docs for further information.
+ *
+ * ## FAQs
+ *
+ * - I generate exactly the same data while I run it many times. Why is that?
+ *
+ * It indeed testlib fault. To ensure the generator can generator exactly the
+ * same data somehow, the seed of rnd(the RNG of testlib) is calculated by the
+ * command you type when you ran it. Try to run it with different args. For
+ * example, try:
+ * ```
+ * >>> ./foo CPgen
+ * >>> ./foo Piggy424008
+ * >>> ./foo cplusplus
+ * ```
+ * Then it's expected to generate some different data.
+ *  */
 #include <cassert>
 #include <numeric>
 #include <string>
 #include <vector>
 #include "testlib.h"
 
-using pii = std::pair<int, int>;
 using i64_ll = long long;
 using i128_ll = __int128_t;
+using pii = std::pair<int, int>;
+using pll = std::pair<i64_ll, i64_ll>;
 
-double eps = 1e-12;
+double eps = 1e-12;  ///< epsilon
 
+/**
+ *  @brief The exception throwed when errors occured.
+ */
 struct GenException : public std::exception {
     std::string _msg;
     GenException(std::string msg) { _msg = msg; }
@@ -17,6 +81,11 @@ struct GenException : public std::exception {
     const char* what() const throw() { return _msg.data(); }
 };
 
+/**
+ *  @brief  Print some infomation to standard output and quit.
+ *  @param  params Any. Anything that can be printed, with any number.
+ *  @return No return.
+ */
 template <typename... Args>
 inline void Quit(Args... params) {
     ((std::cout << params << ' '), ...);
@@ -24,13 +93,16 @@ inline void Quit(Args... params) {
     exit(1);
 }
 
-inline pii Sort(pii a) {
-    return a.first > a.second ? std::make_pair(a.second, a.first) : a;
-}
-
+/**
+ *  @brief  calculate \f$a^b\bmod mod\f$.
+ *  @param  a Any `i64_ll`.
+ *  @param  b Any `i64_ll`.
+ *  @param  mod Any `i64_ll`.
+ *  @return Return the result.
+ */
 inline i64_ll qpow(i64_ll a, i64_ll b, i64_ll mod) {
     assert(b >= 0);
-    i64_ll ans = 1;
+    i128_ll ans = 1;
     while (b) {
         if (b & 1)
             ans = 1ll * ans * a % mod;
@@ -40,6 +112,11 @@ inline i64_ll qpow(i64_ll a, i64_ll b, i64_ll mod) {
     return ans;
 }
 
+/**
+ *  @brief  Check if \f$n\f$ is a prime.
+ *  @param  n Any `i64_ll`.
+ *  @return Return the result.
+ */
 inline bool is_prime(i64_ll n) {
     if (n < 3 || n % 2 == 0)
         return n == 2;
@@ -66,14 +143,19 @@ inline bool is_prime(i64_ll n) {
     return 1;
 }
 
+/**
+ *  @brief  Expansion of random_t.
+ */
 class _random {
    public:
-    template <typename _Tp>
-    inline _Tp choice(std::vector<_Tp> array, int l = 1, int r = -1) {
-        if (!~r)
-            r = array.size();
-        return array.at(rnd.next(l, r));
-    }
+    /**
+     *  @brief  Shuffle the array in-place, indexes from \f$l\f$ to \f$r\f$.
+     *  @param array Any std::vector<_Tp>.
+     *  @param l The left bound that should be shuffled. Default as \f$1\f$.|
+     *  @param r The right bound that should be shuffled. Default as
+     * `array.size()`.
+     *  @return Return the result.
+     */
     template <typename _Tp>
     inline std::vector<_Tp> shuffle(std::vector<_Tp> array,
                                     int l = 1,
@@ -84,6 +166,16 @@ class _random {
             std::swap(array.at(i), array.at(rnd.next(l, i - 1)));
         return array;
     }
+    /**
+     *  @brief get a prime \f$p\in[l, r]\f$.
+     *  @param array Any std::vector<_Tp>.
+     *  @param l The left bound  of the section.
+     *  @param r The right bound of the section.
+     *  @return The generated prime.
+     *  @throw When it failed to gen a prime after \f$5\f$ times of iteration,
+     * it throws an error `I suspected that there's no prime from {l} to {r}.`
+     * and quit the program.
+     */
     template <typename _Tp>
     inline _Tp get_prime(_Tp l, _Tp r) {
         int times = 5;
@@ -100,6 +192,14 @@ class _random {
     }
 } _rnd;
 
+/**
+ *  @brief print a vector.
+ *  @param vec Any std::vector<_Tp>.
+ *  @param sep The seperator.
+ *  @param end the end char.
+ *  @return no return.
+ *  @throw Throws exception when element is not print-able.
+ */
 template <typename T>
 inline void print(std::vector<T> vec, char sep = ' ', char end = '\n') {
     for (auto&& i : vec) {
@@ -110,11 +210,16 @@ inline void print(std::vector<T> vec, char sep = ' ', char end = '\n') {
 
 #define warn printf
 
+/**
+ *  @brief  Class that used to generate a tree.
+ */
 class Tree {
    public:
-    int n;
-    std::vector<int> fa, leaves;
-    bool weighted = false;
+    int n;                    ///< The size of the tree.
+    std::vector<int> fa;      ///< `fa[i]` is the no. of node \f$i\f$'s father.
+    std::vector<int> leaves;  ///< The no. of leaves. NOTE that it would be
+                              ///< empty UNLESS you call `get_leaves()` method.
+    bool weighted = false;  ///< Denoting if the **edges** are weighted or not.
     using _Self = Tree;
     /**
      *  @brief  Initiate Tree object with size `size`.
@@ -131,7 +236,7 @@ class Tree {
         fa.resize(size + 1);
     }
     /**
-     *  @brief  Generate a tree with an expected height of $O(\sqrt n)$
+     *  @brief  Generate a tree with an expected height of \f$O(\sqrt n)\f$
      *  @param  size The count of the nodes that will be generated.
      *  @return The graph itself.
      *  @throw  out_of_range if @a size is an invalid node count, e.g. -1.
@@ -159,7 +264,7 @@ class Tree {
         return *this;
     }
     /**
-     *  @brief  Generate a tree with an expected height of O(\log n)
+     *  @brief  Generate a tree with an expected height of \f$O(\log n)\f$
      *  @param  size The count of the nodes that will be generated.
      *  @return The graph itself.
      *  @throw  out_of_range if @a size is an invalid node count, e.g. -1.
@@ -195,7 +300,7 @@ class Tree {
         return *this;
     }
     /**
-     *  @brief  Generate a tree with an expected max_deg of O(n)
+     *  @brief  Generate a tree with an expected max_deg of \f$O(n)\f$.
      *  @param  size The count of the nodes that will be generated.
      *  @return The graph itself.
      *  @throw  out_of_range if @a size is an invalid node count, e.g. -1.
@@ -220,7 +325,7 @@ class Tree {
             if (is_flower.at(i))
                 fa.at(i) = 1;
             else
-                fa.at(i) = _rnd.choice(nodes);
+                fa.at(i) = rnd.any(nodes);
         return *this;
     }
     /**
@@ -274,7 +379,7 @@ class Tree {
         return *this;
     }
     /**
-     *  @brief  Output the generated tree to stdout. NOTE that n will not be
+     *  @brief  Output the generated edges to stdout. NOTE that n will not be
      * printed.
      *  @param  weights the weights of the edges. Input weights[i] as the weight
      * of the edge [fa[i], i].
@@ -300,6 +405,15 @@ class Tree {
                 println(order.at(i), fa.at(order.at(i)));
         return *this;
     }
+    /**
+     *  @brief  Output the generated `fa` array to stdout. NOTE that n will not
+     * be printed.
+     *  @param sep The seperator.
+     *  @param end the end char.
+     *  @param  shuffled if I should print it in random order.
+     *  @return The graph itself.
+     *  @throw  out_of_range if @a size is an invalid node count, e.g. -1.
+     */
     inline _Self print_fa(char sep = ' ', char end = '\n') {
         for (int i = 2; i <= n; i++)
             std::cout << fa[i] << sep;
@@ -308,7 +422,6 @@ class Tree {
     }
     /**
      *  @brief  Get the leave nodes of the current tree.
-     *  @param  no params.
      *  @return The leaves.
      *  @throw  It throws what `std::vector<int>` throws.
      */
@@ -324,13 +437,16 @@ class Tree {
     }
 };
 
+/**
+ *  @brief  Class that used to generate an array.
+ */
 template <typename _Tp>
 class Array {
    public:
     using _Sequence = std::vector<_Tp>;
     using _Self = Array<_Tp>;
-    int n;
-    _Sequence array;
+    int n;            ///< size of the array that generated.
+    _Sequence array;  ///< The container of the elements.
     /**
      *  @brief  return the reference of the size-th element in this array.
      *  @param  idx the index of the element you requested.
@@ -343,14 +459,12 @@ class Array {
     }
     /**
      *  @brief  return the reference of the first element in this array.
-     *  @param  no params.
      *  @return The reference of the element.
      *  @throw  It throws what the _Sequence throws.
      */
     inline auto begin() { return array.begin(); }
     /**
      *  @brief  return the reference of the last element in this array.
-     *  @param  no params.
      *  @return The reference of the element.
      *  @throw  It throws what the _Sequence throws.
      */
@@ -370,7 +484,6 @@ class Array {
     }
     /**
      *  @brief  Output the current array.
-     *  @param  no params.
      *  @return The array itself.
      *  @throw  It throws what the _Sequence throws.
      */
@@ -381,7 +494,6 @@ class Array {
     }
     /**
      *  @brief  Get the sum of the elements.
-     *  @param  no params.
      *  @return The sum of the elements.
      *  @throw  It throws what the _Sequence throws.
      */
@@ -408,28 +520,21 @@ class Array {
     }
     /**
      *  @brief  Sort the current array.
-     *  @param  no params.
-     *  @return no return.
      *  @throw  It throws what the _Sequence throws.
      */
     inline void sort() { std::sort(array.begin(), array.end()); }
     /**
      *  @brief  Shuffle the current array.
-     *  @param  no params.
-     *  @return no return.
      *  @throw  It throws what the _Sequence throws.
      */
     inline void shuffle() { _rnd.shuffle(array); }
     /**
      *  @brief  Reverse the current array.
-     *  @param  no params.
-     *  @return no return.
      *  @throw  It throws what the _Sequence throws.
      */
     inline void reverse() { std::reverse(array.begin(), array.end()); }
     /**
      *  @brief  Turn this array into the Diffrence array of it.
-     *  @param  no params.
      *  @return The array itself.
      *  @throw  It throws what the _Sequence throws.
      */
@@ -506,7 +611,6 @@ class Array {
     /**
      *  @brief  Perturbe the current array, keeping the sum of the elements
      * still.
-     *  @param  no params.
      *  @return The array itself.
      *  @throw  It throws what the _Sequence throws.
      */
@@ -541,7 +645,7 @@ class Array {
                                    int begin = 1) {
         init(size);
         for (int i = 0; i < size; i++)
-            array.at(i) = GenerateFunction(i + begin);
+            array.at(i + 1) = GenerateFunction(i + begin);
         return *this;
     }
     /**
@@ -561,14 +665,20 @@ class Array {
             array.at(i) = IterateFunction(array.at(i - 1));
         return *this;
     }
+    inline _Self randomly_insert(int size, int num) {
+        while (size-- > 0)
+            array[rnd.next(1, n)] = num;
+        return *this;
+    }
 };
 
 class Graph {
    public:
     using _Self = Graph;
-    int n, m;
-    bool directed;
-    std::set<pii> edges;
+    int n;                ///< The count of points in the graph.
+    int m;                ///< The count of edges in the graph.
+    bool directed;        ///< Denoting if the **edges** are directed or not.
+    std::set<pii> edges;  ///< The container of edges.
 
     Graph() {}
     Graph(Tree tr, bool direction = 0) {
@@ -666,6 +776,10 @@ class Graph {
             ensure(edges_count >= size - 1);
             Tree tree;
             tree.random_shaped_tree(size);
+            auto Sort = [](pii a) {
+                return a.first > a.second ? std::make_pair(a.second, a.first)
+                                          : a;
+            };
             for (int i = 2; i <= size; i++)
                 edges.insert(Sort({a[tree.fa.at(i)], a[i]}));
             edges_count -= (size - 1);
@@ -729,25 +843,60 @@ class Graph {
 
 class String {
    public:
-    std::string str;
-    inline String operator + (String s) {
-        return String{str + s.str};
-    }
-    inline String operator += (String s) {
-        return *this = String{str + s.str};
-    }
-    inline char& operator [](int idx) { return str[idx - 1]; }
+    std::string str;  ///< The container of the string.
+
+    inline String operator+(String s) { return String{str + s.str}; }
+    inline String operator+=(String s) { return *this = String{str + s.str}; }
+    /**
+     *  @brief  Output the generated string to stdout. NOTE that n will not be
+     * printed.
+     *  @throw  out_of_range if @a size is an invalid node count, e.g. -1.
+     */
+    inline void print() { println(str); }
+    /**
+     *  @brief  return the reference of the size-th element in this string. NOTE
+     * that this is 1-indexed.
+     *  @param  idx the index of the element you requested.
+     *  @return The reference of the element.
+     *  @throw  out_of_range if idx is an invalid index.
+     */
+    inline char& operator[](int idx) { return str[idx - 1]; }
+    /**
+     *  @brief  Generate a string with format(pattern, ...t).
+     *  @param  pattern the pattern of the format-string,
+     *  @param  ...t the formated value.
+     *  @return The generated string.
+     */
     template <typename... Args>
     inline std::string gen(const char* pattern, Args... t) {
         return str = rnd.next(format(pattern, t...));
     }
-    inline std::string lowerletter(int size) { return gen("[a-z]{%d}", size); }
-    inline std::string latinletter(int size) {
-        return gen("[a-zA-Z]{%d}", size);
-    }
-    inline std::string latin_and_number(int size) {
+    /**
+     *  @brief  Generate a string contains lower letters only.
+     *  @param  size the length of the generated string.
+     *  @return The generated string.
+     */
+    inline std::string lower(int size) { return gen("[a-z]{%d}", size); }
+    /**
+     *  @brief  Generate a string contains latin letters only.
+     *  @param  size the length of the generated string.
+     *  @return The generated string.
+     */
+    inline std::string latin(int size) { return gen("[a-zA-Z]{%d}", size); }
+    /**
+     *  @brief  Generate a string contains latin letters and numbers only.
+     *  @param  size the length of the generated string.
+     *  @return The generated string.
+     */
+    inline std::string latin_number(int size) {
         return gen("[a-zA-Z0-9]{%d}", size);
     }
+    /**
+     *  @brief  Generate a string contains numbers only.
+     *  @param  size the length of the generated string.
+     *  @param  leading_zero if the string can start with zero or not.
+     *  @return The generated string.
+     */
     inline std::string numbers_only(int size, bool leading_zero = false) {
         if (leading_zero)
             gen("[0-9]{%d}", size);
@@ -755,12 +904,28 @@ class String {
             gen("[1-9][0-9]{%d}", size - 1);
         return str;
     }
+    /**
+     *  @brief  Set the generated string size times of it.
+     *  @param  size the times it should be repeated.
+     *  @return The generated string.
+     */
     inline std::string repeat(int size) {
         std::string res;
         for (int i = 1; i <= size; i++)
             res += str;
         return str = res;
     }
+    /**
+     *  @brief  Generate multi-string using the same function, and concentrate
+     * them.
+     *  @param  func a function which accepts a integer(the size of the
+     * sub-string) and returns a std::string.
+     *  @param  size a function which accepts a integer(the number of the
+     * sub-string) and returns a integer, which is the size of the string.
+     *  @param  times the count of the string that should be generated.
+     *  @param  sep the seperator between the strings.
+     *  @return The generated string.
+     */
     inline std::string gen_multi(std::string (*func)(int),
                                  int (*size)(),
                                  int times,
@@ -770,6 +935,13 @@ class String {
             res += func(size()), i != times ? res += sep : sep;
         return str = res;
     }
+    /**
+     *  @brief  Randomly replace some charactor in the generated string, using
+     * `rep`.
+     *  @param  size the count of char that should be replaced.
+     *  @param  rep the char used to replace the origin.
+     *  @return The generated string.
+     */
     inline std::string random_insert(int size, char rep) {
         Array<int> array;
         array.ascending_array(size, 0, str.length() - 1);
@@ -779,11 +951,65 @@ class String {
     }
 };
 
+/**
+ *  @brief  The struct that represent a point on a 2D plane.
+ *  @param  PointType the value type of the Point.
+ */
 template <typename PointType>
 struct Point {
     PointType x, y;
     bool operator==(const Point& rhs) const {
         return (x - rhs.x) <= 15 * eps && (y - rhs.y) <= 15 * eps;
+    }
+};
+
+/**
+ *  @brief  The fraction in C++.
+ */
+struct cFrac {
+    i64_ll a, b;
+    cFrac(i64_ll a) : a(a), b(1) {}
+    cFrac(i64_ll a, i64_ll b) : a(a), b(b) {}
+    cFrac(std::string str) { sscanf(str.data(), "%lld/%lld", &a, &b); }
+    inline cFrac reduce() {
+        i64_ll gcd = std::__gcd(a, b);
+        a /= gcd, b /= gcd;
+        return *this;
+    }
+    inline cFrac operator+(const cFrac& rhs) {
+        return cFrac(a * rhs.b + b * rhs.a, b * rhs.b).reduce();
+    }
+    inline cFrac operator-(const cFrac& rhs) {
+        return cFrac(a * rhs.b - b * rhs.a, b * rhs.b).reduce();
+    }
+    inline cFrac operator*(const cFrac& rhs) {
+        return cFrac(a * rhs.a, b * rhs.b).reduce();
+    }
+    inline cFrac operator/(const cFrac& rhs) {
+        return cFrac(a * rhs.b, b * rhs.a).reduce();
+    }
+    inline bool operator<=(const cFrac& rhs) { return a * rhs.b <= b * rhs.a; }
+    inline bool operator>=(const cFrac& rhs) { return a * rhs.b >= b * rhs.a; }
+    inline bool operator<(const cFrac& rhs) { return a * rhs.b < b * rhs.a; }
+    inline bool operator>(const cFrac& rhs) { return a * rhs.b > b * rhs.a; }
+    inline bool operator==(const cFrac& rhs) { return a * rhs.b == b * rhs.a; }
+    inline bool operator!=(const cFrac& rhs) { return a * rhs.b == b * rhs.a; }
+    inline std::ostream& operator<<(std::ostream& os) {
+        if (a < 0)
+            os << '-';
+        os << a << '/' << b;
+        return os;
+    }
+    inline std::istream& operator>>(std::istream& is) {
+        std::string str;
+        is >> str;
+        *this = str;
+        return is;
+    }
+    inline cFrac rand(pll b_range, double wl, double wr) {
+        b = rnd.next(b_range.first, b_range.second);
+        a = rnd.next(b * wl, b * wr);
+        return *this;
     }
 };
 
@@ -794,6 +1020,11 @@ class Geometry {
     int n;
     std::set<_Tp> points;
     inline void init() { points.clear(); }
+    /**
+     *  @brief  Randomly generate some points in the rectangle the leftbottom and rightup determine.
+     *  @param  size the count of points that should be generated.
+     *  @param  leftbottom, rightup the range of the points.
+     */
     inline void randomize_points(int size, _Tp leftbottom, _Tp rightup) {
         init();
         for (int i = 1; i <= size; i++) {
@@ -805,7 +1036,7 @@ class Geometry {
                 points.insert({x, y});
         }
     }
-    inline void make_raw_convex_shell(int size) {
+    inline void warning(int size) {
         if (size > 100) {
             if (size > 10000)
                 warn(
@@ -820,4 +1051,6 @@ class Geometry {
                     size);
         }
     }
+    inline void make_raw_convex_shell(int size) { warning(size); }
+    inline void make_convex(int size) { warning(size); }
 };
