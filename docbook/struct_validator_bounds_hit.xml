@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_validator_bounds_hit" xml:lang="en-US">
+<title>ValidatorBoundsHit Struct Reference</title>
+<indexterm><primary>ValidatorBoundsHit</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_validator_bounds_hit_1a9795fcb90f8ec3f0f069cb659e587281"/><emphasis role="strong">ValidatorBoundsHit</emphasis> (bool minHit=false, bool maxHit=false)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_validator_bounds_hit_1ac8444da34d710fac080ec0d30e49874a"/><link linkend="_struct_validator_bounds_hit">ValidatorBoundsHit</link> <emphasis role="strong">merge</emphasis> (const <link linkend="_struct_validator_bounds_hit">ValidatorBoundsHit</link> &amp;validatorBoundsHit, bool ignoreMinBound, bool ignoreMaxBound)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_validator_bounds_hit_1a450ae2118accb6096ac01a9f1bc62f59"/>bool <emphasis role="strong">minHit</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_validator_bounds_hit_1af47cea308d23bf8c74eb43d99c373f4c"/>bool <emphasis role="strong">maxHit</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_validator_bounds_hit_1a794be9f0bcc3692f3662b670c9086128"/>static const double <emphasis role="strong">EPS</emphasis> = 1E-12</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+testlib.h</section>

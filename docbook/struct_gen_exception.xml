@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_gen_exception" xml:lang="en-US">
+<title>GenException Struct Reference</title>
+<indexterm><primary>GenException</primary></indexterm>
+<para>
+
+<para>The exception throwed when errors occured. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;generator.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for GenException:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="struct_gen_exception.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_gen_exception_1ae29ae1691d6cfa364f869fa614709bcd"/><emphasis role="strong">GenException</emphasis> (std::string msg)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_gen_exception_1a08ee47031b9d021d89478b0b61b562b1"/><emphasis role="strong">GenException</emphasis> (const char *msg)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_gen_exception_1a95bfa0e52ee1b120f5557036ed9e06d7"/>const char * <emphasis role="strong">what</emphasis> () const  throw ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_gen_exception_1a71b6b6a8ded53d2ce839e800554c55e0"/>std::string <emphasis role="strong">_msg</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The exception throwed when errors occured. </para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+generator.h</section>
+</section>

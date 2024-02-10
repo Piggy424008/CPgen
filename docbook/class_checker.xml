@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_checker" xml:lang="en-US">
+<title>Checker Class Reference</title>
+<indexterm><primary>Checker</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_checker_1a271ef5fb00c4230cebb26ef476117a9d"/>void <emphasis role="strong">initialize</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_checker_1ac0b5f297b97d53d2662d6faf87da23c4"/>std::string <emphasis role="strong">testset</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_checker_1a30f363a82bc2c6345314b5aa690c6ab2"/>std::string <emphasis role="strong">group</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_checker_1a9d820f5d5a3026e8f0fa4548a329b6b7"/>void <emphasis role="strong">setTestset</emphasis> (const char *const testset)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_checker_1a86db664876730b34937e5be2552eb9a0"/>void <emphasis role="strong">setGroup</emphasis> (const char *const group)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>

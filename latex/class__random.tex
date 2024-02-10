@@ -1,0 +1,80 @@
+\doxysection{\+\_\+random Class Reference}
+\hypertarget{class__random}{}\label{class__random}\index{\_random@{\_random}}
+
+
+Expansion of \doxylink{classrandom__t}{random\+\_\+t}.  
+
+
+
+
+{\ttfamily \#include $<$generator.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\std\+::vector$<$ \+\_\+\+Tp $>$ \mbox{\hyperlink{class__random_a59c9323db09bfd4d275fcd65494718ab}{shuffle}} (std\+::vector$<$ \+\_\+\+Tp $>$ array, int l=1, int r=-\/1)
+\begin{DoxyCompactList}\small\item\em Shuffle the array in-\/place, indexes from $l$ to $r$. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\\+\_\+\+Tp \mbox{\hyperlink{class__random_a81ef433800b87df116a19edc0009f9c2}{get\+\_\+prime}} (\+\_\+\+Tp l, \+\_\+\+Tp r)
+\begin{DoxyCompactList}\small\item\em get a prime $p\in[l, r]$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Expansion of \doxylink{classrandom__t}{random\+\_\+t}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class__random_a81ef433800b87df116a19edc0009f9c2}\label{class__random_a81ef433800b87df116a19edc0009f9c2} 
+\index{\_random@{\_random}!get\_prime@{get\_prime}}
+\index{get\_prime@{get\_prime}!\_random@{\_random}}
+\doxysubsubsection{\texorpdfstring{get\_prime()}{get\_prime()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\+\_\+\+Tp \+\_\+random\+::get\+\_\+prime (\begin{DoxyParamCaption}\item[{\+\_\+\+Tp}]{l,  }\item[{\+\_\+\+Tp}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get a prime $p\in[l, r]$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Any std\+::vector$<$\+\_\+\+Tp$>$. \\
+\hline
+{\em l} & The left bound of the section. \\
+\hline
+{\em r} & The right bound of the section. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated prime. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em When} & it failed to gen a prime after $5$ times of iteration, it throws an error {\ttfamily I suspected that there\textquotesingle{}s no prime from \{l\} to \{r\}.} and quit the program. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class__random_a59c9323db09bfd4d275fcd65494718ab}\label{class__random_a59c9323db09bfd4d275fcd65494718ab} 
+\index{\_random@{\_random}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!\_random@{\_random}}
+\doxysubsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+std\+::vector$<$ \+\_\+\+Tp $>$ \+\_\+random\+::shuffle (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \+\_\+\+Tp $>$}]{array,  }\item[{int}]{l = {\ttfamily 1},  }\item[{int}]{r = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Shuffle the array in-\/place, indexes from $l$ to $r$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Any std\+::vector$<$\+\_\+\+Tp$>$. \\
+\hline
+{\em l} & The left bound that should be shuffled. Default as $1$.\texorpdfstring{$\vert$}{|} \\
+\hline
+{\em r} & The right bound that should be shuffled. Default as {\ttfamily array.\+size()}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the result. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+generator.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classpattern" xml:lang="en-US">
+<title>pattern Class Reference</title>
+<indexterm><primary>pattern</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classpattern_1a40258f871a5d68827191054e3e845ccf"/><emphasis role="strong">pattern</emphasis> (std::string s)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classpattern_1afc240d1630f47a451af22aff8dbf073d"/>std::string <emphasis role="strong">next</emphasis> (<link linkend="_classrandom__t">random_t</link> &amp;rnd) const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classpattern_1ab4c557a012185d453ddf8730f7a98dc0"/>bool <emphasis role="strong">matches</emphasis> (const std::string &amp;s) const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classpattern_1a4795cb9cb1b3b10c551fdce03608786a"/>std::string <emphasis role="strong">src</emphasis> () const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>

@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tree" xml:lang="en-US">
+<title>Tree Class Reference</title>
+<indexterm><primary>Tree</primary></indexterm>
+<para>
+
+<para>Class that used to generate a tree. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;generator.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_tree_1a474b44162d46076485332c91d8976670"/>using <emphasis role="strong">_Self</emphasis> = <link linkend="_class_tree">Tree</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link> (int size)</para>
+
+<para>Initiate <link linkend="_class_tree">Tree</link> object with size <computeroutput>size</computeroutput>. </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a2e2b334aa0e1acd1067b5a250c8fff5f">sqrt_height_tree</link> (int size)</para>
+
+<para>Generate a tree with an expected height of $O(\sqrt n)$. </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a8371dd790e4b72aaa202e03880a89e0a">log_height_tree</link> (int size)</para>
+
+<para>Generate a tree with an expected height of O(\log n) </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a45aba86850ed30224d53b17f41448b9b">chain</link> (int size)</para>
+
+<para>Generate a tree that is a chain. </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a5653ccb34aef3cb547293d4a731d11cc">flower</link> (int size)</para>
+
+<para>Generate a tree that is a flower. </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a69a4cc2441c11eca8d5de3e18b94b6df">n_deg_tree</link> (int size)</para>
+
+<para>Generate a tree with an expected max_deg of O(n) </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a21f1d20aa881ee0a4ff96fbdd5b43ed8">chain_and_flower</link> (int size, double chain_percent=0.3, double flower_percent=0.3)</para>
+
+<para>Generate a tree with chain size is about chain_percent * size and flower size is about flower_percent * size. </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1a8798a5d50973a15e83155a8915ff10e5">random_shaped_tree</link> (int size)</para>
+
+<para>Generate a tree with random shape, that is to say, randomly chose from the methods above. </para>
+</listitem>
+            <listitem><para><link linkend="_class_tree">_Self</link> <link linkend="_class_tree_1ac09ddd1638d5d52b711e9e29344d6a1d">print</link> (int shuffled, std::vector&lt; int &gt; weights=std::vector&lt; int &gt;{})</para>
+
+<para>Output the generated tree to stdout. NOTE that n will not be printed. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_tree_1a3a6cb2e1759c933c712e5b6ece6c5767"/><link linkend="_class_tree">_Self</link> <emphasis role="strong">print_fa</emphasis> (char sep=&apos; &apos;, char end=&apos;\<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>&apos;)</para>
+</listitem>
+            <listitem><para>std::vector&lt; int &gt; <link linkend="_class_tree_1a64a7833000b32e60b603051ca4f92e29">get_leaves</link> ()</para>
+
+<para>Get the leave nodes of the current tree. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_tree_1af99cb1765b0249e5d79541313199786c"/>int <emphasis role="strong">n</emphasis></para>
+
+<para>The size of the tree. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_tree_1a309090e7c2780b29934e9138066d2f5b"/>std::vector&lt; int &gt; <emphasis role="strong">fa</emphasis></para>
+
+<para><computeroutput>fa[i]</computeroutput> is the no. of node (i)&apos;s father. </para>
+</listitem>
+            <listitem><para>std::vector&lt; int &gt; <link linkend="_class_tree_1a78498ff67c9f703e87811680ede18523">leaves</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_tree_1ac8b8579d68bd24731839951b31600c2b"/>bool <emphasis role="strong">weighted</emphasis> = false</para>
+
+<para>Denoting if the <emphasis role="bold">edges</emphasis> are weighted or not. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class that used to generate a tree. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_tree_1a45aba86850ed30224d53b17f41448b9b"/><section>
+    <title>chain()</title>
+<indexterm><primary>chain</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>chain</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::chain (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree that is a chain. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a21f1d20aa881ee0a4ff96fbdd5b43ed8"/><section>
+    <title>chain_and_flower()</title>
+<indexterm><primary>chain_and_flower</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>chain_and_flower</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::chain_and_flower (int size, double chain_percent = <computeroutput>0.3</computeroutput>
+, double flower_percent = <computeroutput>0.3</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree with chain size is about chain_percent * size and flower size is about flower_percent * size. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated </para>
+</entry>
+                            </row>
+                            <row>
+<entry>chain_percent</entry><entry>
+<para>the percent of the chain size. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>flower_percent</entry><entry>
+<para>the percent of the flower size. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1, or chain_percent + flower_percent &gt; 1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a5653ccb34aef3cb547293d4a731d11cc"/><section>
+    <title>flower()</title>
+<indexterm><primary>flower</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>flower</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::flower (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree that is a flower. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a64a7833000b32e60b603051ca4f92e29"/><section>
+    <title>get_leaves()</title>
+<indexterm><primary>get_leaves</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>get_leaves</secondary></indexterm>
+<para><computeroutput>std::vector&lt; int &gt; Tree::get_leaves ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Get the leave nodes of the current tree. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The leaves. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what <computeroutput>std::vector&lt;int&gt;</computeroutput> throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023"/><section>
+    <title>init()</title>
+<indexterm><primary>init</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>init</secondary></indexterm>
+<para><computeroutput>void Tree::init (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Initiate <link linkend="_class_tree">Tree</link> object with size <computeroutput>size</computeroutput>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a8371dd790e4b72aaa202e03880a89e0a"/><section>
+    <title>log_height_tree()</title>
+<indexterm><primary>log_height_tree</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>log_height_tree</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::log_height_tree (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree with an expected height of O(\log n) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a69a4cc2441c11eca8d5de3e18b94b6df"/><section>
+    <title>n_deg_tree()</title>
+<indexterm><primary>n_deg_tree</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>n_deg_tree</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::n_deg_tree (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree with an expected max_deg of O(n) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1ac09ddd1638d5d52b711e9e29344d6a1d"/><section>
+    <title>print()</title>
+<indexterm><primary>print</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>print</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::print (int shuffled, std::vector&lt; int &gt; weights = <computeroutput>std::vector&lt;int&gt;{}</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Output the generated tree to stdout. NOTE that n will not be printed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>weights</entry><entry>
+<para>the weights of the edges. Input weights[i] as the weight of the edge [fa[i], i]. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>shuffled</entry><entry>
+<para>if I should print it in random order. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a8798a5d50973a15e83155a8915ff10e5"/><section>
+    <title>random_shaped_tree()</title>
+<indexterm><primary>random_shaped_tree</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>random_shaped_tree</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::random_shaped_tree (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree with random shape, that is to say, randomly chose from the methods above. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tree_1a2e2b334aa0e1acd1067b5a250c8fff5f"/><section>
+    <title>sqrt_height_tree()</title>
+<indexterm><primary>sqrt_height_tree</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>sqrt_height_tree</secondary></indexterm>
+<para><computeroutput><link linkend="_class_tree">_Self</link> Tree::sqrt_height_tree (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a tree with an expected height of $O(\sqrt n)$. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>The count of the nodes that will be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if <emphasis>size</emphasis> is an invalid node count, e.g. -1. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_tree_1a78498ff67c9f703e87811680ede18523"/><section>
+    <title>leaves</title>
+<indexterm><primary>leaves</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>leaves</secondary></indexterm>
+<para><computeroutput>std::vector&lt;int&gt; Tree::leaves</computeroutput></para>
+<para>The no. of leaves. NOTE that it would be empty UNLESS you call <computeroutput><link linkend="_class_tree_1a64a7833000b32e60b603051ca4f92e29">get_leaves()</link></computeroutput> method. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+generator.h</section>
+</section>

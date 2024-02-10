@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+
+\pagestyle{empty}
+\begin{document}
+$m$
+\pagebreak
+
+$1$
+\pagebreak
+
+$10\sqrt{n}$
+\pagebreak
+
+$n, m$
+\pagebreak
+
+$a^b\bmod mod$
+\pagebreak
+
+$n$
+\pagebreak
+
+$l$
+\pagebreak
+
+$r$
+\pagebreak
+
+$p\in[l, r]$
+\pagebreak
+
+$5$
+\pagebreak
+
+$i$
+\pagebreak
+
+$O(\sqrt n)$
+\pagebreak
+
+$O(\log n)$
+\pagebreak
+
+$O(n)$
+\pagebreak
+
+\end{document}

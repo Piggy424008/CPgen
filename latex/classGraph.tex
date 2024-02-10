@@ -1,0 +1,234 @@
+\doxysection{Graph Class Reference}
+\hypertarget{classGraph}{}\label{classGraph}\index{Graph@{Graph}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGraph_a7ae605b592676e2809394e150c8c5f4a}\label{classGraph_a7ae605b592676e2809394e150c8c5f4a} 
+using {\bfseries \+\_\+\+Self} = \mbox{\hyperlink{classGraph}{Graph}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGraph_a64c32fd43085fc46daf297281e22bd7e}\label{classGraph_a64c32fd43085fc46daf297281e22bd7e} 
+{\bfseries Graph} (\mbox{\hyperlink{classTree}{Tree}} tr, bool direction=0)
+\item 
+\mbox{\hyperlink{classGraph}{\+\_\+\+Self}} \mbox{\hyperlink{classGraph_ab2574f13160308877cf37df23a3369b7}{add}} (\mbox{\hyperlink{classGraph}{Graph}} rhs)
+\begin{DoxyCompactList}\small\item\em Add a graph to the current graph. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a65c2053d46fc8b21a34e8ec645b64024}\label{classGraph_a65c2053d46fc8b21a34e8ec645b64024} 
+\mbox{\hyperlink{classGraph}{Graph}} {\bfseries operator+} (\mbox{\hyperlink{classGraph}{Graph}} rhs)
+\item 
+\Hypertarget{classGraph_a13ec1e499f487dcbcd54c5f9f1c8718a}\label{classGraph_a13ec1e499f487dcbcd54c5f9f1c8718a} 
+\mbox{\hyperlink{classGraph}{\+\_\+\+Self}} {\bfseries operator+=} (\mbox{\hyperlink{classGraph}{Graph}} rhs)
+\item 
+void \mbox{\hyperlink{classGraph_a9f5c30d5ae1831779ffa6d5e715b6525}{init}} (int size, bool directed\+\_\+graph)
+\begin{DoxyCompactList}\small\item\em init the whole graph with the size of {\ttfamily size}, and direct {\ttfamily directed\+\_\+graph}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGraph_af5220e38649c8cb3392efe7d52715884}{exists}} (int u, int v)
+\begin{DoxyCompactList}\small\item\em To check out if the edge exists or not. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph}{\+\_\+\+Self}} \mbox{\hyperlink{classGraph_a0776101be5ac9ebb89fd9db14c65961a}{randomly\+\_\+gen}} (int size, int edges\+\_\+count, bool directed\+\_\+graph=false)
+\begin{DoxyCompactList}\small\item\em Generate a graph completely random. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph}{\+\_\+\+Self}} \mbox{\hyperlink{classGraph_ab3f5e6c0df9cf11c433d18a07e0aa654}{DAG}} (int size, int edges\+\_\+count, bool ensure\+\_\+connected=true)
+\begin{DoxyCompactList}\small\item\em Generate a DAG. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph}{\+\_\+\+Self}} \mbox{\hyperlink{classGraph_abeecc192a91f73997c12345b2ed2fa4f}{forest}} (int size, int cnt=-\/1)
+\begin{DoxyCompactList}\small\item\em Generate a forest. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a3737ac4c977eebafada3245a79ca2161}{hack\+\_\+spfa}} (int size, int edges\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Generate a graph, on which spfa works so slow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGraph_a81a76a428e630453ef019a15b9092967}\label{classGraph_a81a76a428e630453ef019a15b9092967} 
+int {\bfseries n}
+\begin{DoxyCompactList}\small\item\em The count of points in the graph. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a62588670cd666f806eddd37155bdfbf3}\label{classGraph_a62588670cd666f806eddd37155bdfbf3} 
+int {\bfseries m}
+\begin{DoxyCompactList}\small\item\em The count of edges in the graph. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a3111bb6cc59aedbc4290ed1b37668336}\label{classGraph_a3111bb6cc59aedbc4290ed1b37668336} 
+bool {\bfseries directed}
+\begin{DoxyCompactList}\small\item\em Denoting if the {\bfseries{edges}} are directed or not. \end{DoxyCompactList}\item 
+\Hypertarget{classGraph_a880b068ed31f53bb1d03edf6cefba4b0}\label{classGraph_a880b068ed31f53bb1d03edf6cefba4b0} 
+std\+::set$<$ pii $>$ {\bfseries edges}
+\begin{DoxyCompactList}\small\item\em The container of edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGraph_ab2574f13160308877cf37df23a3369b7}\label{classGraph_ab2574f13160308877cf37df23a3369b7} 
+\index{Graph@{Graph}!add@{add}}
+\index{add@{add}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{\+\_\+\+Self}} Graph\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a graph to the current graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & the graph to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classGraph_ab3f5e6c0df9cf11c433d18a07e0aa654}\label{classGraph_ab3f5e6c0df9cf11c433d18a07e0aa654} 
+\index{Graph@{Graph}!DAG@{DAG}}
+\index{DAG@{DAG}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{DAG()}{DAG()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{\+\_\+\+Self}} Graph\+::\+DAG (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{edges\+\_\+count,  }\item[{bool}]{ensure\+\_\+connected = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a DAG. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this graph should be. \\
+\hline
+{\em edges\+\_\+count} & the count of the edges. \\
+\hline
+{\em directed\+\_\+graph} & is this graph directed or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+no return. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the std\+::set throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classGraph_af5220e38649c8cb3392efe7d52715884}\label{classGraph_af5220e38649c8cb3392efe7d52715884} 
+\index{Graph@{Graph}!exists@{exists}}
+\index{exists@{exists}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool Graph\+::exists (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{int}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+To check out if the edge exists or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u,v} & the point number of the edge that is being checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the edge exists or not. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the std\+::set throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classGraph_abeecc192a91f73997c12345b2ed2fa4f}\label{classGraph_abeecc192a91f73997c12345b2ed2fa4f} 
+\index{Graph@{Graph}!forest@{forest}}
+\index{forest@{forest}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{forest()}{forest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{\+\_\+\+Self}} Graph\+::forest (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{cnt = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a forest. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this graph should be. \\
+\hline
+{\em cnt} & the count of the trees. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+no return. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the std\+::set throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classGraph_a3737ac4c977eebafada3245a79ca2161}\label{classGraph_a3737ac4c977eebafada3245a79ca2161} 
+\index{Graph@{Graph}!hack\_spfa@{hack\_spfa}}
+\index{hack\_spfa@{hack\_spfa}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{hack\_spfa()}{hack\_spfa()}}
+{\footnotesize\ttfamily void Graph\+::hack\+\_\+spfa (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{edges\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a graph, on which spfa works so slow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this graph should be. \\
+\hline
+{\em size} & how large this graph should be. \\
+\hline
+{\em edges\+\_\+count} & the count of the edges. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+no return. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the std\+::set throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classGraph_a9f5c30d5ae1831779ffa6d5e715b6525}\label{classGraph_a9f5c30d5ae1831779ffa6d5e715b6525} 
+\index{Graph@{Graph}!init@{init}}
+\index{init@{init}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Graph\+::init (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{bool}]{directed\+\_\+graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+init the whole graph with the size of {\ttfamily size}, and direct {\ttfamily directed\+\_\+graph}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this graph should be. \\
+\hline
+{\em directed\+\_\+graph} & is this graph directed or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+no return. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the std\+::set throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classGraph_a0776101be5ac9ebb89fd9db14c65961a}\label{classGraph_a0776101be5ac9ebb89fd9db14c65961a} 
+\index{Graph@{Graph}!randomly\_gen@{randomly\_gen}}
+\index{randomly\_gen@{randomly\_gen}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{randomly\_gen()}{randomly\_gen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{\+\_\+\+Self}} Graph\+::randomly\+\_\+gen (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{edges\+\_\+count,  }\item[{bool}]{directed\+\_\+graph = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a graph completely random. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this graph should be. \\
+\hline
+{\em edges\+\_\+count} & the count of the edges. \\
+\hline
+{\em directed\+\_\+graph} & is this graph directed or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+no return. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the std\+::set throws. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+generator.\+h\end{DoxyCompactItemize}

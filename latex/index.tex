@@ -1,0 +1,42 @@
+\chapter{CPgen}
+\hypertarget{index}{}\label{index}\index{CPgen@{CPgen}}
+\hypertarget{index_autotoc_md0}{}\doxysubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{index_autotoc_md0}
+Seeing the awkward situation happened in the 2023 ICPC Asia Xiaan Regional Contest, The author wrote this.
+
+CPgen stands for Competitive Programming Data Generator.\+It is a project aimed to be a useful generator that can safely and conveniently used in Competitive Programming(OI, ICPC, etc.).
+
+CPgen is hoped to be a library that help problem makers to save their time on data-\/making.
+
+Here is an example of a generator using CPgen\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}../generator/generator.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\ \ \ \ registerGen(argc,\ argv,\ 1);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ rnd.next(1,\ 1000),\ m\ =\ rnd.next(1,\ 1000);}
+\DoxyCodeLine{\ \ \ \ println(n,\ m);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_array}{Array<int>}}\ arr;\ arr.\mbox{\hyperlink{class_array_a2d5075f9c1a5639437991a0d38a5369b}{basic\_gen}}(m,\ 1,\ 10\ *\ sqrt(n)).\mbox{\hyperlink{class_array_a8732e434e7bc61b88cdb7dce78d7d36e}{print}}();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ This example generates an array with size of $m$, whose elements are integers from $1$ to $10\sqrt{n}$, and print $n, m$ and the array to the standard output.
+
+You should note that CPgen is based on testlib. So you are required to have \href{https://github.com/MikeMirzayanov/testlib}{\texttt{ testlib.\+h}} in your working directory (or in your environment path).
+
+To get the latest version of CPgen, download its source code via \href{https://github.com/Piggy424008/CPgen}{\texttt{ repo}}.\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Usages}{Usages}}\label{index_autotoc_md1}
+When looking through the docs of CPgen, you should note that the first place in std\+::vector is ignored by CPgen. That\textquotesingle{}s to say, every vector used in CPgen is 1-\/indexed. And, {\ttfamily std\+::vector\texorpdfstring{$<$}{<}\+\_\+\+Tp\texorpdfstring{$>$}{>}().size()} means {\ttfamily \texorpdfstring{$\ast$}{*}this.size() -\/ 1} in the implement.
+
+Read Docs for further information.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{FAQs}{FAQs}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item I generate exactly the same data while I run it many times. Why is that?
+\end{DoxyItemize}
+
+It indeed testlib fault. To ensure the generator can generator exactly the same data somehow, the seed of rnd(the RNG of testlib) is calculated by the command you type when you ran it. Try to run it with different args. For example, try\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{>>>\ ./foo\ CPgen}
+\DoxyCodeLine{>>>\ ./foo\ Piggy424008}
+\DoxyCodeLine{>>>\ ./foo\ cplusplus}
+
+\end{DoxyCode}
+ Then it\textquotesingle{}s expected to generate some different data. 

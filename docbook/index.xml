@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>My Project</title>
+    </info>
+    <xi:include href="md__c_pgen.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class__random.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_array.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_buffered_file_input_stream_reader.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_checker.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_file_input_stream_reader.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_gen_exception.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_geometry.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_graph.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_input_stream_reader.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_in_stream.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classpattern.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_point.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classrandom__t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_string.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_string_input_stream_reader.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_testlib_finalize_guard.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_tree.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_validator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_validator_bounds_hit.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="generator_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="testlib_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

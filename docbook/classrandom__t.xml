@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classrandom__t" xml:lang="en-US">
+<title>random_t Class Reference</title>
+<indexterm><primary>random_t</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classrandom__t_1a091210e52bff54e02afeda4d343e081d"/>void <emphasis role="strong">setSeed</emphasis> (int argc, char *argv[])</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a5a4c52c8814df1402bd4451a54c62596"/>void <emphasis role="strong">setSeed</emphasis> (long long _seed)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1adb0b3734666df2f17c7d60b33db87ad6"/>std::string <emphasis role="strong">next</emphasis> (const std::string &amp;ptrn)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a6a2a9da34c281767ff0d2eba26ab10aa"/>int <emphasis role="strong">next</emphasis> (int n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a1a80c042ba815ff52c119c52771170b7"/>unsigned int <emphasis role="strong">next</emphasis> (unsigned int n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a45c008fa70962b5f24cd3b964fe4685a"/>long long <emphasis role="strong">next</emphasis> (long long n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a67074aceedb1cc4e0e632d766bdecb64"/>unsigned long long <emphasis role="strong">next</emphasis> (unsigned long long n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1abfb4c6c332de59554b9ff536f739f6f6"/>long <emphasis role="strong">next</emphasis> (long n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a92799ea85fc3b92554ca5d1c0696a48f"/>unsigned long <emphasis role="strong">next</emphasis> (unsigned long n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a02e0d6d3acf4dc0348b7e6893a9db59a"/>int <emphasis role="strong">next</emphasis> (int from, int to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a96576e50564fa3380dcd950a8ae708b2"/>unsigned int <emphasis role="strong">next</emphasis> (unsigned int from, unsigned int to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1ac8efd50ad04ad63205279f8ad9f5cfd8"/>long long <emphasis role="strong">next</emphasis> (long long from, long long to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1af906bf4a0d3f94dce8362e6ad91b73c1"/>unsigned long long <emphasis role="strong">next</emphasis> (unsigned long long from, unsigned long long to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a94266e882ca443601604c27215b5b4b6"/>long <emphasis role="strong">next</emphasis> (long from, long to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a4d087e798a7882b0e06ea23bffee99b6"/>unsigned long <emphasis role="strong">next</emphasis> (unsigned long from, unsigned long to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1af18b3616494fc94e3953b3c09fdf4c26"/>double <emphasis role="strong">next</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a025fe558e59c74de018660fcc106afa1"/>double <emphasis role="strong">next</emphasis> (double n)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a8066c6224478692f9df72ab92268cee9"/>double <emphasis role="strong">next</emphasis> (double from, double to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a6ad67430ee6f8a5ba04d716239ad0001"/>template&lt;typename Container &gt; </para><para>Container::value_type <emphasis role="strong">any</emphasis> (const Container &amp;c)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a56614b8ab0529e6fe2b17d50f9188184"/>template&lt;typename Iter &gt; </para><para>Iter::value_type <emphasis role="strong">any</emphasis> (const Iter &amp;begin, const Iter &amp;end)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1aacdef5e80fbdb890878a20d22bf819fd"/>std::string <emphasis role="strong">next</emphasis> (const char *format,...)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1af706ad8761d232b9a0fb0ab7ab4939c9"/>int <emphasis role="strong">wnext</emphasis> (int n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a0ee4b3d21fe3f8e765cdb55593f6b698"/>long long <emphasis role="strong">wnext</emphasis> (long long n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a45f6cc6e3ecc6677b66e5c756fe4bfe4"/>double <emphasis role="strong">wnext</emphasis> (double n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a040834a196ac9423950b70444fa9e815"/>double <emphasis role="strong">wnext</emphasis> (int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a25bd3838df67822270e9b357ed99753b"/>unsigned int <emphasis role="strong">wnext</emphasis> (unsigned int n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1adc03869fcf6b80381e36e196d324a792"/>unsigned long long <emphasis role="strong">wnext</emphasis> (unsigned long long n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a78d4e3af24a4d2dc4330d5cbcce6504a"/>long <emphasis role="strong">wnext</emphasis> (long n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a02872a7a16d8e5012c679b84b79a3c9f"/>unsigned long <emphasis role="strong">wnext</emphasis> (unsigned long n, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1aa72f4c64829957376aad6cc9103d4201"/>int <emphasis role="strong">wnext</emphasis> (int from, int to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a1b4c0bf6ead1bb3d8fe4dc2175dacdf4"/>int <emphasis role="strong">wnext</emphasis> (unsigned int from, unsigned int to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a5257c1a948d7ef92d664980e9a435fa5"/>long long <emphasis role="strong">wnext</emphasis> (long long from, long long to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1abd0776ec850dcd8f057699f03cd54d49"/>unsigned long long <emphasis role="strong">wnext</emphasis> (unsigned long long from, unsigned long long to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a501082f1d8f8ca94d9a952c822d7c992"/>long <emphasis role="strong">wnext</emphasis> (long from, long to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a652d3dac50de94daaef2e69cc3ab8ede"/>unsigned long <emphasis role="strong">wnext</emphasis> (unsigned long from, unsigned long to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a90cf6b1677f5c6f875f8c88a5933ea40"/>double <emphasis role="strong">wnext</emphasis> (double from, double to, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a9f733f388bbb553a9afabcbbfc68888d"/>template&lt;typename Container &gt; </para><para>Container::value_type <emphasis role="strong">wany</emphasis> (const Container &amp;c, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1aa988d6e195c81a659985aa9714ee5607"/>template&lt;typename Iter &gt; </para><para>Iter::value_type <emphasis role="strong">wany</emphasis> (const Iter &amp;begin, const Iter &amp;end, int type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a99e61cdc94e24b7f1730e5abc28fd079"/>template&lt;typename _Tp , typename E &gt; </para><para>std::vector&lt; E &gt; <emphasis role="strong">perm</emphasis> (_Tp size, E first)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a3a386b4a43aa41a436b6e77b02a69d9b"/>template&lt;typename _Tp &gt; </para><para>std::vector&lt; _Tp &gt; <emphasis role="strong">perm</emphasis> (_Tp size)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1aa3f41a6b816e7b9b8d6a1aa2dc56210c"/>template&lt;typename _Tp &gt; </para><para>std::vector&lt; _Tp &gt; <emphasis role="strong">distinct</emphasis> (int size, _Tp from, _Tp to)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a725f159d97cc36907a2ba8c6068673c1"/>template&lt;typename _Tp &gt; </para><para>std::vector&lt; _Tp &gt; <emphasis role="strong">distinct</emphasis> (int size, _Tp upper)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1a7de87dc4daca95189734f40ec8452036"/>template&lt;typename _Tp &gt; </para><para>std::vector&lt; _Tp &gt; <emphasis role="strong">partition</emphasis> (int size, _Tp sum, _Tp min_part)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classrandom__t_1aa59b12c91f97983bea5f58757051fa64"/>template&lt;typename _Tp &gt; </para><para>std::vector&lt; _Tp &gt; <emphasis role="strong">partition</emphasis> (int size, _Tp sum)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classrandom__t_1ac5cf08808bff4c4ec04ca387e2764868"/>static int <emphasis role="strong">version</emphasis> = -1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>

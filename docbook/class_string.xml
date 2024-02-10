@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_string" xml:lang="en-US">
+<title>String Class Reference</title>
+<indexterm><primary>String</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_string_1a3f42603d487fa42d37db914283cb4e7c"/><link linkend="_class_string">String</link> <emphasis role="strong">operator+</emphasis> (<link linkend="_class_string">String</link> s)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a46d55a809aee0e636ba8e5400d2ea561"/><link linkend="_class_string">String</link> <emphasis role="strong">operator+=</emphasis> (<link linkend="_class_string">String</link> s)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1abb07a3c9995d60c7eb608e5c1336b1e3"/>void <emphasis role="strong">print</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a7b34c926f6576a66443ed8a9fbd907ee"/>char &amp; <emphasis role="strong">operator[]</emphasis> (int idx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1ad466684840556f711d412fece41624ad"/>template&lt;typename... Args&gt; </para><para>std::string <emphasis role="strong">gen</emphasis> (const char *<link linkend="_classpattern">pattern</link>, Args... t)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a99cb65fbe1269cfa375d7e7a88ddca70"/>std::string <emphasis role="strong">lower</emphasis> (int size)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1afe2a3d94debea947b738d8d198b61a0d"/>std::string <emphasis role="strong">latin</emphasis> (int size)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a98b9c5974d668222165a19b98f6e045e"/>std::string <emphasis role="strong">latin_number</emphasis> (int size)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a4b440fedba87c7b06d24a50c82c3a2e1"/>std::string <emphasis role="strong">numbers_only</emphasis> (int size, bool leading_zero=false)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a3ed030463ba02447cb7549df658396a5"/>std::string <emphasis role="strong">repeat</emphasis> (int size)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1ae66c785375401ab9b00797ee67450197"/>std::string <emphasis role="strong">gen_multi</emphasis> (std::string(*func)(int), int(*size)(), int times, std::string sep=&quot; &quot;)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_string_1a7fd5e0141ca900c52ef81710462a8171"/>std::string <emphasis role="strong">random_insert</emphasis> (int size, char rep)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_string_1ab4c3a427306c46e55ccc0cf742442d35"/>std::string <emphasis role="strong">str</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+generator.h</section>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class__random">_random</link>
+<para>Expansion of <link linkend="_classrandom__t">random_t</link> </para>
+<link linkend="_class_array">Array&lt; _Tp &gt;</link>
+<para>Class that used to generate an array </para>
+<link linkend="_class_buffered_file_input_stream_reader">BufferedFileInputStreamReader</link><link linkend="_class_checker">Checker</link><link linkend="_class_file_input_stream_reader">FileInputStreamReader</link><link linkend="_struct_gen_exception">GenException</link>
+<para>The exception throwed when errors occured </para>
+<link linkend="_class_geometry">Geometry&lt; PointType &gt;</link><link linkend="_class_graph">Graph</link><link linkend="_class_input_stream_reader">InputStreamReader</link><link linkend="_struct_in_stream">InStream</link><link linkend="_classpattern">pattern</link><link linkend="_struct_point">Point&lt; PointType &gt;</link><link linkend="_classrandom__t">random_t</link><link linkend="_class_string">String</link><link linkend="_class_string_input_stream_reader">StringInputStreamReader</link><link linkend="_struct_testlib_finalize_guard">TestlibFinalizeGuard</link><link linkend="_class_tree">Tree</link>
+<para>Class that used to generate a tree </para>
+<link linkend="_class_validator">Validator</link><link linkend="_struct_validator_bounds_hit">ValidatorBoundsHit</link></section>

@@ -1,0 +1,379 @@
+\doxysection{In\+Stream Struct Reference}
+\hypertarget{structInStream}{}\label{structInStream}\index{InStream@{InStream}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structInStream_a6f82f3399cf052c8b55d500feec79bd2}\label{structInStream_a6f82f3399cf052c8b55d500feec79bd2} 
+{\bfseries In\+Stream} (const \mbox{\hyperlink{structInStream}{In\+Stream}} \&base\+Stream, std\+::string content)
+\item 
+\Hypertarget{structInStream_a249983cd8365347d249485c7840e3424}\label{structInStream_a249983cd8365347d249485c7840e3424} 
+void {\bfseries init} (std\+::string file\+Name, TMode mode)
+\item 
+\Hypertarget{structInStream_a4b78654581508e7ace12cdda20de48df}\label{structInStream_a4b78654581508e7ace12cdda20de48df} 
+void {\bfseries init} (std\+::\+FILE \texorpdfstring{$\ast$}{*}f, TMode mode)
+\item 
+\Hypertarget{structInStream_a7e9ee69fe14cc6c19b059b384eebed5c}\label{structInStream_a7e9ee69fe14cc6c19b059b384eebed5c} 
+void {\bfseries set\+Test\+Case} (int test\+Case)
+\item 
+\Hypertarget{structInStream_ab88e3e00ca1111534d3d110166f275bd}\label{structInStream_ab88e3e00ca1111534d3d110166f275bd} 
+std\+::vector$<$ int $>$ {\bfseries get\+Read\+Chars} ()
+\item 
+\Hypertarget{structInStream_a3caea7dc5003207a13b690e1e6523759}\label{structInStream_a3caea7dc5003207a13b690e1e6523759} 
+void {\bfseries skip\+Blanks} ()
+\item 
+\Hypertarget{structInStream_af208d97fa6484d10b88d611012fce578}\label{structInStream_af208d97fa6484d10b88d611012fce578} 
+char {\bfseries cur\+Char} ()
+\item 
+\Hypertarget{structInStream_a15dbd488971ba0da79085f7bd980f1f1}\label{structInStream_a15dbd488971ba0da79085f7bd980f1f1} 
+void {\bfseries skip\+Char} ()
+\item 
+\Hypertarget{structInStream_af46102c51b215e59e3b9e993ac999fe5}\label{structInStream_af46102c51b215e59e3b9e993ac999fe5} 
+char {\bfseries next\+Char} ()
+\item 
+\Hypertarget{structInStream_aa7711bdcca7b52181fd0f3072d935205}\label{structInStream_aa7711bdcca7b52181fd0f3072d935205} 
+char {\bfseries read\+Char} ()
+\item 
+\Hypertarget{structInStream_a0c49c9fe193752b77e17fc7e45b0965b}\label{structInStream_a0c49c9fe193752b77e17fc7e45b0965b} 
+char {\bfseries read\+Char} (char c)
+\item 
+\Hypertarget{structInStream_a012e968b18b359b82897db805faeb0f6}\label{structInStream_a012e968b18b359b82897db805faeb0f6} 
+char {\bfseries read\+Space} ()
+\item 
+\Hypertarget{structInStream_a8c656e9ae7175e852033fbdffe41550b}\label{structInStream_a8c656e9ae7175e852033fbdffe41550b} 
+void {\bfseries unread\+Char} (char c)
+\item 
+\Hypertarget{structInStream_a0daf92605da53c68648ad78572965ca3}\label{structInStream_a0daf92605da53c68648ad78572965ca3} 
+void {\bfseries reset} (std\+::\+FILE \texorpdfstring{$\ast$}{*}file=NULL)
+\item 
+\Hypertarget{structInStream_a8c1f774508b47b9e80c76d37d268f6f4}\label{structInStream_a8c1f774508b47b9e80c76d37d268f6f4} 
+bool {\bfseries eof} ()
+\item 
+\Hypertarget{structInStream_a2c7c8561462345e6ee18a0d8ea4bc00b}\label{structInStream_a2c7c8561462345e6ee18a0d8ea4bc00b} 
+bool {\bfseries seek\+Eof} ()
+\item 
+\Hypertarget{structInStream_ac54c356a099d9af022d59cdcd1b75bcd}\label{structInStream_ac54c356a099d9af022d59cdcd1b75bcd} 
+bool {\bfseries eoln} ()
+\item 
+\Hypertarget{structInStream_a106d09bbdd844ca246bfbf2c6409f4b6}\label{structInStream_a106d09bbdd844ca246bfbf2c6409f4b6} 
+bool {\bfseries seek\+Eoln} ()
+\item 
+\Hypertarget{structInStream_a86e63a6bb9bc47cae9f58f0591ecc53f}\label{structInStream_a86e63a6bb9bc47cae9f58f0591ecc53f} 
+void {\bfseries next\+Line} ()
+\item 
+\Hypertarget{structInStream_a2d0d971de1cd2d7da01f7d6bb4f836a3}\label{structInStream_a2d0d971de1cd2d7da01f7d6bb4f836a3} 
+std\+::string {\bfseries read\+Word} ()
+\item 
+\Hypertarget{structInStream_aab5bf73477536435d39efd209bf672d0}\label{structInStream_aab5bf73477536435d39efd209bf672d0} 
+std\+::string {\bfseries read\+Token} ()
+\item 
+\Hypertarget{structInStream_a33a01a1ab403b91c58d630b2650f999e}\label{structInStream_a33a01a1ab403b91c58d630b2650f999e} 
+std\+::string {\bfseries read\+Word} (const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a7848236cb25239dc96ac1d01953116c9}\label{structInStream_a7848236cb25239dc96ac1d01953116c9} 
+std\+::string {\bfseries read\+Word} (const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a05e78a1ad94e4ed2078daee8eeb7e2cf}\label{structInStream_a05e78a1ad94e4ed2078daee8eeb7e2cf} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Words} (int size, const std\+::string \&ptrn, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a0382d1f95cecf40e7c728c033c14123b}\label{structInStream_a0382d1f95cecf40e7c728c033c14123b} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Words} (int size, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_aaa61148d12958728cd443f21b2ed0aa3}\label{structInStream_aaa61148d12958728cd443f21b2ed0aa3} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Words} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a1551acb574a25586a2ba2ad594398e8c}\label{structInStream_a1551acb574a25586a2ba2ad594398e8c} 
+std\+::string {\bfseries read\+Token} (const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_aa7e276efc82ccd5bcefbfaf8f0391677}\label{structInStream_aa7e276efc82ccd5bcefbfaf8f0391677} 
+std\+::string {\bfseries read\+Token} (const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a0c556560eb05d89757fc854d38ae650b}\label{structInStream_a0c556560eb05d89757fc854d38ae650b} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Tokens} (int size, const std\+::string \&ptrn, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a5f2d2a617eed60c5a05872af6ece6855}\label{structInStream_a5f2d2a617eed60c5a05872af6ece6855} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Tokens} (int size, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a7b79dfec1ae85f251876f603751036d9}\label{structInStream_a7b79dfec1ae85f251876f603751036d9} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Tokens} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_ace052a2f951135d3a7699c3824fbc4f7}\label{structInStream_ace052a2f951135d3a7699c3824fbc4f7} 
+void {\bfseries read\+Word\+To} (std\+::string \&result)
+\item 
+\Hypertarget{structInStream_aae65d2db41677626fd5ffa446be65003}\label{structInStream_aae65d2db41677626fd5ffa446be65003} 
+void {\bfseries read\+Word\+To} (std\+::string \&result, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a78c7969db04a87aea6263c8563dc5c93}\label{structInStream_a78c7969db04a87aea6263c8563dc5c93} 
+void {\bfseries read\+Word\+To} (std\+::string \&result, const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a0512828fe7bc56a8fa2ddb4e0e6f2b72}\label{structInStream_a0512828fe7bc56a8fa2ddb4e0e6f2b72} 
+void {\bfseries read\+Token\+To} (std\+::string \&result)
+\item 
+\Hypertarget{structInStream_a6cc04d722a5e707b0450396c671c8732}\label{structInStream_a6cc04d722a5e707b0450396c671c8732} 
+void {\bfseries read\+Token\+To} (std\+::string \&result, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_ac191b4317fc175b291cae1fa4fc7b399}\label{structInStream_ac191b4317fc175b291cae1fa4fc7b399} 
+void {\bfseries read\+Token\+To} (std\+::string \&result, const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_af964fda2b145a8c8d25965b7ef4784cd}\label{structInStream_af964fda2b145a8c8d25965b7ef4784cd} 
+long long {\bfseries read\+Long} ()
+\item 
+\Hypertarget{structInStream_a473c29087621184bb71998a12957e822}\label{structInStream_a473c29087621184bb71998a12957e822} 
+unsigned long long {\bfseries read\+Unsigned\+Long} ()
+\item 
+\Hypertarget{structInStream_a68a75c1f359c0b3917a3922f4512da08}\label{structInStream_a68a75c1f359c0b3917a3922f4512da08} 
+int {\bfseries read\+Integer} ()
+\item 
+\Hypertarget{structInStream_ab9c40b84ce444e0eabbec47c881b4c38}\label{structInStream_ab9c40b84ce444e0eabbec47c881b4c38} 
+int {\bfseries read\+Int} ()
+\item 
+\Hypertarget{structInStream_a1398548ec0f156ddc9add251addb63c4}\label{structInStream_a1398548ec0f156ddc9add251addb63c4} 
+long long {\bfseries read\+Long} (long long minv, long long maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a469d95f96c09746781621480b74c5c83}\label{structInStream_a469d95f96c09746781621480b74c5c83} 
+std\+::vector$<$ long long $>$ {\bfseries read\+Longs} (int size, long long minv, long long maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_ab135bb75d235e57fea89a248acd51015}\label{structInStream_ab135bb75d235e57fea89a248acd51015} 
+std\+::vector$<$ long long $>$ {\bfseries read\+Longs} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_ac168f51d536fd2fef12d6aa87ff5795f}\label{structInStream_ac168f51d536fd2fef12d6aa87ff5795f} 
+unsigned long long {\bfseries read\+Unsigned\+Long} (unsigned long long minv, unsigned long long maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a8c85a1d577aeb727bec09f362e3a395a}\label{structInStream_a8c85a1d577aeb727bec09f362e3a395a} 
+std\+::vector$<$ unsigned long long $>$ {\bfseries read\+Unsigned\+Longs} (int size, unsigned long long minv, unsigned long long maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a5d3141608fafc3797171a3ea7627ec4d}\label{structInStream_a5d3141608fafc3797171a3ea7627ec4d} 
+std\+::vector$<$ unsigned long long $>$ {\bfseries read\+Unsigned\+Longs} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_aac4b9f822f2471eb19f89e3c0d78169b}\label{structInStream_aac4b9f822f2471eb19f89e3c0d78169b} 
+unsigned long long {\bfseries read\+Long} (unsigned long long minv, unsigned long long maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a9bd7a7d10db6d24401dfd3b421ed6045}\label{structInStream_a9bd7a7d10db6d24401dfd3b421ed6045} 
+std\+::vector$<$ unsigned long long $>$ {\bfseries read\+Longs} (int size, unsigned long long minv, unsigned long long maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a789739800a5332fb69578d60fef57947}\label{structInStream_a789739800a5332fb69578d60fef57947} 
+int {\bfseries read\+Integer} (int minv, int maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a0811e321fbb08005ef2dec953d6f3256}\label{structInStream_a0811e321fbb08005ef2dec953d6f3256} 
+int {\bfseries read\+Int} (int minv, int maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_adb2af0baf6e9e6efa47a084719f0b2ea}\label{structInStream_adb2af0baf6e9e6efa47a084719f0b2ea} 
+std\+::vector$<$ int $>$ {\bfseries read\+Integers} (int size, int minv, int maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_ab76c62ce0113ca54feb21c1bd61611cf}\label{structInStream_ab76c62ce0113ca54feb21c1bd61611cf} 
+std\+::vector$<$ int $>$ {\bfseries read\+Integers} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_afe94166e208381f17f49906ee5d50ae1}\label{structInStream_afe94166e208381f17f49906ee5d50ae1} 
+std\+::vector$<$ int $>$ {\bfseries read\+Ints} (int size, int minv, int maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a9dc7971488f79c36b0c039faac9a91b1}\label{structInStream_a9dc7971488f79c36b0c039faac9a91b1} 
+std\+::vector$<$ int $>$ {\bfseries read\+Ints} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a147bef1aea6670fb8e2e6be97e76edc2}\label{structInStream_a147bef1aea6670fb8e2e6be97e76edc2} 
+double {\bfseries read\+Real} ()
+\item 
+\Hypertarget{structInStream_a7409a09698273a264eaa9069ecf90abf}\label{structInStream_a7409a09698273a264eaa9069ecf90abf} 
+double {\bfseries read\+Double} ()
+\item 
+\Hypertarget{structInStream_afefbbd644f24959a3c0dca545c50ca8d}\label{structInStream_afefbbd644f24959a3c0dca545c50ca8d} 
+double {\bfseries read\+Real} (double minv, double maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a6d4100230dab7762fc8a67889f0af48b}\label{structInStream_a6d4100230dab7762fc8a67889f0af48b} 
+std\+::vector$<$ double $>$ {\bfseries read\+Reals} (int size, double minv, double maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a30e0fec1354eccc823c46fb2decb6a5d}\label{structInStream_a30e0fec1354eccc823c46fb2decb6a5d} 
+std\+::vector$<$ double $>$ {\bfseries read\+Reals} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a477dc26871b7cbb20c2d3c5aa7f51a8f}\label{structInStream_a477dc26871b7cbb20c2d3c5aa7f51a8f} 
+double {\bfseries read\+Double} (double minv, double maxv, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_aee88ed3c11ec6eb9d1d73053e6766e8e}\label{structInStream_aee88ed3c11ec6eb9d1d73053e6766e8e} 
+std\+::vector$<$ double $>$ {\bfseries read\+Doubles} (int size, double minv, double maxv, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a9be66f81b7039ccdc58bee885ee15278}\label{structInStream_a9be66f81b7039ccdc58bee885ee15278} 
+std\+::vector$<$ double $>$ {\bfseries read\+Doubles} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_af4a862c387cf199c075896c046b3038b}\label{structInStream_af4a862c387cf199c075896c046b3038b} 
+double {\bfseries read\+Strict\+Real} (double minv, double maxv, int min\+After\+Point\+Digit\+Count, int max\+After\+Point\+Digit\+Count, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a05d7a1183338770dd288298e6f4378c7}\label{structInStream_a05d7a1183338770dd288298e6f4378c7} 
+std\+::vector$<$ double $>$ {\bfseries read\+Strict\+Reals} (int size, double minv, double maxv, int min\+After\+Point\+Digit\+Count, int max\+After\+Point\+Digit\+Count, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_aaecf640ad9de7cf1873b2bc216e32b47}\label{structInStream_aaecf640ad9de7cf1873b2bc216e32b47} 
+double {\bfseries read\+Strict\+Double} (double minv, double maxv, int min\+After\+Point\+Digit\+Count, int max\+After\+Point\+Digit\+Count, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_af2689fbf7c65b80728826fcb4230163f}\label{structInStream_af2689fbf7c65b80728826fcb4230163f} 
+std\+::vector$<$ double $>$ {\bfseries read\+Strict\+Doubles} (int size, double minv, double maxv, int min\+After\+Point\+Digit\+Count, int max\+After\+Point\+Digit\+Count, const std\+::string \&variables\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a6e45ce9c44925056ec1db59400012c3d}\label{structInStream_a6e45ce9c44925056ec1db59400012c3d} 
+std\+::string {\bfseries read\+String} ()
+\item 
+\Hypertarget{structInStream_a2cba4bd119b24d1af9c70ce238b2fbd6}\label{structInStream_a2cba4bd119b24d1af9c70ce238b2fbd6} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Strings} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a79fc60da4d122afd8c8f6f76c1b7fa56}\label{structInStream_a79fc60da4d122afd8c8f6f76c1b7fa56} 
+void {\bfseries read\+String\+To} (std\+::string \&result)
+\item 
+\Hypertarget{structInStream_a25e0a8a1aef084955346a2b82cefa3b3}\label{structInStream_a25e0a8a1aef084955346a2b82cefa3b3} 
+std\+::string {\bfseries read\+String} (const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a5d4fd12c9b43f1357e56aed051524f7d}\label{structInStream_a5d4fd12c9b43f1357e56aed051524f7d} 
+std\+::string {\bfseries read\+String} (const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a7566b33af0c853ce8ddfcdd7ad0e9648}\label{structInStream_a7566b33af0c853ce8ddfcdd7ad0e9648} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Strings} (int size, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a826426f9c306ac53747a3141f819a1c7}\label{structInStream_a826426f9c306ac53747a3141f819a1c7} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Strings} (int size, const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a6dd7e7971417eadfc7c89ed6063ee166}\label{structInStream_a6dd7e7971417eadfc7c89ed6063ee166} 
+void {\bfseries read\+String\+To} (std\+::string \&result, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a90443a86a3a04208af259dbca2061b3b}\label{structInStream_a90443a86a3a04208af259dbca2061b3b} 
+void {\bfseries read\+String\+To} (std\+::string \&result, const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_abd0f6cb6707dc00014499a12db9e7683}\label{structInStream_abd0f6cb6707dc00014499a12db9e7683} 
+std\+::string {\bfseries read\+Line} ()
+\item 
+\Hypertarget{structInStream_a2815b773083f56cf836e3669cf467e1a}\label{structInStream_a2815b773083f56cf836e3669cf467e1a} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Lines} (int size, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a3827b74ce0965b2b080319e24fa7a447}\label{structInStream_a3827b74ce0965b2b080319e24fa7a447} 
+void {\bfseries read\+Line\+To} (std\+::string \&result)
+\item 
+\Hypertarget{structInStream_a6d9a21120d8b21cf31e9bad2a1e83e92}\label{structInStream_a6d9a21120d8b21cf31e9bad2a1e83e92} 
+std\+::string {\bfseries read\+Line} (const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a4fd055a2face33d5862f23ee9cb86cd5}\label{structInStream_a4fd055a2face33d5862f23ee9cb86cd5} 
+std\+::string {\bfseries read\+Line} (const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a1ce8d0614039ae608612cca5d4fc5f28}\label{structInStream_a1ce8d0614039ae608612cca5d4fc5f28} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Lines} (int size, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a5f62d4bb591a6de0a04cc8cc8a876202}\label{structInStream_a5f62d4bb591a6de0a04cc8cc8a876202} 
+std\+::vector$<$ std\+::string $>$ {\bfseries read\+Lines} (int size, const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{}, int index\+Base=1)
+\item 
+\Hypertarget{structInStream_a15203cdc5616988c0b76e8652ec05cb7}\label{structInStream_a15203cdc5616988c0b76e8652ec05cb7} 
+void {\bfseries read\+Line\+To} (std\+::string \&result, const \mbox{\hyperlink{classpattern}{pattern}} \&p, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a727fea17af0013a7a6089734292abd24}\label{structInStream_a727fea17af0013a7a6089734292abd24} 
+void {\bfseries read\+Line\+To} (std\+::string \&result, const std\+::string \&ptrn, const std\+::string \&variable\+Name="{}"{})
+\item 
+\Hypertarget{structInStream_a034c0ee97269f7bbd1e73ccc85b13f54}\label{structInStream_a034c0ee97269f7bbd1e73ccc85b13f54} 
+void {\bfseries read\+Eoln} ()
+\item 
+\Hypertarget{structInStream_a80e53f1d7a022f34f8d88839de43d6b5}\label{structInStream_a80e53f1d7a022f34f8d88839de43d6b5} 
+void {\bfseries read\+Eof} ()
+\item 
+\Hypertarget{structInStream_a95bee5abfce70b5e663359558080ada9}\label{structInStream_a95bee5abfce70b5e663359558080ada9} 
+NORETURN void {\bfseries quit} (TResult result, const char \texorpdfstring{$\ast$}{*}msg)
+\item 
+\Hypertarget{structInStream_a3238a2d2a6fdb963d8f7c57416b5c1e5}\label{structInStream_a3238a2d2a6fdb963d8f7c57416b5c1e5} 
+NORETURN void {\bfseries quitf} (TResult result, const char \texorpdfstring{$\ast$}{*}msg,...)
+\item 
+\Hypertarget{structInStream_a0c969f83376d50af370615d44186647d}\label{structInStream_a0c969f83376d50af370615d44186647d} 
+void {\bfseries quitif} (bool condition, TResult result, const char \texorpdfstring{$\ast$}{*}msg,...)
+\item 
+\Hypertarget{structInStream_a65a8b22fb500b96357ad5630535ebb95}\label{structInStream_a65a8b22fb500b96357ad5630535ebb95} 
+NORETURN void {\bfseries quits} (TResult result, std\+::string msg)
+\item 
+\Hypertarget{structInStream_a44a5027f6d7000c62ef27c6719f225ef}\label{structInStream_a44a5027f6d7000c62ef27c6719f225ef} 
+void {\bfseries ensuref} (bool cond, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+\Hypertarget{structInStream_ad961f49275f9e4d97b3ab6691f4b3d07}\label{structInStream_ad961f49275f9e4d97b3ab6691f4b3d07} 
+void {\bfseries \+\_\+\+\_\+testlib\+\_\+ensure} (bool cond, std\+::string message)
+\item 
+\Hypertarget{structInStream_a4e6d2f97680cbc53de0d6cb1a893016f}\label{structInStream_a4e6d2f97680cbc53de0d6cb1a893016f} 
+void {\bfseries close} ()
+\item 
+\Hypertarget{structInStream_a7920954e072895d70f2127ccc7af789d}\label{structInStream_a7920954e072895d70f2127ccc7af789d} 
+void {\bfseries xml\+Safe\+Write} (std\+::\+FILE \texorpdfstring{$\ast$}{*}file, const char \texorpdfstring{$\ast$}{*}msg)
+\item 
+\Hypertarget{structInStream_a1ee5c101df11ec9fe00867379bf3937f}\label{structInStream_a1ee5c101df11ec9fe00867379bf3937f} 
+void {\bfseries skip\+Bom} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structInStream_a4ff4b2110a80dea66154702116080e49}\label{structInStream_a4ff4b2110a80dea66154702116080e49} 
+static void {\bfseries text\+Color} (WORD color)
+\item 
+\Hypertarget{structInStream_a681c59fb45459a1247d0bb237eb196eb}\label{structInStream_a681c59fb45459a1247d0bb237eb196eb} 
+static void {\bfseries quitscr} (WORD color, const char \texorpdfstring{$\ast$}{*}msg)
+\item 
+\Hypertarget{structInStream_ac1ca7d4baa1a28a7de0995a2581841b5}\label{structInStream_ac1ca7d4baa1a28a7de0995a2581841b5} 
+static void {\bfseries quitscrS} (WORD color, std\+::string msg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structInStream_ab970f7b2a0f0a699c6f3187f5b565c35}\label{structInStream_ab970f7b2a0f0a699c6f3187f5b565c35} 
+\mbox{\hyperlink{classInputStreamReader}{Input\+Stream\+Reader}} \texorpdfstring{$\ast$}{*} {\bfseries reader}
+\item 
+\Hypertarget{structInStream_a2e44f54a6f11bf8337e742ec131ac0b5}\label{structInStream_a2e44f54a6f11bf8337e742ec131ac0b5} 
+int {\bfseries last\+Line}
+\item 
+\Hypertarget{structInStream_a0e45bfde029064fc64c36c1462e6ba8b}\label{structInStream_a0e45bfde029064fc64c36c1462e6ba8b} 
+std\+::string {\bfseries name}
+\item 
+\Hypertarget{structInStream_a22c9fbb12ed6da923353c3a477881686}\label{structInStream_a22c9fbb12ed6da923353c3a477881686} 
+TMode {\bfseries mode}
+\item 
+\Hypertarget{structInStream_ac1db0153031be42e22117179c7cc70bf}\label{structInStream_ac1db0153031be42e22117179c7cc70bf} 
+bool {\bfseries opened}
+\item 
+\Hypertarget{structInStream_a66d3e4b4c823f79d1f53ad5901733717}\label{structInStream_a66d3e4b4c823f79d1f53ad5901733717} 
+bool {\bfseries stdfile}
+\item 
+\Hypertarget{structInStream_a8aec5ed448357d952d4fae14e4054d8c}\label{structInStream_a8aec5ed448357d952d4fae14e4054d8c} 
+bool {\bfseries strict}
+\item 
+\Hypertarget{structInStream_a8afeeed49266480bd239d832415fb85b}\label{structInStream_a8afeeed49266480bd239d832415fb85b} 
+int {\bfseries word\+Reserve\+Size}
+\item 
+\Hypertarget{structInStream_af2f09659cea3fd78f1e662cd918d2c30}\label{structInStream_af2f09659cea3fd78f1e662cd918d2c30} 
+std\+::string {\bfseries \+\_\+tmp\+Read\+Token}
+\item 
+\Hypertarget{structInStream_a47cff32cdacd0978f83382c6c81d7df4}\label{structInStream_a47cff32cdacd0978f83382c6c81d7df4} 
+int {\bfseries read\+Many\+Iteration}
+\item 
+\Hypertarget{structInStream_a14e6d7455706cea771265a7ab8407918}\label{structInStream_a14e6d7455706cea771265a7ab8407918} 
+size\+\_\+t {\bfseries max\+File\+Size}
+\item 
+\Hypertarget{structInStream_a4a4e8df78395f7be17d9429e7640eb26}\label{structInStream_a4a4e8df78395f7be17d9429e7640eb26} 
+size\+\_\+t {\bfseries max\+Token\+Length}
+\item 
+\Hypertarget{structInStream_a8ff983747e2b08a2f8f01d226b23f20a}\label{structInStream_a8ff983747e2b08a2f8f01d226b23f20a} 
+size\+\_\+t {\bfseries max\+Message\+Length}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structInStream_af18bd290c3c3907be197c1878946c4d8}\label{structInStream_af18bd290c3c3907be197c1878946c4d8} 
+static const int {\bfseries NO\+\_\+\+INDEX} = INT\+\_\+\+MAX
+\item 
+\Hypertarget{structInStream_a582ee4c10e2543041466180e6134865a}\label{structInStream_a582ee4c10e2543041466180e6134865a} 
+static const char {\bfseries OPEN\+\_\+\+BRACKET} = char(11)
+\item 
+\Hypertarget{structInStream_a3b35e480ab8ea91b44cd8be3bf550fa8}\label{structInStream_a3b35e480ab8ea91b44cd8be3bf550fa8} 
+static const char {\bfseries CLOSE\+\_\+\+BRACKET} = char(17)
+\item 
+\Hypertarget{structInStream_a2eb9f95d5c8ef82ec45295113294b836}\label{structInStream_a2eb9f95d5c8ef82ec45295113294b836} 
+static const WORD {\bfseries Light\+Gray} = 0x07
+\item 
+\Hypertarget{structInStream_aa2b66ca7098a63f267cdc650eda5b11c}\label{structInStream_aa2b66ca7098a63f267cdc650eda5b11c} 
+static const WORD {\bfseries Light\+Red} = 0x0c
+\item 
+\Hypertarget{structInStream_a1906bb56c67bc1c4268903f37e2604a4}\label{structInStream_a1906bb56c67bc1c4268903f37e2604a4} 
+static const WORD {\bfseries Light\+Cyan} = 0x0b
+\item 
+\Hypertarget{structInStream_a088a42a5a342bf630b6288c308d276e3}\label{structInStream_a088a42a5a342bf630b6288c308d276e3} 
+static const WORD {\bfseries Light\+Green} = 0x0a
+\item 
+\Hypertarget{structInStream_a9dcd83240a933dee55e8195f6228ccad}\label{structInStream_a9dcd83240a933dee55e8195f6228ccad} 
+static const WORD {\bfseries Light\+Yellow} = 0x0e
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+testlib.\+h\end{DoxyCompactItemize}

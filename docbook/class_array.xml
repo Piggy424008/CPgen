@@ -1,0 +1,1243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_array" xml:lang="en-US">
+<title>Array&lt; _Tp &gt; Class Template Reference</title>
+<indexterm><primary>Array&lt; _Tp &gt;</primary></indexterm>
+<para>
+
+<para>Class that used to generate an array. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;generator.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_array_1ae1592d720e1f74be242611978fe2a588"/>using <emphasis role="strong">_Sequence</emphasis> = std::vector&lt;_Tp&gt;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_array_1a0bc66fa3b15877ad9b0b8a56c91c242f"/>using <emphasis role="strong">_Self</emphasis> = <link linkend="_class_array">Array</link>&lt;_Tp&gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>_Tp &amp; <link linkend="_class_array_1ab717ed7ffe253e59ff499fad29906b79">operator[]</link> (int idx)</para>
+
+<para>return the reference of the size-th element in this array. </para>
+</listitem>
+            <listitem><para>auto <link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link> ()</para>
+
+<para>return the reference of the first element in this array. </para>
+</listitem>
+            <listitem><para>auto <link linkend="_class_array_1a646cc5a2606302d44bb18cecb884c186">end</link> ()</para>
+
+<para>return the reference of the last element in this array. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link> (int size)</para>
+
+<para>init the whole array with the size of <computeroutput>size</computeroutput>. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_array_1a8732e434e7bc61b88cdb7dce78d7d36e">print</link> (char sep=&apos; &apos;, char <link linkend="_class_array_1a646cc5a2606302d44bb18cecb884c186">end</link>=&apos;\<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>&apos;)</para>
+
+<para>Output the current array. </para>
+</listitem>
+            <listitem><para>_Tp <link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link> ()</para>
+
+<para>Get the sum of the elements. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link> (int size, _Tp wl, _Tp wr)</para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are values in [wl, wr]. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_array_1aabb8ec61824f0867f58cd2303950cfde">sort</link> ()</para>
+
+<para>Sort the current array. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_array_1a5f2e8fac9186f569126e3c6f711dd11d">shuffle</link> ()</para>
+
+<para>Shuffle the current array. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_array_1aed37bf957607cb12166cb94223cf7a45">reverse</link> ()</para>
+
+<para>Reverse the current array. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1ae3ce84779eba9ffd938ec70b8ef10092">to_diffrence</link> ()</para>
+
+<para>Turn this array into the Diffrence array of it. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1ab73df970edd42433e11cb4b696209010">binary_gen</link> (int size)</para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are 0 or 1. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1aff0fd748e7a6b057a5f8d47766202681">ascending_array</link> (int size, _Tp wl, _Tp wr)</para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are not decreasing. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1a5bd07d001915f8a081c13241cac021b1">decending_array</link> (int size, _Tp wl, _Tp wr)</para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are not increasing. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1a4ff2f434ddb1ae9d181beea09ec79b62">constant_sum</link> (int size, _Tp <link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>, bool AcceptZero=true, bool AcceptNegative=true)</para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while the sum of its elements are a constant. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1a511d7e15b6eab71543831e086e373c1c">perturbe</link> ()</para>
+
+<para>Perturbe the current array, keeping the sum of the elements still. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1a883b9ef82b241db48b2db03d7c6470e5">permutation</link> (int size)</para>
+
+<para>Generate a permutation of 1 to size. </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1adb709f892260534cb315c528a4681144">generate_function</link> (int size, int(*GenerateFunction)(int), int <link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>=1)</para>
+
+<para>Generate an array with the i-th element is f(i + begin). </para>
+</listitem>
+            <listitem><para><link linkend="_class_array">_Self</link> <link linkend="_class_array_1abcf5ecb1f3f188c7c5de989cfe902a90">generate_iterate_function</link> (int size, int(*IterateFunction)(int), int <link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>=1)</para>
+
+<para>Generate an array with the i-th element is f(a_{i-1}). </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_array_1a47b098457b5a7ab7056d032b4c9644bd"/>int <emphasis role="strong">n</emphasis></para>
+
+<para>size of the array that generated. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e"/>_Sequence <emphasis role="strong">array</emphasis></para>
+
+<para>The container of the elements. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;typename _Tp&gt;<?linebreak?>class Array&lt; _Tp &gt;</title></simplesect>
+
+<para>Class that used to generate an array. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_array_1aff0fd748e7a6b057a5f8d47766202681"/><section>
+    <title>ascending_array()</title>
+<indexterm><primary>ascending_array</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>ascending_array</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::ascending_array (int size, _Tp wl, _Tp wr)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are not decreasing. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this array should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wl</entry><entry>
+<para>the sub of the elements. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wr</entry><entry>
+<para>the sup of the elements. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a2d5075f9c1a5639437991a0d38a5369b"/><section>
+    <title>basic_gen()</title>
+<indexterm><primary>basic_gen</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>basic_gen</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::basic_gen (int size, _Tp wl, _Tp wr)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are values in [wl, wr]. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this array should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wl</entry><entry>
+<para>the sub of the elements. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wr</entry><entry>
+<para>the sup of the elements. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a280f58c15461fc65e11601e94cca8dcb"/><section>
+    <title>begin()</title>
+<indexterm><primary>begin</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>begin</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>auto <link linkend="_class_array">Array</link>&lt; _Tp &gt;::begin ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>return the reference of the first element in this array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The reference of the element. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1ab73df970edd42433e11cb4b696209010"/><section>
+    <title>binary_gen()</title>
+<indexterm><primary>binary_gen</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>binary_gen</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::binary_gen (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are 0 or 1. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this array should be. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a4ff2f434ddb1ae9d181beea09ec79b62"/><section>
+    <title>constant_sum()</title>
+<indexterm><primary>constant_sum</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>constant_sum</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::constant_sum (int size, _Tp sum, bool AcceptZero = <computeroutput>true</computeroutput>
+, bool AcceptNegative = <computeroutput>true</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while the sum of its elements are a constant. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this array should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sum</entry><entry>
+<para>the sum of the elements. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>AcceptZero</entry><entry>
+<para>if the array can contain zero or not. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>AcceptNegative</entry><entry>
+<para>if the array can contain negative values or not. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a5bd07d001915f8a081c13241cac021b1"/><section>
+    <title>decending_array()</title>
+<indexterm><primary>decending_array</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>decending_array</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::decending_array (int size, _Tp wl, _Tp wr)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with size <computeroutput>size</computeroutput>, while its elements are not increasing. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this array should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wl</entry><entry>
+<para>the sub of the elements. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wr</entry><entry>
+<para>the sup of the elements. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a646cc5a2606302d44bb18cecb884c186"/><section>
+    <title>end()</title>
+<indexterm><primary>end</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>end</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>auto <link linkend="_class_array">Array</link>&lt; _Tp &gt;::end ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>return the reference of the last element in this array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The reference of the element. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1adb709f892260534cb315c528a4681144"/><section>
+    <title>generate_function()</title>
+<indexterm><primary>generate_function</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>generate_function</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::generate_function (int size, int(*)(int) GenerateFunction, int begin = <computeroutput>1</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with the i-th element is f(i + begin). </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>the size of the array. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>GenerateFunction</entry><entry>
+<para>the GenerateFunction of the array. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>begin</entry><entry>
+<para>the begin point of the array. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1abcf5ecb1f3f188c7c5de989cfe902a90"/><section>
+    <title>generate_iterate_function()</title>
+<indexterm><primary>generate_iterate_function</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>generate_iterate_function</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::generate_iterate_function (int size, int(*)(int) IterateFunction, int begin = <computeroutput>1</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate an array with the i-th element is f(a_{i-1}). </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>the size of the array. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>GenerateFunction</entry><entry>
+<para>the GenerateFunction of the array. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>begin</entry><entry>
+<para>the begin value of the array. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f"/><section>
+    <title>init()</title>
+<indexterm><primary>init</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>init</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>void <link linkend="_class_array">Array</link>&lt; _Tp &gt;::init (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>init the whole array with the size of <computeroutput>size</computeroutput>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this array should be. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1ab717ed7ffe253e59ff499fad29906b79"/><section>
+    <title>operator[]()</title>
+<indexterm><primary>operator[]</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>operator[]</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>_Tp &amp; <link linkend="_class_array">Array</link>&lt; _Tp &gt;::operator[] (int idx)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>return the reference of the size-th element in this array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>idx</entry><entry>
+<para>the index of the element you requested. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The reference of the element. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>out_of_range</entry><entry>
+<para>if idx is an invalid index. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a883b9ef82b241db48b2db03d7c6470e5"/><section>
+    <title>permutation()</title>
+<indexterm><primary>permutation</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>permutation</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::permutation (int size)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a permutation of 1 to size. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>the size of the array. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a511d7e15b6eab71543831e086e373c1c"/><section>
+    <title>perturbe()</title>
+<indexterm><primary>perturbe</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>perturbe</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::perturbe ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Perturbe the current array, keeping the sum of the elements still. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a8732e434e7bc61b88cdb7dce78d7d36e"/><section>
+    <title>print()</title>
+<indexterm><primary>print</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>print</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>void <link linkend="_class_array">Array</link>&lt; _Tp &gt;::print (char sep = <computeroutput>&apos;&#160;&apos;</computeroutput>
+, char end = <computeroutput>&apos;\<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>&apos;</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Output the current array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1aed37bf957607cb12166cb94223cf7a45"/><section>
+    <title>reverse()</title>
+<indexterm><primary>reverse</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>reverse</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>void <link linkend="_class_array">Array</link>&lt; _Tp &gt;::reverse ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Reverse the current array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a5f2e8fac9186f569126e3c6f711dd11d"/><section>
+    <title>shuffle()</title>
+<indexterm><primary>shuffle</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>shuffle</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>void <link linkend="_class_array">Array</link>&lt; _Tp &gt;::shuffle ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Shuffle the current array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1aabb8ec61824f0867f58cd2303950cfde"/><section>
+    <title>sort()</title>
+<indexterm><primary>sort</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>sort</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>void <link linkend="_class_array">Array</link>&lt; _Tp &gt;::sort ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Sort the current array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026"/><section>
+    <title>sum()</title>
+<indexterm><primary>sum</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>sum</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>_Tp <link linkend="_class_array">Array</link>&lt; _Tp &gt;::sum ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Get the sum of the elements. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The sum of the elements. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_array_1ae3ce84779eba9ffd938ec70b8ef10092"/><section>
+    <title>to_diffrence()</title>
+<indexterm><primary>to_diffrence</primary><secondary>Array&lt; _Tp &gt;</secondary></indexterm>
+<indexterm><primary>Array&lt; _Tp &gt;</primary><secondary>to_diffrence</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput><link linkend="_class_array">_Self</link> <link linkend="_class_array">Array</link>&lt; _Tp &gt;::to_diffrence ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Turn this array into the Diffrence array of it. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no</entry><entry>
+<para>params. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The array itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+generator.h</section>
+</section>

@@ -1,0 +1,60 @@
+\doxysection{Geometry\texorpdfstring{$<$}{<} Point\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_geometry}{}\label{class_geometry}\index{Geometry$<$ PointType $>$@{Geometry$<$ PointType $>$}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_geometry_ab1167d6bf770911db758d9fd1b9a5a1b}\label{class_geometry_ab1167d6bf770911db758d9fd1b9a5a1b} 
+using {\bfseries \+\_\+\+Tp} = \mbox{\hyperlink{struct_point}{Point}}$<$Point\+Type$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_geometry_a5375eb03bab88ff52f1e0a8874f84d57}\label{class_geometry_a5375eb03bab88ff52f1e0a8874f84d57} 
+void {\bfseries init} ()
+\item 
+void \mbox{\hyperlink{class_geometry_ab534234d3167c5fdf3b1799107e24f47}{randomize\+\_\+points}} (int size, \mbox{\hyperlink{struct_point}{\+\_\+\+Tp}} leftbottom, \mbox{\hyperlink{struct_point}{\+\_\+\+Tp}} rightup)
+\begin{DoxyCompactList}\small\item\em Randomly generate some points in the rectangle the leftbottom and rightup determine. \end{DoxyCompactList}\item 
+\Hypertarget{class_geometry_ac475f9ef388aa1eff05f87acd2f0dd92}\label{class_geometry_ac475f9ef388aa1eff05f87acd2f0dd92} 
+void {\bfseries warning} (int size)
+\item 
+\Hypertarget{class_geometry_a3c1c5bd166e212f0c97195336da49c30}\label{class_geometry_a3c1c5bd166e212f0c97195336da49c30} 
+void {\bfseries make\+\_\+raw\+\_\+convex\+\_\+shell} (int size)
+\item 
+\Hypertarget{class_geometry_a4fee50bda369be38233e5d34e2f1bf6a}\label{class_geometry_a4fee50bda369be38233e5d34e2f1bf6a} 
+void {\bfseries make\+\_\+convex} (int size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_geometry_a623fe15d5104cc69cff19ab22c22fb78}\label{class_geometry_a623fe15d5104cc69cff19ab22c22fb78} 
+int {\bfseries n}
+\item 
+\Hypertarget{class_geometry_a6a50c4fd381f5f90f5d6462145d2a175}\label{class_geometry_a6a50c4fd381f5f90f5d6462145d2a175} 
+std\+::set$<$ \mbox{\hyperlink{struct_point}{\+\_\+\+Tp}} $>$ {\bfseries points}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_geometry_ab534234d3167c5fdf3b1799107e24f47}\label{class_geometry_ab534234d3167c5fdf3b1799107e24f47} 
+\index{Geometry$<$ PointType $>$@{Geometry$<$ PointType $>$}!randomize\_points@{randomize\_points}}
+\index{randomize\_points@{randomize\_points}!Geometry$<$ PointType $>$@{Geometry$<$ PointType $>$}}
+\doxysubsubsection{\texorpdfstring{randomize\_points()}{randomize\_points()}}
+{\footnotesize\ttfamily template$<$typename Point\+Type $>$ \\
+void \mbox{\hyperlink{class_geometry}{Geometry}}$<$ Point\+Type $>$\+::randomize\+\_\+points (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{\mbox{\hyperlink{struct_point}{\+\_\+\+Tp}}}]{leftbottom,  }\item[{\mbox{\hyperlink{struct_point}{\+\_\+\+Tp}}}]{rightup }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Randomly generate some points in the rectangle the leftbottom and rightup determine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the count of points that should be generated. \\
+\hline
+{\em leftbottom,rightup} & the range of the points. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+generator.\+h\end{DoxyCompactItemize}

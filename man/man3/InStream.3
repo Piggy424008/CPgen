@@ -1,0 +1,388 @@
+.TH "InStream" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+InStream
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInStream\fP (const \fBInStream\fP &baseStream, std::string content)"
+.br
+.ti -1c
+.RI "void \fBinit\fP (std::string fileName, TMode mode)"
+.br
+.ti -1c
+.RI "void \fBinit\fP (std::FILE *f, TMode mode)"
+.br
+.ti -1c
+.RI "void \fBsetTestCase\fP (int testCase)"
+.br
+.ti -1c
+.RI "std::vector< int > \fBgetReadChars\fP ()"
+.br
+.ti -1c
+.RI "void \fBskipBlanks\fP ()"
+.br
+.ti -1c
+.RI "char \fBcurChar\fP ()"
+.br
+.ti -1c
+.RI "void \fBskipChar\fP ()"
+.br
+.ti -1c
+.RI "char \fBnextChar\fP ()"
+.br
+.ti -1c
+.RI "char \fBreadChar\fP ()"
+.br
+.ti -1c
+.RI "char \fBreadChar\fP (char c)"
+.br
+.ti -1c
+.RI "char \fBreadSpace\fP ()"
+.br
+.ti -1c
+.RI "void \fBunreadChar\fP (char c)"
+.br
+.ti -1c
+.RI "void \fBreset\fP (std::FILE *file=NULL)"
+.br
+.ti -1c
+.RI "bool \fBeof\fP ()"
+.br
+.ti -1c
+.RI "bool \fBseekEof\fP ()"
+.br
+.ti -1c
+.RI "bool \fBeoln\fP ()"
+.br
+.ti -1c
+.RI "bool \fBseekEoln\fP ()"
+.br
+.ti -1c
+.RI "void \fBnextLine\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBreadWord\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBreadToken\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBreadWord\fP (const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::string \fBreadWord\fP (const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadWords\fP (int size, const std::string &ptrn, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadWords\fP (int size, const \fBpattern\fP &p, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadWords\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "std::string \fBreadToken\fP (const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::string \fBreadToken\fP (const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadTokens\fP (int size, const std::string &ptrn, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadTokens\fP (int size, const \fBpattern\fP &p, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadTokens\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "void \fBreadWordTo\fP (std::string &result)"
+.br
+.ti -1c
+.RI "void \fBreadWordTo\fP (std::string &result, const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "void \fBreadWordTo\fP (std::string &result, const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "void \fBreadTokenTo\fP (std::string &result)"
+.br
+.ti -1c
+.RI "void \fBreadTokenTo\fP (std::string &result, const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "void \fBreadTokenTo\fP (std::string &result, const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "long long \fBreadLong\fP ()"
+.br
+.ti -1c
+.RI "unsigned long long \fBreadUnsignedLong\fP ()"
+.br
+.ti -1c
+.RI "int \fBreadInteger\fP ()"
+.br
+.ti -1c
+.RI "int \fBreadInt\fP ()"
+.br
+.ti -1c
+.RI "long long \fBreadLong\fP (long long minv, long long maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< long long > \fBreadLongs\fP (int size, long long minv, long long maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< long long > \fBreadLongs\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "unsigned long long \fBreadUnsignedLong\fP (unsigned long long minv, unsigned long long maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< unsigned long long > \fBreadUnsignedLongs\fP (int size, unsigned long long minv, unsigned long long maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< unsigned long long > \fBreadUnsignedLongs\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "unsigned long long \fBreadLong\fP (unsigned long long minv, unsigned long long maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< unsigned long long > \fBreadLongs\fP (int size, unsigned long long minv, unsigned long long maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "int \fBreadInteger\fP (int minv, int maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "int \fBreadInt\fP (int minv, int maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< int > \fBreadIntegers\fP (int size, int minv, int maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< int > \fBreadIntegers\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< int > \fBreadInts\fP (int size, int minv, int maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< int > \fBreadInts\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "double \fBreadReal\fP ()"
+.br
+.ti -1c
+.RI "double \fBreadDouble\fP ()"
+.br
+.ti -1c
+.RI "double \fBreadReal\fP (double minv, double maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< double > \fBreadReals\fP (int size, double minv, double maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< double > \fBreadReals\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "double \fBreadDouble\fP (double minv, double maxv, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< double > \fBreadDoubles\fP (int size, double minv, double maxv, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< double > \fBreadDoubles\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "double \fBreadStrictReal\fP (double minv, double maxv, int minAfterPointDigitCount, int maxAfterPointDigitCount, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< double > \fBreadStrictReals\fP (int size, double minv, double maxv, int minAfterPointDigitCount, int maxAfterPointDigitCount, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "double \fBreadStrictDouble\fP (double minv, double maxv, int minAfterPointDigitCount, int maxAfterPointDigitCount, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< double > \fBreadStrictDoubles\fP (int size, double minv, double maxv, int minAfterPointDigitCount, int maxAfterPointDigitCount, const std::string &variablesName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::string \fBreadString\fP ()"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadStrings\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "void \fBreadStringTo\fP (std::string &result)"
+.br
+.ti -1c
+.RI "std::string \fBreadString\fP (const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::string \fBreadString\fP (const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadStrings\fP (int size, const \fBpattern\fP &p, const std::string &variableName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadStrings\fP (int size, const std::string &ptrn, const std::string &variableName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "void \fBreadStringTo\fP (std::string &result, const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "void \fBreadStringTo\fP (std::string &result, const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::string \fBreadLine\fP ()"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadLines\fP (int size, int indexBase=1)"
+.br
+.ti -1c
+.RI "void \fBreadLineTo\fP (std::string &result)"
+.br
+.ti -1c
+.RI "std::string \fBreadLine\fP (const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::string \fBreadLine\fP (const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadLines\fP (int size, const \fBpattern\fP &p, const std::string &variableName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBreadLines\fP (int size, const std::string &ptrn, const std::string &variableName='', int indexBase=1)"
+.br
+.ti -1c
+.RI "void \fBreadLineTo\fP (std::string &result, const \fBpattern\fP &p, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "void \fBreadLineTo\fP (std::string &result, const std::string &ptrn, const std::string &variableName='')"
+.br
+.ti -1c
+.RI "void \fBreadEoln\fP ()"
+.br
+.ti -1c
+.RI "void \fBreadEof\fP ()"
+.br
+.ti -1c
+.RI "NORETURN void \fBquit\fP (TResult result, const char *msg)"
+.br
+.ti -1c
+.RI "NORETURN void \fBquitf\fP (TResult result, const char *msg,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBquitif\fP (bool condition, TResult result, const char *msg,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "NORETURN void \fBquits\fP (TResult result, std::string msg)"
+.br
+.ti -1c
+.RI "void \fBensuref\fP (bool cond, const char *format,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fB__testlib_ensure\fP (bool cond, std::string message)"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "void \fBxmlSafeWrite\fP (std::FILE *file, const char *msg)"
+.br
+.ti -1c
+.RI "void \fBskipBom\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBtextColor\fP (WORD color)"
+.br
+.ti -1c
+.RI "static void \fBquitscr\fP (WORD color, const char *msg)"
+.br
+.ti -1c
+.RI "static void \fBquitscrS\fP (WORD color, std::string msg)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBInputStreamReader\fP * \fBreader\fP"
+.br
+.ti -1c
+.RI "int \fBlastLine\fP"
+.br
+.ti -1c
+.RI "std::string \fBname\fP"
+.br
+.ti -1c
+.RI "TMode \fBmode\fP"
+.br
+.ti -1c
+.RI "bool \fBopened\fP"
+.br
+.ti -1c
+.RI "bool \fBstdfile\fP"
+.br
+.ti -1c
+.RI "bool \fBstrict\fP"
+.br
+.ti -1c
+.RI "int \fBwordReserveSize\fP"
+.br
+.ti -1c
+.RI "std::string \fB_tmpReadToken\fP"
+.br
+.ti -1c
+.RI "int \fBreadManyIteration\fP"
+.br
+.ti -1c
+.RI "size_t \fBmaxFileSize\fP"
+.br
+.ti -1c
+.RI "size_t \fBmaxTokenLength\fP"
+.br
+.ti -1c
+.RI "size_t \fBmaxMessageLength\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBNO_INDEX\fP = INT_MAX"
+.br
+.ti -1c
+.RI "static const char \fBOPEN_BRACKET\fP = char(11)"
+.br
+.ti -1c
+.RI "static const char \fBCLOSE_BRACKET\fP = char(17)"
+.br
+.ti -1c
+.RI "static const WORD \fBLightGray\fP = 0x07"
+.br
+.ti -1c
+.RI "static const WORD \fBLightRed\fP = 0x0c"
+.br
+.ti -1c
+.RI "static const WORD \fBLightCyan\fP = 0x0b"
+.br
+.ti -1c
+.RI "static const WORD \fBLightGreen\fP = 0x0a"
+.br
+.ti -1c
+.RI "static const WORD \fBLightYellow\fP = 0x0e"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

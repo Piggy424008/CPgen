@@ -1,0 +1,245 @@
+.TH "Graph" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Graph
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fB_Self\fP = \fBGraph\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGraph\fP (\fBTree\fP tr, bool direction=0)"
+.br
+.ti -1c
+.RI "\fB_Self\fP \fBadd\fP (\fBGraph\fP rhs)"
+.br
+.RI "Add a graph to the current graph\&. "
+.ti -1c
+.RI "\fBGraph\fP \fBoperator+\fP (\fBGraph\fP rhs)"
+.br
+.ti -1c
+.RI "\fB_Self\fP \fBoperator+=\fP (\fBGraph\fP rhs)"
+.br
+.ti -1c
+.RI "void \fBinit\fP (int size, bool directed_graph)"
+.br
+.RI "init the whole graph with the size of \fRsize\fP, and direct \fRdirected_graph\fP\&. "
+.ti -1c
+.RI "bool \fBexists\fP (int u, int v)"
+.br
+.RI "To check out if the edge exists or not\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBrandomly_gen\fP (int size, int edges_count, bool directed_graph=false)"
+.br
+.RI "Generate a graph completely random\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBDAG\fP (int size, int edges_count, bool ensure_connected=true)"
+.br
+.RI "Generate a DAG\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBforest\fP (int size, int cnt=\-1)"
+.br
+.RI "Generate a forest\&. "
+.ti -1c
+.RI "void \fBhack_spfa\fP (int size, int edges_count)"
+.br
+.RI "Generate a graph, on which spfa works so slow\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBn\fP"
+.br
+.RI "The count of points in the graph\&. "
+.ti -1c
+.RI "int \fBm\fP"
+.br
+.RI "The count of edges in the graph\&. "
+.ti -1c
+.RI "bool \fBdirected\fP"
+.br
+.RI "Denoting if the \fBedges\fP are directed or not\&. "
+.ti -1c
+.RI "std::set< pii > \fBedges\fP"
+.br
+.RI "The container of edges\&. "
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "\fB_Self\fP Graph::add (\fBGraph\fP rhs)\fR [inline]\fP"
+
+.PP
+Add a graph to the current graph\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIrhs\fP the graph to be added\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Graph::DAG (int size, int edges_count, bool ensure_connected = \fRtrue\fP)\fR [inline]\fP"
+
+.PP
+Generate a DAG\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this graph should be\&. 
+.br
+\fIedges_count\fP the count of the edges\&. 
+.br
+\fIdirected_graph\fP is this graph directed or not\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+no return\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the std::set throws\&. 
+.RE
+.PP
+
+.SS "bool Graph::exists (int u, int v)\fR [inline]\fP"
+
+.PP
+To check out if the edge exists or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIu,v\fP the point number of the edge that is being checked\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+if the edge exists or not\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the std::set throws\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Graph::forest (int size, int cnt = \fR\-1\fP)\fR [inline]\fP"
+
+.PP
+Generate a forest\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this graph should be\&. 
+.br
+\fIcnt\fP the count of the trees\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+no return\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the std::set throws\&. 
+.RE
+.PP
+
+.SS "void Graph::hack_spfa (int size, int edges_count)\fR [inline]\fP"
+
+.PP
+Generate a graph, on which spfa works so slow\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this graph should be\&. 
+.br
+\fIsize\fP how large this graph should be\&. 
+.br
+\fIedges_count\fP the count of the edges\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+no return\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the std::set throws\&. 
+.RE
+.PP
+
+.SS "void Graph::init (int size, bool directed_graph)\fR [inline]\fP"
+
+.PP
+init the whole graph with the size of \fRsize\fP, and direct \fRdirected_graph\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this graph should be\&. 
+.br
+\fIdirected_graph\fP is this graph directed or not\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+no return\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the std::set throws\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Graph::randomly_gen (int size, int edges_count, bool directed_graph = \fRfalse\fP)\fR [inline]\fP"
+
+.PP
+Generate a graph completely random\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this graph should be\&. 
+.br
+\fIedges_count\fP the count of the edges\&. 
+.br
+\fIdirected_graph\fP is this graph directed or not\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+no return\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the std::set throws\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

@@ -1,0 +1,77 @@
+.TH "_random" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_random \- Expansion of \fBrandom_t\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <generator\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename _Tp > std::vector< _Tp > \fBshuffle\fP (std::vector< _Tp > array, int l=1, int r=\-1)"
+.br
+.RI "Shuffle the array in-place, indexes from $l$ to $r$\&. "
+.ti -1c
+.RI "template<typename _Tp > _Tp \fBget_prime\fP (_Tp l, _Tp r)"
+.br
+.RI "get a prime $p\in[l, r]$\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Expansion of \fBrandom_t\fP\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename _Tp > _Tp _random::get_prime (_Tp l, _Tp r)\fR [inline]\fP"
+
+.PP
+get a prime $p\in[l, r]$\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP Any std::vector<_Tp>\&. 
+.br
+\fIl\fP The left bound of the section\&. 
+.br
+\fIr\fP The right bound of the section\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated prime\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIWhen\fP it failed to gen a prime after $5$ times of iteration, it throws an error \fRI suspected that there's no prime from {l} to {r}\&.\fP and quit the program\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > std::vector< _Tp > _random::shuffle (std::vector< _Tp > array, int l = \fR1\fP, int r = \fR\-1\fP)\fR [inline]\fP"
+
+.PP
+Shuffle the array in-place, indexes from $l$ to $r$\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP Any std::vector<_Tp>\&. 
+.br
+\fIl\fP The left bound that should be shuffled\&. Default as $1$\&.| 
+.br
+\fIr\fP The right bound that should be shuffled\&. Default as \fRarray\&.size()\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Return the result\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

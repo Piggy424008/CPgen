@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_geometry" xml:lang="en-US">
+<title>Geometry&lt; PointType &gt; Class Template Reference</title>
+<indexterm><primary>Geometry&lt; PointType &gt;</primary></indexterm>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_geometry_1ab1167d6bf770911db758d9fd1b9a5a1b"/>using <emphasis role="strong">_Tp</emphasis> = <link linkend="_struct_point">Point</link>&lt;PointType&gt;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_geometry_1a5375eb03bab88ff52f1e0a8874f84d57"/>void <emphasis role="strong">init</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_geometry_1ab534234d3167c5fdf3b1799107e24f47"/>void <emphasis role="strong">randomize_points</emphasis> (int size, <link linkend="_struct_point">_Tp</link> leftbottom, <link linkend="_struct_point">_Tp</link> rightup)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_geometry_1a3c1c5bd166e212f0c97195336da49c30"/>void <emphasis role="strong">make_raw_convex_shell</emphasis> (int size)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_geometry_1a623fe15d5104cc69cff19ab22c22fb78"/>int <emphasis role="strong">n</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_geometry_1a6a50c4fd381f5f90f5d6462145d2a175"/>std::set&lt; <link linkend="_struct_point">_Tp</link> &gt; <emphasis role="strong">points</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+generator.h</section>

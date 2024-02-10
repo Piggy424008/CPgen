@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_testlib_finalize_guard" xml:lang="en-US">
+<title>TestlibFinalizeGuard Struct Reference</title>
+<indexterm><primary>TestlibFinalizeGuard</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_testlib_finalize_guard_1a59c31cc40e9f8a903d9da51c3cdd5186"/>int <emphasis role="strong">quitCount</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_testlib_finalize_guard_1af46c17590b5a5f22927cf208e00cb704"/>int <emphasis role="strong">readEofCount</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_testlib_finalize_guard_1aea38818fd90c897e5e648db3a9cf4f00"/>static bool <emphasis role="strong">alive</emphasis> = true</para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_testlib_finalize_guard_1a4b4f03c69663c87c321fb1aafb07e9b1"/>static bool <emphasis role="strong">registered</emphasis> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+testlib.h</section>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_buffered_file_input_stream_reader" xml:lang="en-US">
+<title>BufferedFileInputStreamReader Class Reference</title>
+<indexterm><primary>BufferedFileInputStreamReader</primary></indexterm>
+<para>Inheritance diagram for BufferedFileInputStreamReader:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_buffered_file_input_stream_reader.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_buffered_file_input_stream_reader_1a6461df3ebed7aab0634aa91faba73791"/><emphasis role="strong">BufferedFileInputStreamReader</emphasis> (std::FILE *file, const std::string &amp;name)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_buffered_file_input_stream_reader_1a9cb09f53b2ce90a3fab93d40dde3a044">setTestCase</link> (int)</para>
+</listitem>
+            <listitem><para>std::vector&lt; int &gt; <link linkend="_class_buffered_file_input_stream_reader_1ab0ca30e956ff85c10b82e9c424b0c53e">getReadChars</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_buffered_file_input_stream_reader_1a468df465bd263e44be6b38df8a18cf07">curChar</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_buffered_file_input_stream_reader_1a8bac4ef540ddce255c39c6024ca7530b">nextChar</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_buffered_file_input_stream_reader_1af6982815e72b0689f11c7798b63a8c11">skipChar</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_buffered_file_input_stream_reader_1aceeb77345c539a488be643c0d8152837">unreadChar</link> (int c)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_buffered_file_input_stream_reader_1aaf1c31412eaee82b8b07c8f5df6f5370">getName</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_buffered_file_input_stream_reader_1a005e2082f57977cde391ceafb220e728">getLine</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_buffered_file_input_stream_reader_1a395d51259e292bcc9db8180b0941382c">eof</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_buffered_file_input_stream_reader_1ab5c370f1b5e43ae4c9e1947e00dbfafd">close</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1ab5c370f1b5e43ae4c9e1947e00dbfafd"/><section>
+    <title>close()</title>
+<indexterm><primary>close</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>close</secondary></indexterm>
+<para><computeroutput>void BufferedFileInputStreamReader::close ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1a468df465bd263e44be6b38df8a18cf07"/><section>
+    <title>curChar()</title>
+<indexterm><primary>curChar</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>curChar</secondary></indexterm>
+<para><computeroutput>int BufferedFileInputStreamReader::curChar ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1a395d51259e292bcc9db8180b0941382c"/><section>
+    <title>eof()</title>
+<indexterm><primary>eof</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>eof</secondary></indexterm>
+<para><computeroutput>bool BufferedFileInputStreamReader::eof ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1a005e2082f57977cde391ceafb220e728"/><section>
+    <title>getLine()</title>
+<indexterm><primary>getLine</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>getLine</secondary></indexterm>
+<para><computeroutput>int BufferedFileInputStreamReader::getLine ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1aaf1c31412eaee82b8b07c8f5df6f5370"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string BufferedFileInputStreamReader::getName ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1ab0ca30e956ff85c10b82e9c424b0c53e"/><section>
+    <title>getReadChars()</title>
+<indexterm><primary>getReadChars</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>getReadChars</secondary></indexterm>
+<para><computeroutput>std::vector&lt; int &gt; BufferedFileInputStreamReader::getReadChars ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1a8bac4ef540ddce255c39c6024ca7530b"/><section>
+    <title>nextChar()</title>
+<indexterm><primary>nextChar</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>nextChar</secondary></indexterm>
+<para><computeroutput>int BufferedFileInputStreamReader::nextChar ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1a9cb09f53b2ce90a3fab93d40dde3a044"/><section>
+    <title>setTestCase()</title>
+<indexterm><primary>setTestCase</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>setTestCase</secondary></indexterm>
+<para><computeroutput>void BufferedFileInputStreamReader::setTestCase (int )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1af6982815e72b0689f11c7798b63a8c11"/><section>
+    <title>skipChar()</title>
+<indexterm><primary>skipChar</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>skipChar</secondary></indexterm>
+<para><computeroutput>void BufferedFileInputStreamReader::skipChar ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_buffered_file_input_stream_reader_1aceeb77345c539a488be643c0d8152837"/><section>
+    <title>unreadChar()</title>
+<indexterm><primary>unreadChar</primary><secondary>BufferedFileInputStreamReader</secondary></indexterm>
+<indexterm><primary>BufferedFileInputStreamReader</primary><secondary>unreadChar</secondary></indexterm>
+<para><computeroutput>void BufferedFileInputStreamReader::unreadChar (int c)<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>
+</section>

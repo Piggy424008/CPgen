@@ -1,0 +1,59 @@
+.TH "md_README" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_README \- CPgen 
+.PP
+
+.SH "Quick Start"
+.PP
+Seeing the awkward situation happened in the 2023 ICPC Asia Xiaan Regional Contest, The author wrote this\&. 
+.br
+.PP
+CPgen stands for Competitive Programming Data Generator\&.It is a project aimed to be a useful generator that can safely and conveniently used in Competitive Programming(OI, ICPC, etc\&.)\&. 
+.br
+.PP
+CPgen is hoped to be a library that help problem makers to save their time on data-making\&.
+.PP
+Here is an example of a generator using CPgen: 
+.PP
+.nf
+#include "\&.\&./generator/generator\&.h"
+
+int main(int argc, char** argv) {
+    registerGen(argc, argv, 1);
+    int n = rnd\&.next(1, 1000), m = rnd\&.next(1, 1000);
+    println(n, m);
+    Array<int> arr; arr\&.basic_gen(m, 1, 10 * sqrt(n))\&.print();
+}
+
+.fi
+.PP
+ This example generates an array with size of $m$, whose elements are integers from $1$ to $10\sqrt{n}$, and print $n, m$ and the array to the standard output\&.
+.PP
+You should note that CPgen is based on testlib\&. So you are required to have \fRtestlib\&.h\fP in your working directory (or in your environment path)\&.
+.PP
+To get the latest version of CPgen, download its source code via \fRrepo\fP\&.
+.SH "Usages"
+.PP
+When looking through the docs of CPgen, you should note that the first place in std::vector is ignored by CPgen\&. That's to say, every vector used in CPgen is 1-indexed\&. And, \fRstd::vector<_Tp>()\&.size()\fP means \fR*this\&.size() - 1\fP in the implement\&.
+.PP
+Read Docs for further information\&.
+.SH "FAQs"
+.PP
+.IP "\(bu" 2
+I generate exactly the same data while I run it many times\&. Why is that? 
+.br
+
+.PP
+.PP
+It indeed testlib fault\&. To ensure the generator can generator exactly the same data somehow, the seed of rnd(the RNG of testlib) is calculated by the command you type when you ran it\&. Try to run it with different args\&. For example, try: 
+.PP
+.nf
+>>> \&./foo CPgen
+>>> \&./foo Piggy424008
+>>> \&./foo cplusplus
+
+.fi
+.PP
+ Then it's expected to generate some different data\&. 

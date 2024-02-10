@@ -1,0 +1,334 @@
+\doxysection{Tree Class Reference}
+\hypertarget{class_tree}{}\label{class_tree}\index{Tree@{Tree}}
+
+
+Class that used to generate a tree.  
+
+
+
+
+{\ttfamily \#include $<$generator.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tree_a474b44162d46076485332c91d8976670}\label{class_tree_a474b44162d46076485332c91d8976670} 
+using {\bfseries \+\_\+\+Self} = \mbox{\hyperlink{class_tree}{Tree}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tree_aa16432b08d81c4e44b3448fc93fd1023}{init}} (int size)
+\begin{DoxyCompactList}\small\item\em Initiate \doxylink{class_tree}{Tree} object with size {\ttfamily size}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a2e2b334aa0e1acd1067b5a250c8fff5f}{sqrt\+\_\+height\+\_\+tree}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a tree with an expected height of $O(\sqrt n)$. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a8371dd790e4b72aaa202e03880a89e0a}{log\+\_\+height\+\_\+tree}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a tree with an expected height of $O(\log n)$. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a45aba86850ed30224d53b17f41448b9b}{chain}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a tree that is a chain. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a5653ccb34aef3cb547293d4a731d11cc}{flower}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a tree that is a flower. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a69a4cc2441c11eca8d5de3e18b94b6df}{n\+\_\+deg\+\_\+tree}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a tree with an expected max\+\_\+deg of $O(n)$. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a21f1d20aa881ee0a4ff96fbdd5b43ed8}{chain\+\_\+and\+\_\+flower}} (int size, double chain\+\_\+percent=0.\+3, double flower\+\_\+percent=0.\+3)
+\begin{DoxyCompactList}\small\item\em Generate a tree with chain size is about chain\+\_\+percent \texorpdfstring{$\ast$}{*} size and flower size is about flower\+\_\+percent \texorpdfstring{$\ast$}{*} size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a8798a5d50973a15e83155a8915ff10e5}{random\+\_\+shaped\+\_\+tree}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a tree with random shape, that is to say, randomly chose from the methods above. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_ac09ddd1638d5d52b711e9e29344d6a1d}{print}} (int shuffled, std\+::vector$<$ int $>$ weights=std\+::vector$<$ int $>$\{\})
+\begin{DoxyCompactList}\small\item\em Output the generated edges to stdout. NOTE that n will not be printed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tree}{\+\_\+\+Self}} \mbox{\hyperlink{class_tree_a3a6cb2e1759c933c712e5b6ece6c5767}{print\+\_\+fa}} (char sep=\textquotesingle{} \textquotesingle{}, char end=\textquotesingle{}\textbackslash{}\mbox{\hyperlink{class_tree_af99cb1765b0249e5d79541313199786c}{n}}\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Output the generated {\ttfamily fa} array to stdout. NOTE that n will not be printed. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_tree_a64a7833000b32e60b603051ca4f92e29}{get\+\_\+leaves}} ()
+\begin{DoxyCompactList}\small\item\em Get the leave nodes of the current tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tree_af99cb1765b0249e5d79541313199786c}\label{class_tree_af99cb1765b0249e5d79541313199786c} 
+int {\bfseries n}
+\begin{DoxyCompactList}\small\item\em The size of the tree. \end{DoxyCompactList}\item 
+\Hypertarget{class_tree_a309090e7c2780b29934e9138066d2f5b}\label{class_tree_a309090e7c2780b29934e9138066d2f5b} 
+std\+::vector$<$ int $>$ {\bfseries fa}
+\begin{DoxyCompactList}\small\item\em {\ttfamily fa\mbox{[}i\mbox{]}} is the no. of node $i$\textquotesingle{}s father. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_tree_a78498ff67c9f703e87811680ede18523}{leaves}}
+\item 
+\Hypertarget{class_tree_ac8b8579d68bd24731839951b31600c2b}\label{class_tree_ac8b8579d68bd24731839951b31600c2b} 
+bool {\bfseries weighted} = false
+\begin{DoxyCompactList}\small\item\em Denoting if the {\bfseries{edges}} are weighted or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that used to generate a tree. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tree_a45aba86850ed30224d53b17f41448b9b}\label{class_tree_a45aba86850ed30224d53b17f41448b9b} 
+\index{Tree@{Tree}!chain@{chain}}
+\index{chain@{chain}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{chain()}{chain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::chain (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree that is a chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a21f1d20aa881ee0a4ff96fbdd5b43ed8}\label{class_tree_a21f1d20aa881ee0a4ff96fbdd5b43ed8} 
+\index{Tree@{Tree}!chain\_and\_flower@{chain\_and\_flower}}
+\index{chain\_and\_flower@{chain\_and\_flower}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{chain\_and\_flower()}{chain\_and\_flower()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::chain\+\_\+and\+\_\+flower (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{double}]{chain\+\_\+percent = {\ttfamily 0.3},  }\item[{double}]{flower\+\_\+percent = {\ttfamily 0.3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree with chain size is about chain\+\_\+percent \texorpdfstring{$\ast$}{*} size and flower size is about flower\+\_\+percent \texorpdfstring{$\ast$}{*} size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated \\
+\hline
+{\em chain\+\_\+percent} & the percent of the chain size. \\
+\hline
+{\em flower\+\_\+percent} & the percent of the flower size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1, or chain\+\_\+percent + flower\+\_\+percent \texorpdfstring{$>$}{>} 1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a5653ccb34aef3cb547293d4a731d11cc}\label{class_tree_a5653ccb34aef3cb547293d4a731d11cc} 
+\index{Tree@{Tree}!flower@{flower}}
+\index{flower@{flower}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{flower()}{flower()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::flower (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree that is a flower. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a64a7833000b32e60b603051ca4f92e29}\label{class_tree_a64a7833000b32e60b603051ca4f92e29} 
+\index{Tree@{Tree}!get\_leaves@{get\_leaves}}
+\index{get\_leaves@{get\_leaves}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{get\_leaves()}{get\_leaves()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Tree\+::get\+\_\+leaves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the leave nodes of the current tree. 
+
+\begin{DoxyReturn}{Returns}
+The leaves. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_aa16432b08d81c4e44b3448fc93fd1023}\label{class_tree_aa16432b08d81c4e44b3448fc93fd1023} 
+\index{Tree@{Tree}!init@{init}}
+\index{init@{init}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Tree\+::init (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initiate \doxylink{class_tree}{Tree} object with size {\ttfamily size}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a8371dd790e4b72aaa202e03880a89e0a}\label{class_tree_a8371dd790e4b72aaa202e03880a89e0a} 
+\index{Tree@{Tree}!log\_height\_tree@{log\_height\_tree}}
+\index{log\_height\_tree@{log\_height\_tree}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{log\_height\_tree()}{log\_height\_tree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::log\+\_\+height\+\_\+tree (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree with an expected height of $O(\log n)$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a69a4cc2441c11eca8d5de3e18b94b6df}\label{class_tree_a69a4cc2441c11eca8d5de3e18b94b6df} 
+\index{Tree@{Tree}!n\_deg\_tree@{n\_deg\_tree}}
+\index{n\_deg\_tree@{n\_deg\_tree}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{n\_deg\_tree()}{n\_deg\_tree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::n\+\_\+deg\+\_\+tree (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree with an expected max\+\_\+deg of $O(n)$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_ac09ddd1638d5d52b711e9e29344d6a1d}\label{class_tree_ac09ddd1638d5d52b711e9e29344d6a1d} 
+\index{Tree@{Tree}!print@{print}}
+\index{print@{print}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::print (\begin{DoxyParamCaption}\item[{int}]{shuffled,  }\item[{std\+::vector$<$ int $>$}]{weights = {\ttfamily std\+:\+:vector$<$int$>$\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Output the generated edges to stdout. NOTE that n will not be printed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weights} & the weights of the edges. Input weights\mbox{[}i\mbox{]} as the weight of the edge \mbox{[}fa\mbox{[}i\mbox{]}, i\mbox{]}. \\
+\hline
+{\em shuffled} & if I should print it in random order. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a3a6cb2e1759c933c712e5b6ece6c5767}\label{class_tree_a3a6cb2e1759c933c712e5b6ece6c5767} 
+\index{Tree@{Tree}!print\_fa@{print\_fa}}
+\index{print\_fa@{print\_fa}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{print\_fa()}{print\_fa()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::print\+\_\+fa (\begin{DoxyParamCaption}\item[{char}]{sep = {\ttfamily \textquotesingle{}~\textquotesingle{}},  }\item[{char}]{end = {\ttfamily \textquotesingle{}\textbackslash{}\mbox{\hyperlink{class_tree_af99cb1765b0249e5d79541313199786c}{n}}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Output the generated {\ttfamily fa} array to stdout. NOTE that n will not be printed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sep} & The seperator. \\
+\hline
+{\em end} & the end char. \\
+\hline
+{\em shuffled} & if I should print it in random order. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a8798a5d50973a15e83155a8915ff10e5}\label{class_tree_a8798a5d50973a15e83155a8915ff10e5} 
+\index{Tree@{Tree}!random\_shaped\_tree@{random\_shaped\_tree}}
+\index{random\_shaped\_tree@{random\_shaped\_tree}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{random\_shaped\_tree()}{random\_shaped\_tree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::random\+\_\+shaped\+\_\+tree (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree with random shape, that is to say, randomly chose from the methods above. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_tree_a2e2b334aa0e1acd1067b5a250c8fff5f}\label{class_tree_a2e2b334aa0e1acd1067b5a250c8fff5f} 
+\index{Tree@{Tree}!sqrt\_height\_tree@{sqrt\_height\_tree}}
+\index{sqrt\_height\_tree@{sqrt\_height\_tree}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{sqrt\_height\_tree()}{sqrt\_height\_tree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{\+\_\+\+Self}} Tree\+::sqrt\+\_\+height\+\_\+tree (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a tree with an expected height of $O(\sqrt n)$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The count of the nodes that will be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_tree_a78498ff67c9f703e87811680ede18523}\label{class_tree_a78498ff67c9f703e87811680ede18523} 
+\index{Tree@{Tree}!leaves@{leaves}}
+\index{leaves@{leaves}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{leaves}{leaves}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Tree\+::leaves}
+
+The no. of leaves. NOTE that it would be empty UNLESS you call {\ttfamily \doxylink{class_tree_a64a7833000b32e60b603051ca4f92e29}{get\+\_\+leaves()}} method. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+generator.\+h\end{DoxyCompactItemize}

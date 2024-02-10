@@ -1,0 +1,497 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_graph" xml:lang="en-US">
+<title>Graph Class Reference</title>
+<indexterm><primary>Graph</primary></indexterm>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_graph_1a7ae605b592676e2809394e150c8c5f4a"/>using <emphasis role="strong">_Self</emphasis> = <link linkend="_class_graph">Graph</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_graph_1a64c32fd43085fc46daf297281e22bd7e"/><emphasis role="strong">Graph</emphasis> (<link linkend="_class_tree">Tree</link> tr, bool direction=0)</para>
+</listitem>
+            <listitem><para><link linkend="_class_graph">_Self</link> <link linkend="_class_graph_1ab2574f13160308877cf37df23a3369b7">add</link> (<link linkend="_class_graph">Graph</link> rhs)</para>
+
+<para>Add a graph to the current graph. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_graph_1a65c2053d46fc8b21a34e8ec645b64024"/><link linkend="_class_graph">Graph</link> <emphasis role="strong">operator+</emphasis> (<link linkend="_class_graph">Graph</link> rhs)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_graph_1a13ec1e499f487dcbcd54c5f9f1c8718a"/><link linkend="_class_graph">_Self</link> <emphasis role="strong">operator+=</emphasis> (<link linkend="_class_graph">Graph</link> rhs)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_graph_1a9f5c30d5ae1831779ffa6d5e715b6525">init</link> (int size, bool directed_graph)</para>
+
+<para>init the whole graph with the size of <computeroutput>size</computeroutput>, and direct <computeroutput>directed_graph</computeroutput>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_graph_1af5220e38649c8cb3392efe7d52715884">exists</link> (int u, int v)</para>
+
+<para>To check out if the edge exists or not. </para>
+</listitem>
+            <listitem><para><link linkend="_class_graph">_Self</link> <link linkend="_class_graph_1a0776101be5ac9ebb89fd9db14c65961a">randomly_gen</link> (int size, int edges_count, bool directed_graph=false)</para>
+
+<para>Generate a graph completely random. </para>
+</listitem>
+            <listitem><para><link linkend="_class_graph">_Self</link> <link linkend="_class_graph_1ab3f5e6c0df9cf11c433d18a07e0aa654">DAG</link> (int size, int edges_count, bool ensure_connected=true)</para>
+
+<para>Generate a DAG. </para>
+</listitem>
+            <listitem><para><link linkend="_class_graph">_Self</link> <link linkend="_class_graph_1abeecc192a91f73997c12345b2ed2fa4f">forest</link> (int size, int cnt=-1)</para>
+
+<para>Generate a forest. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_graph_1a3737ac4c977eebafada3245a79ca2161">hack_spfa</link> (int size, int edges_count)</para>
+
+<para>Generate a graph, on which spfa works so slow. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_graph_1a81a76a428e630453ef019a15b9092967"/>int <emphasis role="strong">n</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_graph_1a62588670cd666f806eddd37155bdfbf3"/>int <emphasis role="strong">m</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_graph_1a3111bb6cc59aedbc4290ed1b37668336"/>bool <emphasis role="strong">directed</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_graph_1a880b068ed31f53bb1d03edf6cefba4b0"/>std::set&lt; pii &gt; <emphasis role="strong">edges</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_graph_1ab2574f13160308877cf37df23a3369b7"/><section>
+    <title>add()</title>
+<indexterm><primary>add</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>add</secondary></indexterm>
+<para><computeroutput><link linkend="_class_graph">_Self</link> Graph::add (<link linkend="_class_graph">Graph</link> rhs)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Add a graph to the current graph. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>rhs</entry><entry>
+<para>the graph to be added. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The graph itself. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the _Sequence throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_graph_1ab3f5e6c0df9cf11c433d18a07e0aa654"/><section>
+    <title>DAG()</title>
+<indexterm><primary>DAG</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>DAG</secondary></indexterm>
+<para><computeroutput><link linkend="_class_graph">_Self</link> Graph::DAG (int size, int edges_count, bool ensure_connected = <computeroutput>true</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a DAG. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this graph should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>edges_count</entry><entry>
+<para>the count of the edges. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>directed_graph</entry><entry>
+<para>is this graph directed or not. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the std::set throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_graph_1af5220e38649c8cb3392efe7d52715884"/><section>
+    <title>exists()</title>
+<indexterm><primary>exists</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>exists</secondary></indexterm>
+<para><computeroutput>bool Graph::exists (int u, int v)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>To check out if the edge exists or not. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>u, v</entry><entry>
+<para>the point number of the edge that is being checked. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>if the edge exists or not. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the std::set throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_graph_1abeecc192a91f73997c12345b2ed2fa4f"/><section>
+    <title>forest()</title>
+<indexterm><primary>forest</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>forest</secondary></indexterm>
+<para><computeroutput><link linkend="_class_graph">_Self</link> Graph::forest (int size, int cnt = <computeroutput>-1</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a forest. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this graph should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>cnt</entry><entry>
+<para>the count of the trees. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the std::set throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_graph_1a3737ac4c977eebafada3245a79ca2161"/><section>
+    <title>hack_spfa()</title>
+<indexterm><primary>hack_spfa</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>hack_spfa</secondary></indexterm>
+<para><computeroutput>void Graph::hack_spfa (int size, int edges_count)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a graph, on which spfa works so slow. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this graph should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this graph should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>edges_count</entry><entry>
+<para>the count of the edges. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the std::set throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_graph_1a9f5c30d5ae1831779ffa6d5e715b6525"/><section>
+    <title>init()</title>
+<indexterm><primary>init</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>init</secondary></indexterm>
+<para><computeroutput>void Graph::init (int size, bool directed_graph)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>init the whole graph with the size of <computeroutput>size</computeroutput>, and direct <computeroutput>directed_graph</computeroutput>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this graph should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>directed_graph</entry><entry>
+<para>is this graph directed or not. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the std::set throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_graph_1a0776101be5ac9ebb89fd9db14c65961a"/><section>
+    <title>randomly_gen()</title>
+<indexterm><primary>randomly_gen</primary><secondary>Graph</secondary></indexterm>
+<indexterm><primary>Graph</primary><secondary>randomly_gen</secondary></indexterm>
+<para><computeroutput><link linkend="_class_graph">_Self</link> Graph::randomly_gen (int size, int edges_count, bool directed_graph = <computeroutput>false</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Generate a graph completely random. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>size</entry><entry>
+<para>how large this graph should be. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>edges_count</entry><entry>
+<para>the count of the edges. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>directed_graph</entry><entry>
+<para>is this graph directed or not. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>no return. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>It</entry><entry>
+<para>throws what the std::set throws. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+generator.h</section>
+</section>

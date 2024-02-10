@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_validator" xml:lang="en-US">
+<title>Validator Class Reference</title>
+<indexterm><primary>Validator</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_validator_1aeb0b49097c1087062e53aac935028b47"/>void <emphasis role="strong">initialize</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a302f9e1dada936024fbb9ba1df4584fa"/>std::string <emphasis role="strong">testset</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a6e369a966da7b21efa5a9f43c05c0bc4"/>std::string <emphasis role="strong">group</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a487fd29bc4d2e64ad3dfe1d02cde353b"/>std::string <emphasis role="strong">testOverviewLogFileName</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a381a78834499e48587efca2376747ce8"/>std::string <emphasis role="strong">testMarkupFileName</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a9e106664d07fbf5f535cd66d27ab0e7c"/>int <emphasis role="strong">testCase</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a5968d80e9fb476b8cd4315a51318e3c4"/>std::string <emphasis role="strong">testCaseFileName</emphasis> () const</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a98abe366b29d8445a77b0a8467dceb41"/>void <emphasis role="strong">setTestset</emphasis> (const char *const testset)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1aad2457aadd48a75837e2770aa6c380bb"/>void <emphasis role="strong">setGroup</emphasis> (const char *const group)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a759723fc94643a78cc0b14da68b0107e"/>void <emphasis role="strong">setTestOverviewLogFileName</emphasis> (const char *const testOverviewLogFileName)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a82a648685268dc91e9bf48f1c4fb8d57"/>void <emphasis role="strong">setTestMarkupFileName</emphasis> (const char *const testMarkupFileName)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ab4fd3b0dbe4e35310a9c7b0b7c2a411d"/>void <emphasis role="strong">setTestCase</emphasis> (int testCase)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1abe2f949d8c9bff6fe61e0f9fab6e68e4"/>void <emphasis role="strong">setTestCaseFileName</emphasis> (const char *const testCaseFileName)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1af116e261ded245f21c249bccd6db5628"/>std::string <emphasis role="strong">prepVariableName</emphasis> (const std::string &amp;variableName)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1aac12f8f1d2ce11e029f6d370d4706373"/>bool <emphasis role="strong">ignoreMinBound</emphasis> (const std::string &amp;variableName)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ad076fd6410b4468890720fb73ae7045a"/>bool <emphasis role="strong">ignoreMaxBound</emphasis> (const std::string &amp;variableName)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ae8b56de5926c72fbfdd537f1b1d7eadd"/>void <emphasis role="strong">addBoundsHit</emphasis> (const std::string &amp;variableName, <link linkend="_struct_validator_bounds_hit">ValidatorBoundsHit</link> boundsHit)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a2c32c475bb31fb5ca96ed0ac3921417d"/>std::string <emphasis role="strong">getBoundsHitLog</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ab8c173d330b6ead6d5f51587213cfe7b"/>std::string <emphasis role="strong">getFeaturesLog</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ac71a3aab99085ef6da45357db1d0fd5a"/>void <emphasis role="strong">writeTestOverviewLog</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1aca38cbb740f48b16c3d5efa5a2c9fc0b"/>void <emphasis role="strong">writeTestMarkup</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ac0567612d6c3449a42bccd3930cda249"/>void <emphasis role="strong">writeTestCase</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1ad584b1395f153ccfedf884750ff10f70"/>void <emphasis role="strong">addFeature</emphasis> (const std::string &amp;feature)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_validator_1a85dd9d919dbd6668399ca595658bba80"/>void <emphasis role="strong">feature</emphasis> (const std::string &amp;feature)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>

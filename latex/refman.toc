@@ -1,0 +1,120 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}CPgen}{1}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Quick Start}{1}{subsection.1.0.1}%
+\contentsline {subsection}{\numberline {1.0.2}Usages}{1}{subsection.1.0.2}%
+\contentsline {subsection}{\numberline {1.0.3}FAQs}{2}{subsection.1.0.3}%
+\contentsline {chapter}{\numberline {2}CPgen}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Quick Start}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Usages}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}FAQs}{4}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Hierarchical Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class Hierarchy}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Class List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}File Index}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}File List}{9}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Class Documentation}{11}{chapter.6}%
+\contentsline {section}{\numberline {6.1}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}random Class Reference}{11}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{11}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Member Function Documentation}{11}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}get\_prime()}{11}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}shuffle()}{12}{subsubsection.6.1.2.2}%
+\contentsline {section}{\numberline {6.2}Array$<$ \discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tp $>$ Class Template Reference}{12}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{14}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Member Function Documentation}{14}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}ascending\_array()}{14}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}basic\_gen()}{14}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}begin()}{15}{subsubsection.6.2.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.2.4}binary\_gen()}{15}{subsubsection.6.2.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.2.5}constant\_sum()}{16}{subsubsection.6.2.2.5}%
+\contentsline {subsubsection}{\numberline {6.2.2.6}decending\_array()}{16}{subsubsection.6.2.2.6}%
+\contentsline {subsubsection}{\numberline {6.2.2.7}end()}{17}{subsubsection.6.2.2.7}%
+\contentsline {subsubsection}{\numberline {6.2.2.8}generate\_function()}{17}{subsubsection.6.2.2.8}%
+\contentsline {subsubsection}{\numberline {6.2.2.9}generate\_iterate\_function()}{17}{subsubsection.6.2.2.9}%
+\contentsline {subsubsection}{\numberline {6.2.2.10}init()}{18}{subsubsection.6.2.2.10}%
+\contentsline {subsubsection}{\numberline {6.2.2.11}operator[]()}{18}{subsubsection.6.2.2.11}%
+\contentsline {subsubsection}{\numberline {6.2.2.12}permutation()}{19}{subsubsection.6.2.2.12}%
+\contentsline {subsubsection}{\numberline {6.2.2.13}perturbe()}{19}{subsubsection.6.2.2.13}%
+\contentsline {subsubsection}{\numberline {6.2.2.14}print()}{20}{subsubsection.6.2.2.14}%
+\contentsline {subsubsection}{\numberline {6.2.2.15}reverse()}{20}{subsubsection.6.2.2.15}%
+\contentsline {subsubsection}{\numberline {6.2.2.16}shuffle()}{21}{subsubsection.6.2.2.16}%
+\contentsline {subsubsection}{\numberline {6.2.2.17}sort()}{21}{subsubsection.6.2.2.17}%
+\contentsline {subsubsection}{\numberline {6.2.2.18}sum()}{21}{subsubsection.6.2.2.18}%
+\contentsline {subsubsection}{\numberline {6.2.2.19}to\_diffrence()}{22}{subsubsection.6.2.2.19}%
+\contentsline {section}{\numberline {6.3}Buffered\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reader Class Reference}{22}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Member Function Documentation}{23}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}close()}{23}{subsubsection.6.3.1.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.2}curChar()}{23}{subsubsection.6.3.1.2}%
+\contentsline {subsubsection}{\numberline {6.3.1.3}eof()}{23}{subsubsection.6.3.1.3}%
+\contentsline {subsubsection}{\numberline {6.3.1.4}getLine()}{23}{subsubsection.6.3.1.4}%
+\contentsline {subsubsection}{\numberline {6.3.1.5}getName()}{23}{subsubsection.6.3.1.5}%
+\contentsline {subsubsection}{\numberline {6.3.1.6}getReadChars()}{24}{subsubsection.6.3.1.6}%
+\contentsline {subsubsection}{\numberline {6.3.1.7}nextChar()}{24}{subsubsection.6.3.1.7}%
+\contentsline {subsubsection}{\numberline {6.3.1.8}setTestCase()}{24}{subsubsection.6.3.1.8}%
+\contentsline {subsubsection}{\numberline {6.3.1.9}skipChar()}{24}{subsubsection.6.3.1.9}%
+\contentsline {subsubsection}{\numberline {6.3.1.10}unreadChar()}{24}{subsubsection.6.3.1.10}%
+\contentsline {section}{\numberline {6.4}Checker Class Reference}{24}{section.6.4}%
+\contentsline {section}{\numberline {6.5}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reader Class Reference}{25}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Member Function Documentation}{25}{subsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.1}close()}{25}{subsubsection.6.5.1.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.2}curChar()}{25}{subsubsection.6.5.1.2}%
+\contentsline {subsubsection}{\numberline {6.5.1.3}eof()}{25}{subsubsection.6.5.1.3}%
+\contentsline {subsubsection}{\numberline {6.5.1.4}getLine()}{25}{subsubsection.6.5.1.4}%
+\contentsline {subsubsection}{\numberline {6.5.1.5}getName()}{26}{subsubsection.6.5.1.5}%
+\contentsline {subsubsection}{\numberline {6.5.1.6}getReadChars()}{26}{subsubsection.6.5.1.6}%
+\contentsline {subsubsection}{\numberline {6.5.1.7}nextChar()}{26}{subsubsection.6.5.1.7}%
+\contentsline {subsubsection}{\numberline {6.5.1.8}setTestCase()}{26}{subsubsection.6.5.1.8}%
+\contentsline {subsubsection}{\numberline {6.5.1.9}skipChar()}{26}{subsubsection.6.5.1.9}%
+\contentsline {subsubsection}{\numberline {6.5.1.10}unreadChar()}{26}{subsubsection.6.5.1.10}%
+\contentsline {section}{\numberline {6.6}Gen\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Exception Struct Reference}{27}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{27}{subsection.6.6.1}%
+\contentsline {section}{\numberline {6.7}Geometry$<$ Point\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type $>$ Class Template Reference}{27}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Graph Class Reference}{28}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Member Function Documentation}{28}{subsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.1}add()}{28}{subsubsection.6.8.1.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.2}DAG()}{29}{subsubsection.6.8.1.2}%
+\contentsline {subsubsection}{\numberline {6.8.1.3}exists()}{29}{subsubsection.6.8.1.3}%
+\contentsline {subsubsection}{\numberline {6.8.1.4}forest()}{30}{subsubsection.6.8.1.4}%
+\contentsline {subsubsection}{\numberline {6.8.1.5}hack\_spfa()}{30}{subsubsection.6.8.1.5}%
+\contentsline {subsubsection}{\numberline {6.8.1.6}init()}{31}{subsubsection.6.8.1.6}%
+\contentsline {subsubsection}{\numberline {6.8.1.7}randomly\_gen()}{31}{subsubsection.6.8.1.7}%
+\contentsline {section}{\numberline {6.9}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reader Class Reference}{32}{section.6.9}%
+\contentsline {section}{\numberline {6.10}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Struct Reference}{32}{section.6.10}%
+\contentsline {section}{\numberline {6.11}pattern Class Reference}{35}{section.6.11}%
+\contentsline {section}{\numberline {6.12}Point$<$ Point\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type $>$ Struct Template Reference}{35}{section.6.12}%
+\contentsline {section}{\numberline {6.13}random\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Class Reference}{36}{section.6.13}%
+\contentsline {section}{\numberline {6.14}String Class Reference}{37}{section.6.14}%
+\contentsline {section}{\numberline {6.15}String\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reader Class Reference}{38}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Member Function Documentation}{38}{subsection.6.15.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.1}close()}{38}{subsubsection.6.15.1.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.2}curChar()}{38}{subsubsection.6.15.1.2}%
+\contentsline {subsubsection}{\numberline {6.15.1.3}eof()}{38}{subsubsection.6.15.1.3}%
+\contentsline {subsubsection}{\numberline {6.15.1.4}getLine()}{38}{subsubsection.6.15.1.4}%
+\contentsline {subsubsection}{\numberline {6.15.1.5}getName()}{39}{subsubsection.6.15.1.5}%
+\contentsline {subsubsection}{\numberline {6.15.1.6}getReadChars()}{39}{subsubsection.6.15.1.6}%
+\contentsline {subsubsection}{\numberline {6.15.1.7}nextChar()}{39}{subsubsection.6.15.1.7}%
+\contentsline {subsubsection}{\numberline {6.15.1.8}setTestCase()}{39}{subsubsection.6.15.1.8}%
+\contentsline {subsubsection}{\numberline {6.15.1.9}skipChar()}{39}{subsubsection.6.15.1.9}%
+\contentsline {subsubsection}{\numberline {6.15.1.10}unreadChar()}{39}{subsubsection.6.15.1.10}%
+\contentsline {section}{\numberline {6.16}Testlib\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Finalize\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Guard Struct Reference}{39}{section.6.16}%
+\contentsline {section}{\numberline {6.17}Tree Class Reference}{40}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Detailed Description}{41}{subsection.6.17.1}%
+\contentsline {subsection}{\numberline {6.17.2}Member Function Documentation}{41}{subsection.6.17.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.1}chain()}{41}{subsubsection.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.2.2}chain\_and\_flower()}{41}{subsubsection.6.17.2.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.3}flower()}{42}{subsubsection.6.17.2.3}%
+\contentsline {subsubsection}{\numberline {6.17.2.4}get\_leaves()}{42}{subsubsection.6.17.2.4}%
+\contentsline {subsubsection}{\numberline {6.17.2.5}init()}{43}{subsubsection.6.17.2.5}%
+\contentsline {subsubsection}{\numberline {6.17.2.6}log\_height\_tree()}{43}{subsubsection.6.17.2.6}%
+\contentsline {subsubsection}{\numberline {6.17.2.7}n\_deg\_tree()}{43}{subsubsection.6.17.2.7}%
+\contentsline {subsubsection}{\numberline {6.17.2.8}print()}{44}{subsubsection.6.17.2.8}%
+\contentsline {subsubsection}{\numberline {6.17.2.9}random\_shaped\_tree()}{44}{subsubsection.6.17.2.9}%
+\contentsline {subsubsection}{\numberline {6.17.2.10}sqrt\_height\_tree()}{45}{subsubsection.6.17.2.10}%
+\contentsline {subsection}{\numberline {6.17.3}Member Data Documentation}{45}{subsection.6.17.3}%
+\contentsline {subsubsection}{\numberline {6.17.3.1}leaves}{45}{subsubsection.6.17.3.1}%
+\contentsline {section}{\numberline {6.18}Validator Class Reference}{45}{section.6.18}%
+\contentsline {section}{\numberline {6.19}Validator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bounds\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Hit Struct Reference}{46}{section.6.19}%
+\contentsline {chapter}{\numberline {7}File Documentation}{47}{chapter.7}%
+\contentsline {section}{\numberline {7.1}generator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{47}{section.7.1}%
+\contentsline {section}{\numberline {7.2}testlib.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{53}{section.7.2}%
+\contentsline {chapter}{Index}{125}{section*.44}%

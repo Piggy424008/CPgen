@@ -1,0 +1,736 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__c_pgen" xml:lang="en-US">
+<title>CPgen</title>
+<indexterm><primary>CPgen</primary></indexterm>
+
+<para><anchor xml:id="_md__c_pgen_1autotoc_md0"/></para>
+<section xml:id="_md__c_pgen_1autotoc_md1">
+<title><title>Quick Start</title></title>
+
+<para>Seeing the awkward situation happened in the 2023 ICPC Asia Xiaan Regional Contest, The author wrote this. <?linebreak?></para>
+
+<para>CPgen stands for Competitive Programming Data Generator.It is a project aimed to be a useful generator that can safely and conveniently used in Competitive Programming(OI, ICPC, etc.). <?linebreak?></para>
+
+<para>CPgen is hoped to be a library that help problem makers to save their time on data-making.</para>
+
+<para>Here is an example of a generator using CPgen: <literallayout><computeroutput>#include&#32;&quot;../generator/generator.h&quot;
+
+int&#32;main(int&#32;argc,&#32;char**&#32;argv)&#32;{
+&#32;&#32;&#32;&#32;registerGen(argc,&#32;argv,&#32;1);
+&#32;&#32;&#32;&#32;int&#32;n&#32;=&#32;rnd.next(1,&#32;1000),&#32;m&#32;=&#32;rnd.next(1,&#32;1000);
+&#32;&#32;&#32;&#32;println(n,&#32;m);
+&#32;&#32;&#32;&#32;Array&lt;int&gt;&#32;arr;&#32;arr.basic_gen(m,&#32;1,&#32;10&#32;*&#32;sqrt(n)).print();
+}
+</computeroutput></literallayout> This example generates an array with size of $m$, whose elements are integers from $1$ to $10\sqrt{n}$, and print $n, m$ and the array to the standard output.</para>
+
+<para>You should note that CPgen is based on testlib. So you are required to have <link xlink:href="https://github.com/MikeMirzayanov/testlib">testlib.h</link> in your working directory (or in your environment path).</para>
+
+<para>To get the latest version of CPgen, download its source code via <link xlink:href="https://github.com/Piggy424008/CPgen">repo</link>.</para>
+</section>
+<section xml:id="_md__c_pgen_1autotoc_md2">
+<title><title>Usages</title></title>
+
+<para>When looking through the docs of CPgen, you should note that the first place in std::vector is ignored by CPgen. That&apos;s to say, every vector used in CPgen is 1-indexed. And, <computeroutput>std::vector&lt;_Tp&gt;().size()</computeroutput> means <computeroutput>*this.size() - 1</computeroutput> in the implement.</para>
+<section xml:id="_md__c_pgen_1autotoc_md3">
+<title><title>Basis</title></title>
+
+<para>Typename <computeroutput>i64_ll = long long</computeroutput>, define <computeroutput>long long</computeroutput> as <computeroutput>i64_ll</computeroutput>.</para>
+
+<para>Typename <computeroutput>i128_ll = __int128_t</computeroutput>, define <computeroutput>__int128_t</computeroutput> as <computeroutput>i128_ll</computeroutput>.</para>
+
+<para>Typename <computeroutput>pii = std::pair&lt;int, int&gt;</computeroutput>, define <computeroutput>std::pair&lt;int, int&gt;</computeroutput> as <computeroutput>pii</computeroutput>.</para>
+
+<para>Variable <computeroutput>double eps = 1e-12</computeroutput>: The accuracy of CPgen. If $\text{abs}(a-b)&lt;\text{eps}$, then $a$ and $b$ are treated as equals.</para>
+
+<para>Function <computeroutput>void Quit(Args... params)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Print some infomation to standard output and quit.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{params}$   </para>
+</entry><entry align='center'>
+<para>Any. Anything that can be printed, with any number.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>No return.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Function <computeroutput>inline i64_ll qpow(i64_ll a, i64_ll b, i64_ll mod)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>calculate $a^b\bmod mod$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$a, b, mod$   </para>
+</entry><entry align='center'>
+<para>Any <computeroutput>i64_ll</computeroutput>.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>Return the result.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Function <computeroutput>inline bool is_prime(i64_ll n)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Check if $n$ is a prime.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$n$   </para>
+</entry><entry align='center'>
+<para>Any <computeroutput>i64_ll</computeroutput>.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>Return the result.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_pgen_1autotoc_md4">
+<title><title>class <computeroutput>_random</computeroutput></title></title>
+
+<para>Method <computeroutput>inline _Tp choice(std::vector&lt;_Tp&gt; array, int l = 1, int r = -1)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Randomly choose an element in array, indexes from $l$ to $r$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{array}$   </para>
+</entry><entry align='center'>
+<para>Any std::vector&lt;_Tp&gt;.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>$l$   </para>
+</entry><entry align='center'>
+<para>The left bound that should be choosed.Default as $1$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$r$   </para>
+</entry><entry align='center'>
+<para>The right bound that should be choosed.Default as <computeroutput>array.size()</computeroutput>.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The chosen element.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline std::vector&lt;_Tp&gt; shuffle(std::vector&lt;_Tp&gt; array, int l = 1, int r = -1)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Shuffle the array in-place, indexes from $l$ to $r$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{array}$   </para>
+</entry><entry align='center'>
+<para>Any std::vector&lt;_Tp&gt;.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>$l$   </para>
+</entry><entry align='center'>
+<para>The left bound that should be shuffled.Default as $1$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$r$   </para>
+</entry><entry align='center'>
+<para>The right bound that should be shuffled.Default as <computeroutput>array.size()</computeroutput>.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The shuffled array.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Tp get_prime(_Tp l, _Tp r)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>get a prime $p\in[l, r]$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$l$   </para>
+</entry><entry align='center'>
+<para>The left bound of the section.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>$r$   </para>
+</entry><entry align='center'>
+<para>The right bound of the section.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The generated prime.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para>When it failed to gen a prime after $5$ times of iteration, it throws an error <computeroutput>I suspected that there&apos;s no prime from {l} to {r}.</computeroutput> and quit the program.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md__c_pgen_1autotoc_md5">
+<title><title>class <computeroutput>Tree</computeroutput></title></title>
+
+<para>Variable <computeroutput>int n</computeroutput>: The count of the tree&apos;s points.</para>
+
+<para>Variable <computeroutput>bool weighted</computeroutput>: Denoting if the <emphasis role="bold">edges</emphasis> are weighted or not.</para>
+
+<para>Variable <computeroutput>std::vector&lt;int&gt; fa</computeroutput>: <computeroutput>fa[i]</computeroutput> is the no. of node $i$&apos;s father.</para>
+
+<para>Variable <computeroutput>std::vector&lt;int&gt; leaves</computeroutput>: The no. of leaves. NOTE that it would be empty UNLESS you call <computeroutput>get_leaves()</computeroutput> method.</para>
+
+<para>Method <computeroutput>inline void init(int size)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Initiate <link linkend="_class_tree">Tree</link> object with size <computeroutput>size</computeroutput>.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>No return.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Self sqrt_height_tree(int size)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree with an expected height of $O(\sqrt n)$    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Self log_height_tree(int size)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree with an expected height of $O(\log n)$    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Self chain(int size)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree that is a chain.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Self flower(int size)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree that is a flower.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Self n_deg_tree(int size)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree with an expected max_deg of $O(n)$.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline void chain_and_flower(int size, double chain_percent = 0.3, double flower_percent = 0.3)</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree with chain size is about chain_percent * size and flower size is about flower_percent * size.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>$\text{chain percent}$   </para>
+</entry><entry align='center'>
+<para>the percent of the chain size.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{flower percent}$   </para>
+</entry><entry align='center'>
+<para>the percent of the flower size.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$, or chain_percent + flower_percent &gt; 1.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline _Self random_shaped_tree(int size))</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Generate a tree with random shape, that is to say, randomly chose from the methods above.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{size}$   </para>
+</entry><entry align='center'>
+<para>The count of the nodes that will be generated.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline void print(int shuffled, std::vector&lt;int&gt; weights = std::vector&lt;int&gt;{})</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Output the generated tree to stdout. NOTE that n will not be printed.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>$\text{weights}$   </para>
+</entry><entry align='center'>
+<para>The weights of the edges. Input <computeroutput>weights[i]</computeroutput> as the weight of the edge <computeroutput>[fa[i], i]</computeroutput>.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The graph itself.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para><computeroutput>out_of_range</computeroutput> if size is an invalid node count, e.g. $-1$.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Method <computeroutput>inline std::vector&lt;int&gt; get_leaves()</computeroutput>: <?linebreak?> <informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='center'>
+<para>name   </para>
+</entry><entry align='center'>
+<para>description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>brief   </para>
+</entry><entry align='center'>
+<para>Get the leave nodes of the current tree.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='center'>
+<para>return   </para>
+</entry><entry align='center'>
+<para>The leaves.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='center'>
+<para>throw   </para>
+</entry><entry align='center'>
+<para>It throws what <computeroutput>std::vector&lt;int&gt;</computeroutput> throws.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md__c_pgen_1autotoc_md6">
+<title><title>FAQs</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>I generate exactly the same data while I run it many times. Why is that? <?linebreak?></para>
+</listitem></itemizedlist>
+</para>
+
+<para>It indeed testlib fault. To ensure the generator can generator exactly the same data somehow, the seed of rnd(the RNG of testlib) is calculated by the command you type when you ran it. Try to run it with different args. For example, try: <literallayout><computeroutput>&gt;&gt;&gt;&#32;./foo&#32;CPgen
+&gt;&gt;&gt;&#32;./foo&#32;Piggy424008
+&gt;&gt;&gt;&#32;./foo&#32;cplusplus
+</computeroutput></literallayout> Then it&apos;s expected to generate some different data. </para>
+</section>
+</section>

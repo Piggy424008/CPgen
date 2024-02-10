@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_generator_8h_source" xml:lang="en-US">
+<title>generator.h</title>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#include&#32;&lt;cassert&gt;</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&lt;numeric&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+5 <emphasis role="preprocessor">#include&#32;&quot;testlib.h&quot;</emphasis>
+6 
+7 <emphasis role="keyword">using&#32;</emphasis>pii&#32;=&#32;std::pair&lt;int,&#32;int&gt;;
+8 <emphasis role="keyword">using&#32;</emphasis>i64_ll&#32;=&#32;<emphasis role="keywordtype">long</emphasis>&#32;long;
+9 <emphasis role="keyword">using&#32;</emphasis>i128_ll&#32;=&#32;__int128_t;
+10 
+11 <emphasis role="keywordtype">double</emphasis>&#32;eps&#32;=&#32;1e-12;
+12 
+16 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_gen_exception">GenException</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;std::exception&#32;{
+17 &#32;&#32;&#32;&#32;std::string&#32;_msg;
+18 &#32;&#32;&#32;&#32;<link linkend="_struct_gen_exception">GenException</link>(std::string&#32;msg)&#32;{&#32;_msg&#32;=&#32;msg;&#32;}
+19 &#32;&#32;&#32;&#32;<link linkend="_struct_gen_exception">GenException</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;msg)&#32;{&#32;_msg&#32;=&#32;msg;&#32;}
+20 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;what()&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordflow">throw</emphasis>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;_msg.data();&#32;}
+21 };
+27 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>...&#32;Args&gt;
+28 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;Quit(Args...&#32;params)&#32;{
+29 &#32;&#32;&#32;&#32;((std::cout&#32;&lt;&lt;&#32;params&#32;&lt;&lt;&#32;<emphasis role="charliteral">&apos;&#32;&apos;</emphasis>),&#32;...);
+30 &#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>;
+31 &#32;&#32;&#32;&#32;exit(1);
+32 }
+33 
+39 <emphasis role="keyword">inline</emphasis>&#32;i64_ll&#32;qpow(i64_ll&#32;a,&#32;i64_ll&#32;b,&#32;i64_ll&#32;mod)&#32;{
+40 &#32;&#32;&#32;&#32;assert(b&#32;&gt;=&#32;0);
+41 &#32;&#32;&#32;&#32;i64_ll&#32;ans&#32;=&#32;1;
+42 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(b)&#32;{
+43 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(b&#32;&amp;&#32;1)
+44 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ans&#32;=&#32;1ll&#32;*&#32;ans&#32;*&#32;a&#32;%&#32;mod;
+45 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;a&#32;=&#32;1ll&#32;*&#32;a&#32;*&#32;a&#32;%&#32;mod;
+46 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b&#32;&gt;&gt;=&#32;1;
+47 &#32;&#32;&#32;&#32;}
+48 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ans;
+49 }
+50 
+56 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;is_prime(i64_ll&#32;n)&#32;{
+57 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(n&#32;&lt;&#32;3&#32;||&#32;n&#32;%&#32;2&#32;==&#32;0)
+58 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;n&#32;==&#32;2;
+59 &#32;&#32;&#32;&#32;i64_ll&#32;u&#32;=&#32;n&#32;-&#32;1,&#32;t&#32;=&#32;0;
+60 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(u&#32;%&#32;2&#32;==&#32;0)
+61 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;u&#32;/=&#32;2,&#32;++t;
+62 &#32;&#32;&#32;&#32;i64_ll&#32;ud[]&#32;=&#32;{2,&#32;325,&#32;9375,&#32;28178,&#32;450775,&#32;9780504,&#32;1795265022};
+63 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(i64_ll&#32;a&#32;:&#32;ud)&#32;{
+64 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i128_ll&#32;v&#32;=&#32;qpow(a,&#32;u,&#32;n);
+65 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;==&#32;1&#32;||&#32;v&#32;==&#32;n&#32;-&#32;1&#32;||&#32;v&#32;==&#32;0)
+66 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">continue</emphasis>;
+67 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;j&#32;=&#32;1;&#32;j&#32;&lt;=&#32;t;&#32;j++)&#32;{
+68 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;v&#32;=&#32;v&#32;*&#32;v&#32;%&#32;n;
+69 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;==&#32;n&#32;-&#32;1&#32;&amp;&amp;&#32;j&#32;!=&#32;t)&#32;{
+70 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;v&#32;=&#32;1;
+71 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+72 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+73 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;==&#32;1)
+74 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+75 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+76 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;!=&#32;1)
+77 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+78 &#32;&#32;&#32;&#32;}
+79 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+80 }
+81 
+85 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class__random">_random</link>&#32;{
+86 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+95 &#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;_Tp&gt;
+96 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::vector&lt;_Tp&gt;&#32;<link linkend="_class__random_1a59c9323db09bfd4d275fcd65494718ab">shuffle</link>(std::vector&lt;_Tp&gt;&#32;array,
+97 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;l&#32;=&#32;1,
+98 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;r&#32;=&#32;-1)&#32;{
+99 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!~r)
+100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;r&#32;=&#32;array.size()&#32;-&#32;1;
+101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;l&#32;+&#32;1;&#32;i&#32;&lt;=&#32;r;&#32;i++)
+102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::swap(array.at(i),&#32;array.at(rnd.next(l,&#32;i&#32;-&#32;1)));
+103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;array;
+104 &#32;&#32;&#32;&#32;}
+115 &#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;_Tp&gt;
+116 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;_Tp&#32;<link linkend="_class__random_1a81ef433800b87df116a19edc0009f9c2">get_prime</link>(_Tp&#32;l,&#32;_Tp&#32;r)&#32;{
+117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;times&#32;=&#32;5;
+118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(times--&#32;&gt;&#32;0)&#32;{
+119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_Tp&#32;base&#32;=&#32;rnd.next(l,&#32;r);
+120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!is_prime(base)&#32;&amp;&amp;&#32;base&#32;&lt;=&#32;r)
+121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;base++;
+122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(base&#32;==&#32;r)
+123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">continue</emphasis>;
+124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;base;
+125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Quit(format(<emphasis role="stringliteral">&quot;I&#32;suspected&#32;that&#32;there&apos;s&#32;no&#32;prime&#32;from&#32;%lld&#32;to&#32;%lld.&quot;</emphasis>,&#32;l,
+127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;r));
+128 &#32;&#32;&#32;&#32;}
+129 }&#32;_rnd;
+130 
+139 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;T&gt;
+140 <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;print(std::vector&lt;T&gt;&#32;vec,&#32;<emphasis role="keywordtype">char</emphasis>&#32;sep&#32;=&#32;<emphasis role="charliteral">&apos;&#32;&apos;</emphasis>,&#32;<emphasis role="keywordtype">char</emphasis>&#32;end&#32;=&#32;<emphasis role="charliteral">&apos;\n&apos;</emphasis>)&#32;{
+141 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">auto</emphasis>&amp;&amp;&#32;i&#32;:&#32;vec)&#32;{
+142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;i&#32;&lt;&lt;&#32;sep;
+143 &#32;&#32;&#32;&#32;}
+144 &#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;end;
+145 }
+146 
+147 <emphasis role="preprocessor">#define&#32;warn&#32;printf</emphasis>
+148 
+152 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_tree">Tree</link>&#32;{
+153 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+154 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+155 &#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>;&#32;&#32;&#32;&#32;&#32;&#32;
+156 &#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;<link linkend="_class_tree_1a78498ff67c9f703e87811680ede18523">leaves</link>;&#32;&#32;
+158 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_tree_1ac8b8579d68bd24731839951b31600c2b">weighted</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;&#32;&#32;
+159 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis><link linkend="_class_tree">_Self</link>&#32;=&#32;<link linkend="_class_tree">Tree</link>;
+166 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.clear(),&#32;<link linkend="_class_tree_1a78498ff67c9f703e87811680ede18523">leaves</link>.clear();
+168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(size&#32;&lt;&#32;1)
+169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<link linkend="_struct_gen_exception">GenException</link>(
+170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;format(<emphasis role="stringliteral">&quot;Invalid&#32;&apos;n&apos;&#32;has&#32;been&#32;passed&#32;in&#32;`init`:&#32;%d&quot;</emphasis>,&#32;size));
+171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>&#32;=&#32;size;
+172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.resize(size&#32;+&#32;1);
+173 &#32;&#32;&#32;&#32;}
+180 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a2e2b334aa0e1acd1067b5a250c8fff5f">sqrt_height_tree</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(size);
+182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;p(size&#32;-&#32;1);
+183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size&#32;-&#32;2;&#32;i++)
+184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;p.at(i)&#32;=&#32;rnd.next(1,&#32;size);
+185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;d(size&#32;+&#32;1);
+186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size&#32;-&#32;2;&#32;++i)
+187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;d.at(p.at(i))++;
+188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;p.at(size&#32;-&#32;1)&#32;=&#32;size;
+189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1,&#32;j&#32;=&#32;1;&#32;i&#32;&lt;&#32;size;&#32;++i,&#32;++j)&#32;{
+190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(d.at(j))
+191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;++j;
+192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(j)&#32;=&#32;p.at(i);
+193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(i&#32;&lt;&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>&#32;&amp;&amp;&#32;!--d.at(p.at(i))&#32;&amp;&amp;&#32;p.at(i)&#32;&lt;&#32;j)
+194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(p.at(i))&#32;=&#32;p.at(i&#32;+&#32;1),&#32;++i;
+195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>)&#32;=&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(1),&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(1)&#32;=&#32;0;
+197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;==&#32;1)
+199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;size;
+200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+201 &#32;&#32;&#32;&#32;}
+208 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a8371dd790e4b72aaa202e03880a89e0a">log_height_tree</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(size);
+210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;rnd.next(1,&#32;i&#32;-&#32;1);
+212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+213 &#32;&#32;&#32;&#32;}
+220 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a45aba86850ed30224d53b17f41448b9b">chain</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(size);
+222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;i&#32;-&#32;1;
+224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+225 &#32;&#32;&#32;&#32;}
+232 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a5653ccb34aef3cb547293d4a731d11cc">flower</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(size);
+234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;1;
+236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+237 &#32;&#32;&#32;&#32;}
+244 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a69a4cc2441c11eca8d5de3e18b94b6df">n_deg_tree</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(size);
+246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;flowers_count&#32;=&#32;rnd.next(1,&#32;10);
+247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;is_flower(size&#32;+&#32;1);
+248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;is_flower.at(i)&#32;=&#32;0;
+250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;nodes;
+251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;flowers_count;&#32;i++)&#32;{
+252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;node&#32;=&#32;rnd.next(1,&#32;size);
+253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(is_flower.at(node)&#32;==&#32;1)&#32;{
+254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i--;
+255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">continue</emphasis>;
+256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;is_flower.at(node)&#32;=&#32;1;
+258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;nodes.push_back(node);
+259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(is_flower.at(i))
+262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;1;
+263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;rnd.any(nodes);
+265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+266 &#32;&#32;&#32;&#32;}
+277 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a21f1d20aa881ee0a4ff96fbdd5b43ed8">chain_and_flower</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,
+278 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;chain_percent&#32;=&#32;0.3,
+279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;flower_percent&#32;=&#32;0.3)&#32;{
+280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ensure(chain_percent&#32;+&#32;flower_percent&#32;&lt;=&#32;1);
+281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1aa16432b08d81c4e44b3448fc93fd1023">init</link>(size);
+282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;
+283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(;&#32;i&#32;&lt;&#32;size&#32;*&#32;chain_percent;&#32;i++)
+284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;i&#32;-&#32;1;
+285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;tmp&#32;=&#32;i&#32;-&#32;1;
+286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(;&#32;i&#32;&lt;&#32;size&#32;*&#32;(chain_percent&#32;+&#32;flower_percent);&#32;i++)
+287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;tmp;
+288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)&#32;=&#32;rnd.next(1,&#32;i&#32;-&#32;1);
+290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+291 &#32;&#32;&#32;&#32;}
+299 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1a8798a5d50973a15e83155a8915ff10e5">random_shaped_tree</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;idx&#32;=&#32;rnd.next(6);
+301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(idx&#32;==&#32;0)
+302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a2e2b334aa0e1acd1067b5a250c8fff5f">sqrt_height_tree</link>(size);
+303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(idx&#32;==&#32;1)
+304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a8371dd790e4b72aaa202e03880a89e0a">log_height_tree</link>(size);
+305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(idx&#32;==&#32;2)
+306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a45aba86850ed30224d53b17f41448b9b">chain</link>(size);
+307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(idx&#32;==&#32;3)
+308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a5653ccb34aef3cb547293d4a731d11cc">flower</link>(size);
+309 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(idx&#32;==&#32;4)
+310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a69a4cc2441c11eca8d5de3e18b94b6df">n_deg_tree</link>(size);
+311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(idx&#32;==&#32;5)&#32;{
+312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;cp&#32;=&#32;rnd.wnext(1.0,&#32;2),&#32;fp&#32;=&#32;rnd.next(1.0&#32;-&#32;cp);
+313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a21f1d20aa881ee0a4ff96fbdd5b43ed8">chain_and_flower</link>(size,&#32;cp,&#32;fp);
+314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+316 &#32;&#32;&#32;&#32;}
+326 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_tree">_Self</link>&#32;<link linkend="_class_tree_1ac09ddd1638d5d52b711e9e29344d6a1d">print</link>(<emphasis role="keywordtype">int</emphasis>&#32;shuffled,
+327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;weights&#32;=&#32;std::vector&lt;int&gt;{})&#32;{
+328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;output_weight&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(weights.size()&#32;==&#32;0)
+330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;output_weight&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>(weights.size())&#32;!=&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>&#32;+&#32;1)
+332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Quit(<emphasis role="stringliteral">&quot;Invalid&#32;weights.size():&#32;&quot;</emphasis>,&#32;weights.size());
+333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;order(<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>&#32;+&#32;1);
+334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::iota(order.begin(),&#32;order.end(),&#32;0);
+335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(shuffled)
+336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;order&#32;=&#32;_rnd.<link linkend="_class__random_1a59c9323db09bfd4d275fcd65494718ab">shuffle</link>(order);
+337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>;&#32;i++)
+338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(output_weight)
+339 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;println(order.at(i),&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(order.at(i)),&#32;weights.at(i));
+340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;println(order.at(i),&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(order.at(i)));
+342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+343 &#32;&#32;&#32;&#32;}
+344 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;_Self&#32;print_fa(<emphasis role="keywordtype">char</emphasis>&#32;sep&#32;=&#32;<emphasis role="charliteral">&apos;&#32;&apos;</emphasis>,&#32;<emphasis role="keywordtype">char</emphasis>&#32;end&#32;=&#32;<emphasis role="charliteral">&apos;\n&apos;</emphasis>)&#32;{
+345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>;&#32;i++)
+346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>[i]&#32;&lt;&lt;&#32;sep;
+347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;end;
+348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+349 &#32;&#32;&#32;&#32;}
+356 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::vector&lt;int&gt;&#32;<link linkend="_class_tree_1a64a7833000b32e60b603051ca4f92e29">get_leaves</link>()&#32;{
+357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;is_leave(<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>&#32;+&#32;1,&#32;1);
+358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>;&#32;i++)
+359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;is_leave.at(<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i))&#32;=&#32;0;
+360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a78498ff67c9f703e87811680ede18523">leaves</link>.clear();
+361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>;&#32;i++)
+362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(is_leave.at(i))
+363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree_1a78498ff67c9f703e87811680ede18523">leaves</link>.push_back(i);
+364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_tree_1a78498ff67c9f703e87811680ede18523">leaves</link>;
+365 &#32;&#32;&#32;&#32;}
+366 };
+367 
+371 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;_Tp&gt;
+372 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_array">Array</link>&#32;{
+373 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+374 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>_Sequence&#32;=&#32;std::vector&lt;_Tp&gt;;
+375 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis><link linkend="_class_array">_Self</link>&#32;=&#32;<link linkend="_class_array">Array&lt;_Tp&gt;</link>;
+376 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+377 &#32;&#32;&#32;&#32;_Sequence&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>;&#32;&#32;
+384 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;_Tp&amp;&#32;<link linkend="_class_array_1ab717ed7ffe253e59ff499fad29906b79">operator[]</link>(<emphasis role="keywordtype">int</emphasis>&#32;idx)&#32;{
+385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ensure(idx&#32;&lt;=&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>);
+386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(idx);
+387 &#32;&#32;&#32;&#32;}
+394 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.begin();&#32;}
+401 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_class_array_1a646cc5a2606302d44bb18cecb884c186">end</link>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.end();&#32;}
+408 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+409 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(size&#32;&lt;&#32;1)
+410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<link linkend="_struct_gen_exception">GenException</link>(
+411 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;format(<emphasis role="stringliteral">&quot;Invalid&#32;&apos;n&apos;&#32;has&#32;been&#32;passed&#32;in&#32;`init`:&#32;%d&quot;</emphasis>,&#32;size));
+412 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.clear();
+413 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>&#32;=&#32;size,&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.resize(<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>&#32;+&#32;1);
+414 &#32;&#32;&#32;&#32;}
+421 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_array_1a8732e434e7bc61b88cdb7dce78d7d36e">print</link>(<emphasis role="keywordtype">char</emphasis>&#32;sep&#32;=&#32;<emphasis role="charliteral">&apos;&#32;&apos;</emphasis>,&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_class_array_1a646cc5a2606302d44bb18cecb884c186">end</link>&#32;=&#32;<emphasis role="charliteral">&apos;\n&apos;</emphasis>)&#32;{
+422 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>;&#32;i++)
+423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)&#32;&lt;&lt;&#32;sep;
+424 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<link linkend="_class_array_1a646cc5a2606302d44bb18cecb884c186">end</link>;
+425 &#32;&#32;&#32;&#32;}
+432 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;_Tp&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>()&#32;{
+433 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_Tp&#32;current_sum&#32;=&#32;0;
+434 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">auto</emphasis>&#32;i&#32;:&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>)
+435 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current_sum&#32;+=&#32;i;
+436 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;current_sum;
+437 &#32;&#32;&#32;&#32;}
+447 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;_Tp&#32;wl,&#32;_Tp&#32;wr)&#32;{
+448 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(size);
+449 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+450 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)&#32;=&#32;rnd.next(wl,&#32;wr);
+451 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+452 &#32;&#32;&#32;&#32;}
+459 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_array_1aabb8ec61824f0867f58cd2303950cfde">sort</link>()&#32;{&#32;std::sort(<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.begin(),&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.end());&#32;}
+466 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_array_1a5f2e8fac9186f569126e3c6f711dd11d">shuffle</link>()&#32;{&#32;_rnd.<link linkend="_class__random_1a59c9323db09bfd4d275fcd65494718ab">shuffle</link>(<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>);&#32;}
+473 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_array_1aed37bf957607cb12166cb94223cf7a45">reverse</link>()&#32;{&#32;std::reverse(<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.begin(),&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.end());&#32;}
+480 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1ae3ce84779eba9ffd938ec70b8ef10092">to_diffrence</link>()&#32;{
+481 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>;&#32;i&#32;&gt;=&#32;1;&#32;i--)
+482 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)&#32;-=&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i&#32;-&#32;1);
+483 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+484 &#32;&#32;&#32;&#32;}
+492 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1ab73df970edd42433e11cb4b696209010">binary_gen</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link>(size,&#32;0,&#32;1);&#32;}
+502 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1aff0fd748e7a6b057a5f8d47766202681">ascending_array</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;_Tp&#32;wl,&#32;_Tp&#32;wr)&#32;{
+503 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(size);
+504 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link>(size,&#32;wl,&#32;wr);
+505 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(*this).sort(),&#32;(*this).shuffle();
+506 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+507 &#32;&#32;&#32;&#32;}
+517 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1a5bd07d001915f8a081c13241cac021b1">decending_array</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;_Tp&#32;wl,&#32;_Tp&#32;wr)&#32;{
+518 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1aff0fd748e7a6b057a5f8d47766202681">ascending_array</link>(size,&#32;wl,&#32;wr);
+519 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1aed37bf957607cb12166cb94223cf7a45">reverse</link>();
+520 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+521 &#32;&#32;&#32;&#32;}
+532 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1a4ff2f434ddb1ae9d181beea09ec79b62">constant_sum</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,
+533 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_Tp&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>,
+534 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;AcceptZero&#32;=&#32;<emphasis role="keyword">true</emphasis>,
+535 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;AcceptNegative&#32;=&#32;<emphasis role="keyword">true</emphasis>)&#32;{
+536 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(size);
+537 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(AcceptZero)
+538 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link>(size&#32;-&#32;1,&#32;0,&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>),&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(size)&#32;=&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>;
+539 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+540 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>&#32;&gt;&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>&#32;?&#32;<link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link>(size&#32;-&#32;1,&#32;0,&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>&#32;-&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>)
+541 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_class_array_1a2d5075f9c1a5639437991a0d38a5369b">basic_gen</link>(size&#32;-&#32;1,&#32;size&#32;-&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>,&#32;0),
+542 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(size)&#32;=&#32;<link linkend="_class_array_1a99eba270e5f29cb1054e78d4e7cc4026">sum</link>&#32;-&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>;
+543 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(AcceptNegative&#32;?&#32;void(<emphasis role="keyword">nullptr</emphasis>)&#32;:&#32;<link linkend="_class_array_1aabb8ec61824f0867f58cd2303950cfde">sort</link>()),&#32;<link linkend="_class_array_1ae3ce84779eba9ffd938ec70b8ef10092">to_diffrence</link>();
+544 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!AcceptZero)&#32;{
+545 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+546 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)++;
+547 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+548 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+549 &#32;&#32;&#32;&#32;}
+557 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1a511d7e15b6eab71543831e086e373c1c">perturbe</link>()&#32;{
+558 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array">Array&lt;_Tp&gt;</link>&#32;tmp_arr;
+559 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tmp_arr.<link linkend="_class_array_1a4ff2f434ddb1ae9d181beea09ec79b62">constant_sum</link>(<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>,&#32;0);
+560 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;<link linkend="_class_array_1a47b098457b5a7ab7056d032b4c9644bd">n</link>;&#32;i++)
+561 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)&#32;+=&#32;tmp_arr.at(i);
+562 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+563 &#32;&#32;&#32;&#32;}
+570 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1a883b9ef82b241db48b2db03d7c6470e5">permutation</link>(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+571 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(size);
+572 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>&#32;=&#32;rnd.perm(size,&#32;1);
+573 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+574 &#32;&#32;&#32;&#32;}
+583 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1adb709f892260534cb315c528a4681144">generate_function</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,
+584 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;(*GenerateFunction)(<emphasis role="keywordtype">int</emphasis>),
+585 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>&#32;=&#32;1)&#32;{
+586 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(size);
+587 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;size;&#32;i++)
+588 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)&#32;=&#32;GenerateFunction(i&#32;+&#32;<link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>);
+589 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+590 &#32;&#32;&#32;&#32;}
+599 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_array">_Self</link>&#32;<link linkend="_class_array_1abcf5ecb1f3f188c7c5de989cfe902a90">generate_iterate_function</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,
+600 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;(*IterateFunction)(<emphasis role="keywordtype">int</emphasis>),
+601 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>&#32;=&#32;1)&#32;{
+602 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a4079ff4a65fc1f4a2ad97af98165be0f">init</link>(size);
+603 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(0)&#32;=&#32;<link linkend="_class_array_1a280f58c15461fc65e11601e94cca8dcb">begin</link>;
+604 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;&#32;size;&#32;i++)
+605 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i)&#32;=&#32;IterateFunction(<link linkend="_class_array_1a5c8d05e3f9247b2d7d0490f6c97d057e">array</link>.at(i&#32;-&#32;1));
+606 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+607 &#32;&#32;&#32;&#32;}
+608 };
+609 
+610 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_graph">Graph</link>&#32;{
+611 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+612 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis><link linkend="_class_graph">_Self</link>&#32;=&#32;<link linkend="_class_graph">Graph</link>;
+613 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;n,&#32;m;
+614 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;directed;
+615 &#32;&#32;&#32;&#32;std::set&lt;pii&gt;&#32;edges;
+616 
+617 &#32;&#32;&#32;&#32;<link linkend="_class_graph">Graph</link>()&#32;{}
+618 &#32;&#32;&#32;&#32;<link linkend="_class_graph">Graph</link>(<link linkend="_class_tree">Tree</link>&#32;tr,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;direction&#32;=&#32;0)&#32;{
+619 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;n&#32;=&#32;tr.<link linkend="_class_tree_1af99cb1765b0249e5d79541313199786c">n</link>,&#32;m&#32;=&#32;n&#32;-&#32;1;
+620 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(direction)&#32;{
+621 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;n;&#32;i++)
+622 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({i,&#32;tr.fa.at(i)});
+623 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+624 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;n;&#32;i++)
+625 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({tr.fa.at(i),&#32;i});
+626 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+627 &#32;&#32;&#32;&#32;}
+634 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_graph">_Self</link>&#32;<link linkend="_class_graph_1ab2574f13160308877cf37df23a3369b7">add</link>(<link linkend="_class_graph">Graph</link>&#32;rhs)&#32;{
+635 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;offset&#32;=&#32;n;
+636 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;n&#32;+=&#32;rhs.n,&#32;m&#32;+=&#32;rhs.m;
+637 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(pii&#32;edge&#32;:&#32;rhs.edges)
+638 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({offset&#32;+&#32;edge.first,&#32;offset&#32;+&#32;edge.second});
+639 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+640 &#32;&#32;&#32;&#32;}
+641 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_graph">Graph</link>&#32;operator+(<link linkend="_class_graph">Graph</link>&#32;rhs)&#32;{
+642 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_graph">Graph</link>&#32;g&#32;=&#32;*<emphasis role="keyword">this</emphasis>;
+643 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;g.<link linkend="_class_graph_1ab2574f13160308877cf37df23a3369b7">add</link>(rhs);
+644 &#32;&#32;&#32;&#32;}
+645 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;_Self&#32;operator+=(<link linkend="_class_graph">Graph</link>&#32;rhs)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;add(rhs);&#32;}
+654 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_graph_1a9f5c30d5ae1831779ffa6d5e715b6525">init</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;directed_graph)&#32;{
+655 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(size&#32;&lt;&#32;1)
+656 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<link linkend="_struct_gen_exception">GenException</link>(
+657 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;format(<emphasis role="stringliteral">&quot;Invalid&#32;&apos;n&apos;&#32;has&#32;been&#32;passed&#32;in&#32;`init`:&#32;%d&quot;</emphasis>,&#32;size));
+658 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;n&#32;=&#32;size;
+659 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.clear();
+660 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;directed&#32;=&#32;directed_graph;
+661 &#32;&#32;&#32;&#32;}
+668 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_graph_1af5220e38649c8cb3392efe7d52715884">exists</link>(<emphasis role="keywordtype">int</emphasis>&#32;u,&#32;<emphasis role="keywordtype">int</emphasis>&#32;v)&#32;{
+669 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(edges.count({u,&#32;v}))
+670 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+671 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!directed)
+672 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;edges.count({v,&#32;u});
+673 &#32;&#32;&#32;&#32;}
+682 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_graph">_Self</link>&#32;<link linkend="_class_graph_1a0776101be5ac9ebb89fd9db14c65961a">randomly_gen</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,
+683 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;edges_count,
+684 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;directed_graph&#32;=&#32;<emphasis role="keyword">false</emphasis>)&#32;{
+685 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m&#32;=&#32;edges_count;
+686 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;init(size,&#32;directed_graph);
+687 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;edges_count;&#32;i++)&#32;{
+688 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;u&#32;=&#32;rnd.next(1,&#32;size),&#32;v&#32;=&#32;rnd.next(1,&#32;size);
+689 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!exists(u,&#32;v))
+690 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({u,&#32;v});
+691 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+692 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i--;
+693 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+694 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+695 &#32;&#32;&#32;&#32;}
+704 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_graph">_Self</link>&#32;<link linkend="_class_graph_1ab3f5e6c0df9cf11c433d18a07e0aa654">DAG</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<emphasis role="keywordtype">int</emphasis>&#32;edges_count,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ensure_connected&#32;=&#32;<emphasis role="keyword">true</emphasis>)&#32;{
+705 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m&#32;=&#32;edges_count;
+706 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;a(size&#32;+&#32;1);
+707 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::iota(a.begin(),&#32;a.end(),&#32;0);
+708 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_rnd.<link linkend="_class__random_1a59c9323db09bfd4d275fcd65494718ab">shuffle</link>(a);
+709 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(ensure_connected)&#32;{
+710 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ensure(edges_count&#32;&gt;=&#32;size&#32;-&#32;1);
+711 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree">Tree</link>&#32;tree;
+712 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tree.<link linkend="_class_tree_1a8798a5d50973a15e83155a8915ff10e5">random_shaped_tree</link>(size);
+713 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;Sort&#32;=&#32;[](pii&#32;a)&#32;{
+714 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;a.first&#32;&gt;&#32;a.second&#32;?&#32;std::make_pair(a.second,&#32;a.first)
+715 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;a;
+716 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+717 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;2;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+718 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert(Sort({a[tree.<link linkend="_class_tree_1a309090e7c2780b29934e9138066d2f5b">fa</link>.at(i)],&#32;a[i]}));
+719 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges_count&#32;-=&#32;(size&#32;-&#32;1);
+720 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+721 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;edges_count;&#32;i++)&#32;{
+722 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;u&#32;=&#32;rnd.next(size)&#32;+&#32;1,&#32;v&#32;=&#32;u&#32;+&#32;rnd.next(size&#32;-&#32;u)&#32;+&#32;1;
+723 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(u&#32;==&#32;v&#32;||&#32;exists(a[u],&#32;a[v]))
+724 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i--;
+725 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+726 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({a[u],&#32;a[v]});
+727 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+728 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+729 &#32;&#32;&#32;&#32;}
+738 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_graph">_Self</link>&#32;<link linkend="_class_graph_1abeecc192a91f73997c12345b2ed2fa4f">forest</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<emphasis role="keywordtype">int</emphasis>&#32;cnt&#32;=&#32;-1)&#32;{
+739 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;cnt&#32;=&#32;~cnt&#32;?&#32;cnt&#32;:&#32;rnd.next(1,&#32;std::min(std::max(n&#32;/&#32;1000,&#32;10),&#32;size));
+740 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_tree">Tree</link>&#32;tr;
+741 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tr.<link linkend="_class_tree_1a8798a5d50973a15e83155a8915ff10e5">random_shaped_tree</link>(size);
+742 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*<emphasis role="keyword">this</emphasis>&#32;=&#32;tr;
+743 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array">Array&lt;int&gt;</link>&#32;arr;
+744 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;arr.<link linkend="_class_array_1a883b9ef82b241db48b2db03d7c6470e5">permutation</link>(size).<link linkend="_class_array_1a5f2e8fac9186f569126e3c6f711dd11d">shuffle</link>();
+745 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;cnt;&#32;i++)
+746 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.erase({tr.fa.at(arr[i]),&#32;arr[i]});
+747 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>;
+748 &#32;&#32;&#32;&#32;}
+757 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_graph_1a3737ac4c977eebafada3245a79ca2161">hack_spfa</link>(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<emphasis role="keywordtype">int</emphasis>&#32;edges_count)&#32;{
+758 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;sz&#32;=&#32;sqrt(size);
+759 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m&#32;=&#32;edges_count;
+760 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;sz;&#32;i++)&#32;{
+761 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;j&#32;=&#32;1;&#32;j&#32;&lt;=&#32;sz;&#32;j++)&#32;{
+762 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;!=&#32;1&#32;&amp;&amp;&#32;edges_count)
+763 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({(i&#32;-&#32;1)&#32;*&#32;sz&#32;+&#32;j,&#32;i&#32;*&#32;sz&#32;+&#32;j}),&#32;edges_count--;
+764 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(j&#32;!=&#32;1&#32;&amp;&amp;&#32;edges_count)
+765 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({i&#32;*&#32;sz&#32;+&#32;j&#32;-&#32;1,&#32;i&#32;*&#32;sz&#32;+&#32;j}),&#32;edges_count--;
+766 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+767 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+768 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;edges_count;&#32;i++)&#32;{
+769 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;u&#32;=&#32;rnd.next(size)&#32;+&#32;1,&#32;v&#32;=&#32;u&#32;+&#32;rnd.next(n&#32;-&#32;u&#32;+&#32;1)&#32;+&#32;1;
+770 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(u&#32;==&#32;v&#32;||&#32;exists(u,&#32;v))
+771 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i--;
+772 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+773 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges.insert({u,&#32;v});
+774 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+775 &#32;&#32;&#32;&#32;}
+776 };
+777 
+778 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_string">String</link>&#32;{
+779 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+780 &#32;&#32;&#32;&#32;std::string&#32;str;
+781 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_string">String</link>&#32;operator+(<link linkend="_class_string">String</link>&#32;s)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_string">String</link>{str&#32;+&#32;s.str};&#32;}
+782 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_class_string">String</link>&#32;operator+=(<link linkend="_class_string">String</link>&#32;s)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;*<emphasis role="keyword">this</emphasis>&#32;=&#32;<link linkend="_class_string">String</link>{str&#32;+&#32;s.str};&#32;}
+783 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;print()&#32;{&#32;println(str);&#32;}
+784 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&amp;&#32;operator[](<emphasis role="keywordtype">int</emphasis>&#32;idx)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;str[idx&#32;-&#32;1];&#32;}
+785 &#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>...&#32;Args&gt;
+786 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;gen(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_classpattern">pattern</link>,&#32;Args...&#32;t)&#32;{
+787 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str&#32;=&#32;rnd.next(format(<link linkend="_classpattern">pattern</link>,&#32;t...));
+788 &#32;&#32;&#32;&#32;}
+789 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;lower(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;gen(<emphasis role="stringliteral">&quot;[a-z]{%d}&quot;</emphasis>,&#32;size);&#32;}
+790 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;latin(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;gen(<emphasis role="stringliteral">&quot;[a-zA-Z]{%d}&quot;</emphasis>,&#32;size);&#32;}
+791 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;latin_number(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+792 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;gen(<emphasis role="stringliteral">&quot;[a-zA-Z0-9]{%d}&quot;</emphasis>,&#32;size);
+793 &#32;&#32;&#32;&#32;}
+794 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;numbers_only(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;leading_zero&#32;=&#32;<emphasis role="keyword">false</emphasis>)&#32;{
+795 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(leading_zero)
+796 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;gen(<emphasis role="stringliteral">&quot;[0-9]{%d}&quot;</emphasis>,&#32;size);
+797 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+798 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;gen(<emphasis role="stringliteral">&quot;[1-9][0-9]{%d}&quot;</emphasis>,&#32;size&#32;-&#32;1);
+799 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str;
+800 &#32;&#32;&#32;&#32;}
+801 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;repeat(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+802 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;res;
+803 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size;&#32;i++)
+804 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;res&#32;+=&#32;str;
+805 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str&#32;=&#32;res;
+806 &#32;&#32;&#32;&#32;}
+807 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;gen_multi(std::string&#32;(*func)(<emphasis role="keywordtype">int</emphasis>),
+808 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;(*size)(),
+809 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;times,
+810 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;sep&#32;=&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>)&#32;{
+811 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;res;
+812 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;times;&#32;i++)
+813 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;res&#32;+=&#32;func(size()),&#32;i&#32;!=&#32;times&#32;?&#32;res&#32;+=&#32;sep&#32;:&#32;sep;
+814 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str&#32;=&#32;res;
+815 &#32;&#32;&#32;&#32;}
+816 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;std::string&#32;random_insert(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<emphasis role="keywordtype">char</emphasis>&#32;rep)&#32;{
+817 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_array">Array&lt;int&gt;</link>&#32;array;
+818 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array.<link linkend="_class_array_1aff0fd748e7a6b057a5f8d47766202681">ascending_array</link>(size,&#32;0,&#32;str.length()&#32;-&#32;1);
+819 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;:&#32;array)
+820 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;str[i]&#32;=&#32;rep;
+821 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;str;
+822 &#32;&#32;&#32;&#32;}
+823 };
+824 
+825 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;Po<emphasis role="keywordtype">int</emphasis>Type&gt;
+826 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_point">Point</link>&#32;{
+827 &#32;&#32;&#32;&#32;PointType&#32;x,&#32;y;
+828 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;operator==(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_point">Point</link>&amp;&#32;rhs)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+829 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(x&#32;-&#32;rhs.x)&#32;&lt;=&#32;15&#32;*&#32;eps&#32;&amp;&amp;&#32;(y&#32;-&#32;rhs.y)&#32;&lt;=&#32;15&#32;*&#32;eps;
+830 &#32;&#32;&#32;&#32;}
+831 };
+832 
+833 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">typename</emphasis>&#32;Po<emphasis role="keywordtype">int</emphasis>Type&gt;
+834 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_geometry">Geometry</link>&#32;{
+835 &#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+836 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis><link linkend="_struct_point">_Tp</link>&#32;=&#32;<link linkend="_struct_point">Point&lt;PointType&gt;</link>;
+837 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;n;
+838 &#32;&#32;&#32;&#32;std::set&lt;_Tp&gt;&#32;points;
+839 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;init()&#32;{&#32;points.clear();&#32;}
+840 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;randomize_points(<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;<link linkend="_struct_point">_Tp</link>&#32;leftbottom,&#32;<link linkend="_struct_point">_Tp</link>&#32;rightup)&#32;{
+841 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;init();
+842 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;=&#32;size;&#32;i++)&#32;{
+843 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;PointType&#32;x&#32;=&#32;rnd.next(leftbottom.x,&#32;rightup.x),
+844 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y&#32;=&#32;rnd.next(leftbottom.y,&#32;rightup.y);
+845 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(points.find({x,&#32;y})&#32;!=&#32;points.end())
+846 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i--;
+847 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+848 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;points.insert({x,&#32;y});
+849 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+850 &#32;&#32;&#32;&#32;}
+851 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;make_raw_convex_shell(<emphasis role="keywordtype">int</emphasis>&#32;size)&#32;{
+852 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(size&#32;&gt;&#32;100)&#32;{
+853 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(size&#32;&gt;&#32;10000)
+854 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;warn(
+855 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;You&#32;are&#32;trying&#32;to&#32;generate&#32;a&#32;convex&#32;shell&#32;with&#32;size&#32;%d,&#32;&quot;</emphasis>
+856 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;which&#32;is&#32;a&#32;big&#32;one&#32;that&#32;its&#32;coordinate&#32;may&#32;be&#32;over&#32;&quot;</emphasis>
+857 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;2^{31}-1&#32;that&#32;occurs&#32;signed-integer-overflow.&quot;</emphasis>,
+858 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;size);
+859 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+860 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;warn(
+861 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;You&#32;are&#32;trying&#32;to&#32;generate&#32;a&#32;convex&#32;shell&#32;with&#32;size&#32;%d,&#32;&quot;</emphasis>
+862 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;which&#32;is&#32;a&#32;big&#32;one&#32;that&#32;its&#32;angle&#32;may&#32;too&#32;close&#32;to&#32;pi.&quot;</emphasis>,
+863 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;size);
+864 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+865 &#32;&#32;&#32;&#32;}
+866 };
+</programlisting></section>

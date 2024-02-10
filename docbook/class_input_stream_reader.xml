@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_input_stream_reader" xml:lang="en-US">
+<title>InputStreamReader Class Reference</title>
+<indexterm><primary>InputStreamReader</primary></indexterm>
+<para>Inheritance diagram for InputStreamReader:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_input_stream_reader.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a06ef5f907b494fa52a75b2644dea6d7b"/>virtual void <emphasis role="strong">setTestCase</emphasis> (int testCase)=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a382091a8b54e0f77ae1d2e59bfa34814"/>virtual std::vector&lt; int &gt; <emphasis role="strong">getReadChars</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a80448788833a59a503853b4a45a96137"/>virtual int <emphasis role="strong">curChar</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a243f344748d1f7de9a2fa5faa31a29c3"/>virtual int <emphasis role="strong">nextChar</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1ad01b8b4dd307c70472afb7dae417401a"/>virtual void <emphasis role="strong">skipChar</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a48da3436df374a668c79b0f5b8ae7208"/>virtual void <emphasis role="strong">unreadChar</emphasis> (int c)=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a583d351a74f37fdabfe2e262e35760a7"/>virtual std::string <emphasis role="strong">getName</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a90d0f46a473a2ff2f6224614b7af0ab3"/>virtual bool <emphasis role="strong">eof</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1aa145a0fcdb6b0a73cc3b91b22e5183cb"/>virtual void <emphasis role="strong">close</emphasis> ()=0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_input_stream_reader_1a90cef076b1b6ee901aaefcf1276a6881"/>virtual int <emphasis role="strong">getLine</emphasis> ()=0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>

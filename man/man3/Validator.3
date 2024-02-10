@@ -1,0 +1,88 @@
+.TH "Validator" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Validator
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitialize\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBtestset\fP () const"
+.br
+.ti -1c
+.RI "std::string \fBgroup\fP () const"
+.br
+.ti -1c
+.RI "std::string \fBtestOverviewLogFileName\fP () const"
+.br
+.ti -1c
+.RI "std::string \fBtestMarkupFileName\fP () const"
+.br
+.ti -1c
+.RI "int \fBtestCase\fP () const"
+.br
+.ti -1c
+.RI "std::string \fBtestCaseFileName\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetTestset\fP (const char *const testset)"
+.br
+.ti -1c
+.RI "void \fBsetGroup\fP (const char *const group)"
+.br
+.ti -1c
+.RI "void \fBsetTestOverviewLogFileName\fP (const char *const testOverviewLogFileName)"
+.br
+.ti -1c
+.RI "void \fBsetTestMarkupFileName\fP (const char *const testMarkupFileName)"
+.br
+.ti -1c
+.RI "void \fBsetTestCase\fP (int testCase)"
+.br
+.ti -1c
+.RI "void \fBsetTestCaseFileName\fP (const char *const testCaseFileName)"
+.br
+.ti -1c
+.RI "std::string \fBprepVariableName\fP (const std::string &variableName)"
+.br
+.ti -1c
+.RI "bool \fBignoreMinBound\fP (const std::string &variableName)"
+.br
+.ti -1c
+.RI "bool \fBignoreMaxBound\fP (const std::string &variableName)"
+.br
+.ti -1c
+.RI "void \fBaddBoundsHit\fP (const std::string &variableName, \fBValidatorBoundsHit\fP boundsHit)"
+.br
+.ti -1c
+.RI "std::string \fBgetBoundsHitLog\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetFeaturesLog\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteTestOverviewLog\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteTestMarkup\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteTestCase\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddFeature\fP (const std::string &feature)"
+.br
+.ti -1c
+.RI "void \fBfeature\fP (const std::string &feature)"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

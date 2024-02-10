@@ -1,0 +1,155 @@
+.TH "random_t" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+random_t
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetSeed\fP (int argc, char *argv[])"
+.br
+.ti -1c
+.RI "void \fBsetSeed\fP (long long _seed)"
+.br
+.ti -1c
+.RI "std::string \fBnext\fP (const std::string &ptrn)"
+.br
+.ti -1c
+.RI "int \fBnext\fP (int n)"
+.br
+.ti -1c
+.RI "unsigned int \fBnext\fP (unsigned int n)"
+.br
+.ti -1c
+.RI "long long \fBnext\fP (long long n)"
+.br
+.ti -1c
+.RI "unsigned long long \fBnext\fP (unsigned long long n)"
+.br
+.ti -1c
+.RI "long \fBnext\fP (long n)"
+.br
+.ti -1c
+.RI "unsigned long \fBnext\fP (unsigned long n)"
+.br
+.ti -1c
+.RI "int \fBnext\fP (int from, int to)"
+.br
+.ti -1c
+.RI "unsigned int \fBnext\fP (unsigned int from, unsigned int to)"
+.br
+.ti -1c
+.RI "long long \fBnext\fP (long long from, long long to)"
+.br
+.ti -1c
+.RI "unsigned long long \fBnext\fP (unsigned long long from, unsigned long long to)"
+.br
+.ti -1c
+.RI "long \fBnext\fP (long from, long to)"
+.br
+.ti -1c
+.RI "unsigned long \fBnext\fP (unsigned long from, unsigned long to)"
+.br
+.ti -1c
+.RI "double \fBnext\fP ()"
+.br
+.ti -1c
+.RI "double \fBnext\fP (double n)"
+.br
+.ti -1c
+.RI "double \fBnext\fP (double from, double to)"
+.br
+.ti -1c
+.RI "template<typename Container > Container::value_type \fBany\fP (const Container &c)"
+.br
+.ti -1c
+.RI "template<typename Iter > Iter::value_type \fBany\fP (const Iter &begin, const Iter &end)"
+.br
+.ti -1c
+.RI "std::string \fBnext\fP (const char *format,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "int \fBwnext\fP (int n, int type)"
+.br
+.ti -1c
+.RI "long long \fBwnext\fP (long long n, int type)"
+.br
+.ti -1c
+.RI "double \fBwnext\fP (double n, int type)"
+.br
+.ti -1c
+.RI "double \fBwnext\fP (int type)"
+.br
+.ti -1c
+.RI "unsigned int \fBwnext\fP (unsigned int n, int type)"
+.br
+.ti -1c
+.RI "unsigned long long \fBwnext\fP (unsigned long long n, int type)"
+.br
+.ti -1c
+.RI "long \fBwnext\fP (long n, int type)"
+.br
+.ti -1c
+.RI "unsigned long \fBwnext\fP (unsigned long n, int type)"
+.br
+.ti -1c
+.RI "int \fBwnext\fP (int from, int to, int type)"
+.br
+.ti -1c
+.RI "int \fBwnext\fP (unsigned int from, unsigned int to, int type)"
+.br
+.ti -1c
+.RI "long long \fBwnext\fP (long long from, long long to, int type)"
+.br
+.ti -1c
+.RI "unsigned long long \fBwnext\fP (unsigned long long from, unsigned long long to, int type)"
+.br
+.ti -1c
+.RI "long \fBwnext\fP (long from, long to, int type)"
+.br
+.ti -1c
+.RI "unsigned long \fBwnext\fP (unsigned long from, unsigned long to, int type)"
+.br
+.ti -1c
+.RI "double \fBwnext\fP (double from, double to, int type)"
+.br
+.ti -1c
+.RI "template<typename Container > Container::value_type \fBwany\fP (const Container &c, int type)"
+.br
+.ti -1c
+.RI "template<typename Iter > Iter::value_type \fBwany\fP (const Iter &begin, const Iter &end, int type)"
+.br
+.ti -1c
+.RI "template<typename _Tp , typename E > std::vector< E > \fBperm\fP (_Tp size, E first)"
+.br
+.ti -1c
+.RI "template<typename _Tp > std::vector< _Tp > \fBperm\fP (_Tp size)"
+.br
+.ti -1c
+.RI "template<typename _Tp > std::vector< _Tp > \fBdistinct\fP (int size, _Tp from, _Tp to)"
+.br
+.ti -1c
+.RI "template<typename _Tp > std::vector< _Tp > \fBdistinct\fP (int size, _Tp upper)"
+.br
+.ti -1c
+.RI "template<typename _Tp > std::vector< _Tp > \fBpartition\fP (int size, _Tp sum, _Tp min_part)"
+.br
+.ti -1c
+.RI "template<typename _Tp > std::vector< _Tp > \fBpartition\fP (int size, _Tp sum)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static int \fBversion\fP = \-1"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

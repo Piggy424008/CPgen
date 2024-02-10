@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class__random" xml:lang="en-US">
+<title>_random Class Reference</title>
+<indexterm><primary>_random</primary></indexterm>
+<para>
+
+<para>Expansion of <link linkend="_classrandom__t">random_t</link>. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;generator.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;typename _Tp &gt; </para><para>std::vector&lt; _Tp &gt; <link linkend="_class__random_1a59c9323db09bfd4d275fcd65494718ab">shuffle</link> (std::vector&lt; _Tp &gt; array, int l=1, int r=-1)</para>
+
+<para>Shuffle the array in-place, indexes from $l$ to $r$. </para>
+</listitem>
+            <listitem><para>template&lt;typename _Tp &gt; </para><para>_Tp <link linkend="_class__random_1a81ef433800b87df116a19edc0009f9c2">get_prime</link> (_Tp l, _Tp r)</para>
+
+<para>get a prime $p\in[l, r]$. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Expansion of <link linkend="_classrandom__t">random_t</link>. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class__random_1a81ef433800b87df116a19edc0009f9c2"/><section>
+    <title>get_prime()</title>
+<indexterm><primary>get_prime</primary><secondary>_random</secondary></indexterm>
+<indexterm><primary>_random</primary><secondary>get_prime</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>_Tp _random::get_prime (_Tp l, _Tp r)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>get a prime $p\in[l, r]$. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>
+<para>Any std::vector&lt;_Tp&gt;. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>l</entry><entry>
+<para>The left bound of the section. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>r</entry><entry>
+<para>The right bound of the section. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The generated prime. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>When</entry><entry>
+<para>it failed to gen a prime after $5$ times of iteration, it throws an error <computeroutput>I suspected that there&apos;s no prime from {l} to {r}.</computeroutput> and quit the program. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class__random_1a59c9323db09bfd4d275fcd65494718ab"/><section>
+    <title>shuffle()</title>
+<indexterm><primary>shuffle</primary><secondary>_random</secondary></indexterm>
+<indexterm><primary>_random</primary><secondary>shuffle</secondary></indexterm>
+<computeroutput>template&lt;typename _Tp &gt; </computeroutput><para><computeroutput>std::vector&lt; _Tp &gt; _random::shuffle (std::vector&lt; _Tp &gt; array, int l = <computeroutput>1</computeroutput>
+, int r = <computeroutput>-1</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Shuffle the array in-place, indexes from $l$ to $r$. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>
+<para>Any std::vector&lt;_Tp&gt;. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>l</entry><entry>
+<para>The left bound that should be shuffled. Default as $1$.| </para>
+</entry>
+                            </row>
+                            <row>
+<entry>r</entry><entry>
+<para>The right bound that should be shuffled. Default as <computeroutput>array.size()</computeroutput>. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Return the result. </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+generator.h</section>
+</section>

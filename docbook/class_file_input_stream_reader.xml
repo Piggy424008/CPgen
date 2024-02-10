@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_file_input_stream_reader" xml:lang="en-US">
+<title>FileInputStreamReader Class Reference</title>
+<indexterm><primary>FileInputStreamReader</primary></indexterm>
+<para>Inheritance diagram for FileInputStreamReader:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_file_input_stream_reader.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_class_file_input_stream_reader_1a6dcc254451d2f6f0ee1a027c011de529"/><emphasis role="strong">FileInputStreamReader</emphasis> (std::FILE *file, const std::string &amp;name)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_file_input_stream_reader_1ae9cca5f0fb8c409348a3ef86561d9c1b">setTestCase</link> (int testCase)</para>
+</listitem>
+            <listitem><para>std::vector&lt; int &gt; <link linkend="_class_file_input_stream_reader_1ac14b525a2cda436c7442fd681e3f1bf4">getReadChars</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_file_input_stream_reader_1a5c7894d247d016ae7e2223f7ee1c2787">curChar</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_file_input_stream_reader_1af0ad18bf18442da1c4fa2c1b89dd3c7a">nextChar</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_file_input_stream_reader_1a728b65f5513f16b3b889e40737b0fb9e">skipChar</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_file_input_stream_reader_1ae84ce16cd265dfbc8699eaefc3b8a8af">unreadChar</link> (int c)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_file_input_stream_reader_1a0d97d880a07804664631517d90bb1382">getName</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_file_input_stream_reader_1afeeeb04cb0c27f089aec013886fadf67">getLine</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_file_input_stream_reader_1afe85545ef0381d65f1b2215af45d7b78">eof</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_file_input_stream_reader_1a853f9cd15904383ab72f4763d48c2f42">close</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_file_input_stream_reader_1a853f9cd15904383ab72f4763d48c2f42"/><section>
+    <title>close()</title>
+<indexterm><primary>close</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>close</secondary></indexterm>
+<para><computeroutput>void FileInputStreamReader::close ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1a5c7894d247d016ae7e2223f7ee1c2787"/><section>
+    <title>curChar()</title>
+<indexterm><primary>curChar</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>curChar</secondary></indexterm>
+<para><computeroutput>int FileInputStreamReader::curChar ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1afe85545ef0381d65f1b2215af45d7b78"/><section>
+    <title>eof()</title>
+<indexterm><primary>eof</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>eof</secondary></indexterm>
+<para><computeroutput>bool FileInputStreamReader::eof ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1afeeeb04cb0c27f089aec013886fadf67"/><section>
+    <title>getLine()</title>
+<indexterm><primary>getLine</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>getLine</secondary></indexterm>
+<para><computeroutput>int FileInputStreamReader::getLine ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1a0d97d880a07804664631517d90bb1382"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string FileInputStreamReader::getName ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1ac14b525a2cda436c7442fd681e3f1bf4"/><section>
+    <title>getReadChars()</title>
+<indexterm><primary>getReadChars</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>getReadChars</secondary></indexterm>
+<para><computeroutput>std::vector&lt; int &gt; FileInputStreamReader::getReadChars ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1af0ad18bf18442da1c4fa2c1b89dd3c7a"/><section>
+    <title>nextChar()</title>
+<indexterm><primary>nextChar</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>nextChar</secondary></indexterm>
+<para><computeroutput>int FileInputStreamReader::nextChar ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1ae9cca5f0fb8c409348a3ef86561d9c1b"/><section>
+    <title>setTestCase()</title>
+<indexterm><primary>setTestCase</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>setTestCase</secondary></indexterm>
+<para><computeroutput>void FileInputStreamReader::setTestCase (int testCase)<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1a728b65f5513f16b3b889e40737b0fb9e"/><section>
+    <title>skipChar()</title>
+<indexterm><primary>skipChar</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>skipChar</secondary></indexterm>
+<para><computeroutput>void FileInputStreamReader::skipChar ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<anchor xml:id="_class_file_input_stream_reader_1ae84ce16cd265dfbc8699eaefc3b8a8af"/><section>
+    <title>unreadChar()</title>
+<indexterm><primary>unreadChar</primary><secondary>FileInputStreamReader</secondary></indexterm>
+<indexterm><primary>FileInputStreamReader</primary><secondary>unreadChar</secondary></indexterm>
+<para><computeroutput>void FileInputStreamReader::unreadChar (int c)<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_input_stream_reader">InputStreamReader</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+testlib.h</section>
+</section>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_point" xml:lang="en-US">
+<title>Point&lt; PointType &gt; Struct Template Reference</title>
+<indexterm><primary>Point&lt; PointType &gt;</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_point_1a3066eea898fccee4f9043f0f8ddcf864"/>bool <emphasis role="strong">operator==</emphasis> (const <link linkend="_struct_point">Point</link> &amp;rhs) const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_point_1a894b9e86ad8534325df9b8937a7a9a1d"/>PointType <emphasis role="strong">x</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_point_1a08ec79fb047d0f1ee086b3dc959d4db1"/>PointType <emphasis role="strong">y</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+generator.h</section>

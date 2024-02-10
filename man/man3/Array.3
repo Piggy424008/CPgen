@@ -1,0 +1,490 @@
+.TH "Array< _Tp >" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Array< _Tp > \- Class that used to generate an array\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <generator\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fB_Sequence\fP = std::vector<_Tp>"
+.br
+.ti -1c
+.RI "using \fB_Self\fP = \fBArray\fP<_Tp>"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "_Tp & \fBoperator[]\fP (int idx)"
+.br
+.RI "return the reference of the size-th element in this array\&. "
+.ti -1c
+.RI "auto \fBbegin\fP ()"
+.br
+.RI "return the reference of the first element in this array\&. "
+.ti -1c
+.RI "auto \fBend\fP ()"
+.br
+.RI "return the reference of the last element in this array\&. "
+.ti -1c
+.RI "void \fBinit\fP (int size)"
+.br
+.RI "init the whole array with the size of \fRsize\fP\&. "
+.ti -1c
+.RI "void \fBprint\fP (char sep=' ', char \fBend\fP='\\\fBn\fP')"
+.br
+.RI "Output the current array\&. "
+.ti -1c
+.RI "_Tp \fBsum\fP ()"
+.br
+.RI "Get the sum of the elements\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBbasic_gen\fP (int size, _Tp wl, _Tp wr)"
+.br
+.RI "Generate an array with size \fRsize\fP, while its elements are values in [wl, wr]\&. "
+.ti -1c
+.RI "void \fBsort\fP ()"
+.br
+.RI "Sort the current array\&. "
+.ti -1c
+.RI "void \fBshuffle\fP ()"
+.br
+.RI "Shuffle the current array\&. "
+.ti -1c
+.RI "void \fBreverse\fP ()"
+.br
+.RI "Reverse the current array\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBto_diffrence\fP ()"
+.br
+.RI "Turn this array into the Diffrence array of it\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBbinary_gen\fP (int size)"
+.br
+.RI "Generate an array with size \fRsize\fP, while its elements are 0 or 1\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBascending_array\fP (int size, _Tp wl, _Tp wr)"
+.br
+.RI "Generate an array with size \fRsize\fP, while its elements are not decreasing\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBdecending_array\fP (int size, _Tp wl, _Tp wr)"
+.br
+.RI "Generate an array with size \fRsize\fP, while its elements are not increasing\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBconstant_sum\fP (int size, _Tp \fBsum\fP, bool AcceptZero=true, bool AcceptNegative=true)"
+.br
+.RI "Generate an array with size \fRsize\fP, while the sum of its elements are a constant\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBperturbe\fP ()"
+.br
+.RI "Perturbe the current array, keeping the sum of the elements still\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBpermutation\fP (int size)"
+.br
+.RI "Generate a permutation of 1 to size\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBgenerate_function\fP (int size, int(*GenerateFunction)(int), int \fBbegin\fP=1)"
+.br
+.RI "Generate an array with the i-th element is f(i + begin)\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBgenerate_iterate_function\fP (int size, int(*IterateFunction)(int), int \fBbegin\fP=1)"
+.br
+.RI "Generate an array with the i-th element is f(a_{i-1})\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBn\fP"
+.br
+.RI "size of the array that generated\&. "
+.ti -1c
+.RI "_Sequence \fBarray\fP"
+.br
+.RI "The container of the elements\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename _Tp>
+.br
+class Array< _Tp >"Class that used to generate an array\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::ascending_array (int size, _Tp wl, _Tp wr)\fR [inline]\fP"
+
+.PP
+Generate an array with size \fRsize\fP, while its elements are not decreasing\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this array should be\&. 
+.br
+\fIwl\fP the sub of the elements\&. 
+.br
+\fIwr\fP the sup of the elements\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::basic_gen (int size, _Tp wl, _Tp wr)\fR [inline]\fP"
+
+.PP
+Generate an array with size \fRsize\fP, while its elements are values in [wl, wr]\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this array should be\&. 
+.br
+\fIwl\fP the sub of the elements\&. 
+.br
+\fIwr\fP the sup of the elements\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > auto \fBArray\fP< _Tp >::begin ()\fR [inline]\fP"
+
+.PP
+return the reference of the first element in this array\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The reference of the element\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::binary_gen (int size)\fR [inline]\fP"
+
+.PP
+Generate an array with size \fRsize\fP, while its elements are 0 or 1\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this array should be\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::constant_sum (int size, _Tp sum, bool AcceptZero = \fRtrue\fP, bool AcceptNegative = \fRtrue\fP)\fR [inline]\fP"
+
+.PP
+Generate an array with size \fRsize\fP, while the sum of its elements are a constant\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this array should be\&. 
+.br
+\fIsum\fP the sum of the elements\&. 
+.br
+\fIAcceptZero\fP if the array can contain zero or not\&. 
+.br
+\fIAcceptNegative\fP if the array can contain negative values or not\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::decending_array (int size, _Tp wl, _Tp wr)\fR [inline]\fP"
+
+.PP
+Generate an array with size \fRsize\fP, while its elements are not increasing\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this array should be\&. 
+.br
+\fIwl\fP the sub of the elements\&. 
+.br
+\fIwr\fP the sup of the elements\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > auto \fBArray\fP< _Tp >::end ()\fR [inline]\fP"
+
+.PP
+return the reference of the last element in this array\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The reference of the element\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::generate_function (int size, int(*)(int) GenerateFunction, int begin = \fR1\fP)\fR [inline]\fP"
+
+.PP
+Generate an array with the i-th element is f(i + begin)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the size of the array\&. 
+.br
+\fIGenerateFunction\fP the GenerateFunction of the array\&. 
+.br
+\fIbegin\fP the begin point of the array\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::generate_iterate_function (int size, int(*)(int) IterateFunction, int begin = \fR1\fP)\fR [inline]\fP"
+
+.PP
+Generate an array with the i-th element is f(a_{i-1})\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the size of the array\&. 
+.br
+\fIGenerateFunction\fP the GenerateFunction of the array\&. 
+.br
+\fIbegin\fP the begin value of the array\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > void \fBArray\fP< _Tp >::init (int size)\fR [inline]\fP"
+
+.PP
+init the whole array with the size of \fRsize\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP how large this array should be\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+no return\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > _Tp & \fBArray\fP< _Tp >::operator[] (int idx)\fR [inline]\fP"
+
+.PP
+return the reference of the size-th element in this array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIidx\fP the index of the element you requested\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference of the element\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if idx is an invalid index\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::permutation (int size)\fR [inline]\fP"
+
+.PP
+Generate a permutation of 1 to size\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the size of the array\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::perturbe ()\fR [inline]\fP"
+
+.PP
+Perturbe the current array, keeping the sum of the elements still\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > void \fBArray\fP< _Tp >::print (char sep = \fR' '\fP, char end = \fR'\\\fBn\fP'\fP)\fR [inline]\fP"
+
+.PP
+Output the current array\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > void \fBArray\fP< _Tp >::reverse ()\fR [inline]\fP"
+
+.PP
+Reverse the current array\&. 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > void \fBArray\fP< _Tp >::shuffle ()\fR [inline]\fP"
+
+.PP
+Shuffle the current array\&. 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > void \fBArray\fP< _Tp >::sort ()\fR [inline]\fP"
+
+.PP
+Sort the current array\&. 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > _Tp \fBArray\fP< _Tp >::sum ()\fR [inline]\fP"
+
+.PP
+Get the sum of the elements\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The sum of the elements\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+.SS "template<typename _Tp > \fB_Self\fP \fBArray\fP< _Tp >::to_diffrence ()\fR [inline]\fP"
+
+.PP
+Turn this array into the Diffrence array of it\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The array itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what the _Sequence throws\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

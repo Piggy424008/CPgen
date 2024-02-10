@@ -1,0 +1,240 @@
+\doxysection{String Class Reference}
+\hypertarget{classString}{}\label{classString}\index{String@{String}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classString_a3f42603d487fa42d37db914283cb4e7c}\label{classString_a3f42603d487fa42d37db914283cb4e7c} 
+\mbox{\hyperlink{classString}{String}} {\bfseries operator+} (\mbox{\hyperlink{classString}{String}} s)
+\item 
+\Hypertarget{classString_a46d55a809aee0e636ba8e5400d2ea561}\label{classString_a46d55a809aee0e636ba8e5400d2ea561} 
+\mbox{\hyperlink{classString}{String}} {\bfseries operator+=} (\mbox{\hyperlink{classString}{String}} s)
+\item 
+void \mbox{\hyperlink{classString_abb07a3c9995d60c7eb608e5c1336b1e3}{print}} ()
+\begin{DoxyCompactList}\small\item\em Output the generated string to stdout. NOTE that n will not be printed. \end{DoxyCompactList}\item 
+char \& \mbox{\hyperlink{classString_a7b34c926f6576a66443ed8a9fbd907ee}{operator\mbox{[}$\,$\mbox{]}}} (int idx)
+\begin{DoxyCompactList}\small\item\em return the reference of the size-\/th element in this string. NOTE that this is 1-\/indexed. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\std\+::string \mbox{\hyperlink{classString_ad466684840556f711d412fece41624ad}{gen}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classpattern}{pattern}}, Args... t)
+\begin{DoxyCompactList}\small\item\em Generate a string with format(pattern, ...\+t). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_a99cb65fbe1269cfa375d7e7a88ddca70}{lower}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a string contains lower letters only. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_afe2a3d94debea947b738d8d198b61a0d}{latin}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a string contains latin letters only. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_a98b9c5974d668222165a19b98f6e045e}{latin\+\_\+number}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a string contains latin letters and numbers only. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_a4b440fedba87c7b06d24a50c82c3a2e1}{numbers\+\_\+only}} (int size, bool leading\+\_\+zero=false)
+\begin{DoxyCompactList}\small\item\em Generate a string contains numbers only. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_a3ed030463ba02447cb7549df658396a5}{repeat}} (int size)
+\begin{DoxyCompactList}\small\item\em Set the generated string size times of it. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_ae66c785375401ab9b00797ee67450197}{gen\+\_\+multi}} (std\+::string(\texorpdfstring{$\ast$}{*}func)(int), int(\texorpdfstring{$\ast$}{*}size)(), int times, std\+::string sep="{} "{})
+\begin{DoxyCompactList}\small\item\em Generate multi-\/string using the same function, and concentrate them. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classString_a7fd5e0141ca900c52ef81710462a8171}{random\+\_\+insert}} (int size, char rep)
+\begin{DoxyCompactList}\small\item\em Randomly replace some charactor in the generated string, using {\ttfamily rep}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classString_ab4c3a427306c46e55ccc0cf742442d35}\label{classString_ab4c3a427306c46e55ccc0cf742442d35} 
+std\+::string {\bfseries str}
+\begin{DoxyCompactList}\small\item\em The container of the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classString_ad466684840556f711d412fece41624ad}\label{classString_ad466684840556f711d412fece41624ad} 
+\index{String@{String}!gen@{gen}}
+\index{gen@{gen}!String@{String}}
+\doxysubsubsection{\texorpdfstring{gen()}{gen()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+std\+::string String\+::gen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{pattern,  }\item[{Args...}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a string with format(pattern, ...\+t). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & the pattern of the format-\/string, \\
+\hline
+{\em ...\+t} & the formated value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_ae66c785375401ab9b00797ee67450197}\label{classString_ae66c785375401ab9b00797ee67450197} 
+\index{String@{String}!gen\_multi@{gen\_multi}}
+\index{gen\_multi@{gen\_multi}!String@{String}}
+\doxysubsubsection{\texorpdfstring{gen\_multi()}{gen\_multi()}}
+{\footnotesize\ttfamily std\+::string String\+::gen\+\_\+multi (\begin{DoxyParamCaption}\item[{std\+::string(\texorpdfstring{$\ast$}{*})(int)}]{func,  }\item[{int(\texorpdfstring{$\ast$}{*})()}]{size,  }\item[{int}]{times,  }\item[{std\+::string}]{sep = {\ttfamily "{}~"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate multi-\/string using the same function, and concentrate them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & a function which accepts a integer(the size of the sub-\/string) and returns a std\+::string. \\
+\hline
+{\em size} & a function which accepts a integer(the number of the sub-\/string) and returns a integer, which is the size of the string. \\
+\hline
+{\em times} & the count of the string that should be generated. \\
+\hline
+{\em sep} & the seperator between the strings. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_afe2a3d94debea947b738d8d198b61a0d}\label{classString_afe2a3d94debea947b738d8d198b61a0d} 
+\index{String@{String}!latin@{latin}}
+\index{latin@{latin}!String@{String}}
+\doxysubsubsection{\texorpdfstring{latin()}{latin()}}
+{\footnotesize\ttfamily std\+::string String\+::latin (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a string contains latin letters only. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the length of the generated string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_a98b9c5974d668222165a19b98f6e045e}\label{classString_a98b9c5974d668222165a19b98f6e045e} 
+\index{String@{String}!latin\_number@{latin\_number}}
+\index{latin\_number@{latin\_number}!String@{String}}
+\doxysubsubsection{\texorpdfstring{latin\_number()}{latin\_number()}}
+{\footnotesize\ttfamily std\+::string String\+::latin\+\_\+number (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a string contains latin letters and numbers only. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the length of the generated string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_a99cb65fbe1269cfa375d7e7a88ddca70}\label{classString_a99cb65fbe1269cfa375d7e7a88ddca70} 
+\index{String@{String}!lower@{lower}}
+\index{lower@{lower}!String@{String}}
+\doxysubsubsection{\texorpdfstring{lower()}{lower()}}
+{\footnotesize\ttfamily std\+::string String\+::lower (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a string contains lower letters only. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the length of the generated string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_a4b440fedba87c7b06d24a50c82c3a2e1}\label{classString_a4b440fedba87c7b06d24a50c82c3a2e1} 
+\index{String@{String}!numbers\_only@{numbers\_only}}
+\index{numbers\_only@{numbers\_only}!String@{String}}
+\doxysubsubsection{\texorpdfstring{numbers\_only()}{numbers\_only()}}
+{\footnotesize\ttfamily std\+::string String\+::numbers\+\_\+only (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{bool}]{leading\+\_\+zero = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a string contains numbers only. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the length of the generated string. \\
+\hline
+{\em leading\+\_\+zero} & if the string can start with zero or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_a7b34c926f6576a66443ed8a9fbd907ee}\label{classString_a7b34c926f6576a66443ed8a9fbd907ee} 
+\index{String@{String}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!String@{String}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily char \& String\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return the reference of the size-\/th element in this string. NOTE that this is 1-\/indexed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & the index of the element you requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference of the element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if idx is an invalid index. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classString_abb07a3c9995d60c7eb608e5c1336b1e3}\label{classString_abb07a3c9995d60c7eb608e5c1336b1e3} 
+\index{String@{String}!print@{print}}
+\index{print@{print}!String@{String}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void String\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Output the generated string to stdout. NOTE that n will not be printed. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if {\itshape size} is an invalid node count, e.\+g. -\/1. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classString_a7fd5e0141ca900c52ef81710462a8171}\label{classString_a7fd5e0141ca900c52ef81710462a8171} 
+\index{String@{String}!random\_insert@{random\_insert}}
+\index{random\_insert@{random\_insert}!String@{String}}
+\doxysubsubsection{\texorpdfstring{random\_insert()}{random\_insert()}}
+{\footnotesize\ttfamily std\+::string String\+::random\+\_\+insert (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{char}]{rep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Randomly replace some charactor in the generated string, using {\ttfamily rep}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the count of char that should be replaced. \\
+\hline
+{\em rep} & the char used to replace the origin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+\Hypertarget{classString_a3ed030463ba02447cb7549df658396a5}\label{classString_a3ed030463ba02447cb7549df658396a5} 
+\index{String@{String}!repeat@{repeat}}
+\index{repeat@{repeat}!String@{String}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}}
+{\footnotesize\ttfamily std\+::string String\+::repeat (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the generated string size times of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the times it should be repeated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated string. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+generator.\+h\end{DoxyCompactItemize}

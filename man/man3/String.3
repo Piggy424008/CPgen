@@ -1,0 +1,244 @@
+.TH "String" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+String
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBString\fP \fBoperator+\fP (\fBString\fP s)"
+.br
+.ti -1c
+.RI "\fBString\fP \fBoperator+=\fP (\fBString\fP s)"
+.br
+.ti -1c
+.RI "void \fBprint\fP ()"
+.br
+.RI "Output the generated string to stdout\&. NOTE that n will not be printed\&. "
+.ti -1c
+.RI "char & \fBoperator[]\fP (int idx)"
+.br
+.RI "return the reference of the size-th element in this string\&. NOTE that this is 1-indexed\&. "
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> std::string \fBgen\fP (const char *\fBpattern\fP, Args\&.\&.\&. t)"
+.br
+.RI "Generate a string with format(pattern, \&.\&.\&.t)\&. "
+.ti -1c
+.RI "std::string \fBlower\fP (int size)"
+.br
+.RI "Generate a string contains lower letters only\&. "
+.ti -1c
+.RI "std::string \fBlatin\fP (int size)"
+.br
+.RI "Generate a string contains latin letters only\&. "
+.ti -1c
+.RI "std::string \fBlatin_number\fP (int size)"
+.br
+.RI "Generate a string contains latin letters and numbers only\&. "
+.ti -1c
+.RI "std::string \fBnumbers_only\fP (int size, bool leading_zero=false)"
+.br
+.RI "Generate a string contains numbers only\&. "
+.ti -1c
+.RI "std::string \fBrepeat\fP (int size)"
+.br
+.RI "Set the generated string size times of it\&. "
+.ti -1c
+.RI "std::string \fBgen_multi\fP (std::string(*func)(int), int(*size)(), int times, std::string sep=' ')"
+.br
+.RI "Generate multi-string using the same function, and concentrate them\&. "
+.ti -1c
+.RI "std::string \fBrandom_insert\fP (int size, char rep)"
+.br
+.RI "Randomly replace some charactor in the generated string, using \fRrep\fP\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBstr\fP"
+.br
+.RI "The container of the string\&. "
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename\&.\&.\&. Args> std::string String::gen (const char * pattern, Args\&.\&.\&. t)\fR [inline]\fP"
+
+.PP
+Generate a string with format(pattern, \&.\&.\&.t)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpattern\fP the pattern of the format-string, 
+.br
+\fI\&.\&.\&.t\fP the formated value\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "std::string String::gen_multi (std::string(*)(int) func, int(*)() size, int times, std::string sep = \fR' '\fP)\fR [inline]\fP"
+
+.PP
+Generate multi-string using the same function, and concentrate them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunc\fP a function which accepts a integer(the size of the sub-string) and returns a std::string\&. 
+.br
+\fIsize\fP a function which accepts a integer(the number of the sub-string) and returns a integer, which is the size of the string\&. 
+.br
+\fItimes\fP the count of the string that should be generated\&. 
+.br
+\fIsep\fP the seperator between the strings\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "std::string String::latin (int size)\fR [inline]\fP"
+
+.PP
+Generate a string contains latin letters only\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the length of the generated string\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "std::string String::latin_number (int size)\fR [inline]\fP"
+
+.PP
+Generate a string contains latin letters and numbers only\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the length of the generated string\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "std::string String::lower (int size)\fR [inline]\fP"
+
+.PP
+Generate a string contains lower letters only\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the length of the generated string\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "std::string String::numbers_only (int size, bool leading_zero = \fRfalse\fP)\fR [inline]\fP"
+
+.PP
+Generate a string contains numbers only\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the length of the generated string\&. 
+.br
+\fIleading_zero\fP if the string can start with zero or not\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "char & String::operator[] (int idx)\fR [inline]\fP"
+
+.PP
+return the reference of the size-th element in this string\&. NOTE that this is 1-indexed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIidx\fP the index of the element you requested\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The reference of the element\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if idx is an invalid index\&. 
+.RE
+.PP
+
+.SS "void String::print ()\fR [inline]\fP"
+
+.PP
+Output the generated string to stdout\&. NOTE that n will not be printed\&. 
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "std::string String::random_insert (int size, char rep)\fR [inline]\fP"
+
+.PP
+Randomly replace some charactor in the generated string, using \fRrep\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the count of char that should be replaced\&. 
+.br
+\fIrep\fP the char used to replace the origin\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+.SS "std::string String::repeat (int size)\fR [inline]\fP"
+
+.PP
+Set the generated string size times of it\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the times it should be repeated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The generated string\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

@@ -1,0 +1,308 @@
+.TH "Tree" 3 "Version 1.0.0" "CPgen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Tree \- Class that used to generate a tree\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <generator\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fB_Self\fP = \fBTree\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit\fP (int size)"
+.br
+.RI "Initiate \fBTree\fP object with size \fRsize\fP\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBsqrt_height_tree\fP (int size)"
+.br
+.RI "Generate a tree with an expected height of $O(\sqrt n)$\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBlog_height_tree\fP (int size)"
+.br
+.RI "Generate a tree with an expected height of $O(\log n)$\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBchain\fP (int size)"
+.br
+.RI "Generate a tree that is a chain\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBflower\fP (int size)"
+.br
+.RI "Generate a tree that is a flower\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBn_deg_tree\fP (int size)"
+.br
+.RI "Generate a tree with an expected max_deg of $O(n)$\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBchain_and_flower\fP (int size, double chain_percent=0\&.3, double flower_percent=0\&.3)"
+.br
+.RI "Generate a tree with chain size is about chain_percent * size and flower size is about flower_percent * size\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBrandom_shaped_tree\fP (int size)"
+.br
+.RI "Generate a tree with random shape, that is to say, randomly chose from the methods above\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBprint\fP (int shuffled, std::vector< int > weights=std::vector< int >{})"
+.br
+.RI "Output the generated tree to stdout\&. NOTE that n will not be printed\&. "
+.ti -1c
+.RI "\fB_Self\fP \fBprint_fa\fP (char sep=' ', char end='\\\fBn\fP')"
+.br
+.ti -1c
+.RI "std::vector< int > \fBget_leaves\fP ()"
+.br
+.RI "Get the leave nodes of the current tree\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBn\fP"
+.br
+.RI "The size of the tree\&. "
+.ti -1c
+.RI "std::vector< int > \fBfa\fP"
+.br
+.RI "\fRfa[i]\fP is the no\&. of node $i$'s father\&. "
+.ti -1c
+.RI "std::vector< int > \fBleaves\fP"
+.br
+.ti -1c
+.RI "bool \fBweighted\fP = false"
+.br
+.RI "Denoting if the \fBedges\fP are weighted or not\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class that used to generate a tree\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fB_Self\fP Tree::chain (int size)\fR [inline]\fP"
+
+.PP
+Generate a tree that is a chain\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::chain_and_flower (int size, double chain_percent = \fR0\&.3\fP, double flower_percent = \fR0\&.3\fP)\fR [inline]\fP"
+
+.PP
+Generate a tree with chain size is about chain_percent * size and flower size is about flower_percent * size\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated 
+.br
+\fIchain_percent\fP the percent of the chain size\&. 
+.br
+\fIflower_percent\fP the percent of the flower size\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1, or chain_percent + flower_percent > 1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::flower (int size)\fR [inline]\fP"
+
+.PP
+Generate a tree that is a flower\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "std::vector< int > Tree::get_leaves ()\fR [inline]\fP"
+
+.PP
+Get the leave nodes of the current tree\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The leaves\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIt\fP throws what \fRstd::vector<int>\fP throws\&. 
+.RE
+.PP
+
+.SS "void Tree::init (int size)\fR [inline]\fP"
+
+.PP
+Initiate \fBTree\fP object with size \fRsize\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::log_height_tree (int size)\fR [inline]\fP"
+
+.PP
+Generate a tree with an expected height of $O(\log n)$\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::n_deg_tree (int size)\fR [inline]\fP"
+
+.PP
+Generate a tree with an expected max_deg of $O(n)$\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::print (int shuffled, std::vector< int > weights = \fRstd::vector<int>{}\fP)\fR [inline]\fP"
+
+.PP
+Output the generated tree to stdout\&. NOTE that n will not be printed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIweights\fP the weights of the edges\&. Input weights[i] as the weight of the edge [fa[i], i]\&. 
+.br
+\fIshuffled\fP if I should print it in random order\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::random_shaped_tree (int size)\fR [inline]\fP"
+
+.PP
+Generate a tree with random shape, that is to say, randomly chose from the methods above\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SS "\fB_Self\fP Tree::sqrt_height_tree (int size)\fR [inline]\fP"
+
+.PP
+Generate a tree with an expected height of $O(\sqrt n)$\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP The count of the nodes that will be generated\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The graph itself\&. 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIout_of_range\fP if \fIsize\fP is an invalid node count, e\&.g\&. -1\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::vector<int> Tree::leaves"
+The no\&. of leaves\&. NOTE that it would be empty UNLESS you call \fR\fBget_leaves()\fP\fP method\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CPgen from the source code\&.

@@ -1,0 +1,514 @@
+\doxysection{Array\texorpdfstring{$<$}{<} \+\_\+\+Tp \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_array}{}\label{class_array}\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+
+
+Class that used to generate an array.  
+
+
+
+
+{\ttfamily \#include $<$generator.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_array_ae1592d720e1f74be242611978fe2a588}\label{class_array_ae1592d720e1f74be242611978fe2a588} 
+using {\bfseries \+\_\+\+Sequence} = std\+::vector$<$\+\_\+\+Tp$>$
+\item 
+\Hypertarget{class_array_a0bc66fa3b15877ad9b0b8a56c91c242f}\label{class_array_a0bc66fa3b15877ad9b0b8a56c91c242f} 
+using {\bfseries \+\_\+\+Self} = \mbox{\hyperlink{class_array}{Array}}$<$\+\_\+\+Tp$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+Tp \& \mbox{\hyperlink{class_array_ab717ed7ffe253e59ff499fad29906b79}{operator\mbox{[}$\,$\mbox{]}}} (int idx)
+\begin{DoxyCompactList}\small\item\em return the reference of the size-\/th element in this array. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_array_a280f58c15461fc65e11601e94cca8dcb}{begin}} ()
+\begin{DoxyCompactList}\small\item\em return the reference of the first element in this array. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_array_a646cc5a2606302d44bb18cecb884c186}{end}} ()
+\begin{DoxyCompactList}\small\item\em return the reference of the last element in this array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_array_a4079ff4a65fc1f4a2ad97af98165be0f}{init}} (int size)
+\begin{DoxyCompactList}\small\item\em init the whole array with the size of {\ttfamily size}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_array_a8732e434e7bc61b88cdb7dce78d7d36e}{print}} (char sep=\textquotesingle{} \textquotesingle{}, char \mbox{\hyperlink{class_array_a646cc5a2606302d44bb18cecb884c186}{end}}=\textquotesingle{}\textbackslash{}\mbox{\hyperlink{class_array_a47b098457b5a7ab7056d032b4c9644bd}{n}}\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Output the current array. \end{DoxyCompactList}\item 
+\+\_\+\+Tp \mbox{\hyperlink{class_array_a99eba270e5f29cb1054e78d4e7cc4026}{sum}} ()
+\begin{DoxyCompactList}\small\item\em Get the sum of the elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_a2d5075f9c1a5639437991a0d38a5369b}{basic\+\_\+gen}} (int size, \+\_\+\+Tp wl, \+\_\+\+Tp wr)
+\begin{DoxyCompactList}\small\item\em Generate an array with size {\ttfamily size}, while its elements are values in \mbox{[}wl, wr\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_array_aabb8ec61824f0867f58cd2303950cfde}{sort}} ()
+\begin{DoxyCompactList}\small\item\em Sort the current array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_array_a5f2e8fac9186f569126e3c6f711dd11d}{shuffle}} ()
+\begin{DoxyCompactList}\small\item\em Shuffle the current array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_array_aed37bf957607cb12166cb94223cf7a45}{reverse}} ()
+\begin{DoxyCompactList}\small\item\em Reverse the current array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_ae3ce84779eba9ffd938ec70b8ef10092}{to\+\_\+diffrence}} ()
+\begin{DoxyCompactList}\small\item\em Turn this array into the Diffrence array of it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_ab73df970edd42433e11cb4b696209010}{binary\+\_\+gen}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate an array with size {\ttfamily size}, while its elements are 0 or 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_aff0fd748e7a6b057a5f8d47766202681}{ascending\+\_\+array}} (int size, \+\_\+\+Tp wl, \+\_\+\+Tp wr)
+\begin{DoxyCompactList}\small\item\em Generate an array with size {\ttfamily size}, while its elements are not decreasing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_a5bd07d001915f8a081c13241cac021b1}{decending\+\_\+array}} (int size, \+\_\+\+Tp wl, \+\_\+\+Tp wr)
+\begin{DoxyCompactList}\small\item\em Generate an array with size {\ttfamily size}, while its elements are not increasing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_a4ff2f434ddb1ae9d181beea09ec79b62}{constant\+\_\+sum}} (int size, \+\_\+\+Tp \mbox{\hyperlink{class_array_a99eba270e5f29cb1054e78d4e7cc4026}{sum}}, bool Accept\+Zero=true, bool Accept\+Negative=true)
+\begin{DoxyCompactList}\small\item\em Generate an array with size {\ttfamily size}, while the sum of its elements are a constant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_a511d7e15b6eab71543831e086e373c1c}{perturbe}} ()
+\begin{DoxyCompactList}\small\item\em Perturbe the current array, keeping the sum of the elements still. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_a883b9ef82b241db48b2db03d7c6470e5}{permutation}} (int size)
+\begin{DoxyCompactList}\small\item\em Generate a permutation of 1 to size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_adb709f892260534cb315c528a4681144}{generate\+\_\+function}} (int size, int(\texorpdfstring{$\ast$}{*}Generate\+Function)(int), int \mbox{\hyperlink{class_array_a280f58c15461fc65e11601e94cca8dcb}{begin}}=1)
+\begin{DoxyCompactList}\small\item\em Generate an array with the i-\/th element is f(i + begin). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array_abcf5ecb1f3f188c7c5de989cfe902a90}{generate\+\_\+iterate\+\_\+function}} (int size, int(\texorpdfstring{$\ast$}{*}Iterate\+Function)(int), int \mbox{\hyperlink{class_array_a280f58c15461fc65e11601e94cca8dcb}{begin}}=1)
+\begin{DoxyCompactList}\small\item\em Generate an array with the i-\/th element is f(a\+\_\+\{i-\/1\}). \end{DoxyCompactList}\item 
+\Hypertarget{class_array_af4b8d3b6bbc24b57582d2c228a5ab25d}\label{class_array_af4b8d3b6bbc24b57582d2c228a5ab25d} 
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} {\bfseries randomly\+\_\+insert} (int size, int num)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_array_a47b098457b5a7ab7056d032b4c9644bd}\label{class_array_a47b098457b5a7ab7056d032b4c9644bd} 
+int {\bfseries n}
+\begin{DoxyCompactList}\small\item\em size of the array that generated. \end{DoxyCompactList}\item 
+\Hypertarget{class_array_a5c8d05e3f9247b2d7d0490f6c97d057e}\label{class_array_a5c8d05e3f9247b2d7d0490f6c97d057e} 
+\+\_\+\+Sequence {\bfseries array}
+\begin{DoxyCompactList}\small\item\em The container of the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \+\_\+\+Tp$>$\newline
+class Array$<$ \+\_\+\+Tp $>$}
+Class that used to generate an array. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_array_aff0fd748e7a6b057a5f8d47766202681}\label{class_array_aff0fd748e7a6b057a5f8d47766202681} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!ascending\_array@{ascending\_array}}
+\index{ascending\_array@{ascending\_array}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{ascending\_array()}{ascending\_array()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::ascending\+\_\+array (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{\+\_\+\+Tp}]{wl,  }\item[{\+\_\+\+Tp}]{wr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with size {\ttfamily size}, while its elements are not decreasing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this array should be. \\
+\hline
+{\em wl} & the sub of the elements. \\
+\hline
+{\em wr} & the sup of the elements. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a2d5075f9c1a5639437991a0d38a5369b}\label{class_array_a2d5075f9c1a5639437991a0d38a5369b} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!basic\_gen@{basic\_gen}}
+\index{basic\_gen@{basic\_gen}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_gen()}{basic\_gen()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::basic\+\_\+gen (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{\+\_\+\+Tp}]{wl,  }\item[{\+\_\+\+Tp}]{wr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with size {\ttfamily size}, while its elements are values in \mbox{[}wl, wr\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this array should be. \\
+\hline
+{\em wl} & the sub of the elements. \\
+\hline
+{\em wr} & the sup of the elements. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a280f58c15461fc65e11601e94cca8dcb}\label{class_array_a280f58c15461fc65e11601e94cca8dcb} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!begin@{begin}}
+\index{begin@{begin}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+auto \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return the reference of the first element in this array. 
+
+\begin{DoxyReturn}{Returns}
+The reference of the element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_ab73df970edd42433e11cb4b696209010}\label{class_array_ab73df970edd42433e11cb4b696209010} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!binary\_gen@{binary\_gen}}
+\index{binary\_gen@{binary\_gen}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{binary\_gen()}{binary\_gen()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::binary\+\_\+gen (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with size {\ttfamily size}, while its elements are 0 or 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this array should be. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a4ff2f434ddb1ae9d181beea09ec79b62}\label{class_array_a4ff2f434ddb1ae9d181beea09ec79b62} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!constant\_sum@{constant\_sum}}
+\index{constant\_sum@{constant\_sum}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{constant\_sum()}{constant\_sum()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::constant\+\_\+sum (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{\+\_\+\+Tp}]{sum,  }\item[{bool}]{Accept\+Zero = {\ttfamily true},  }\item[{bool}]{Accept\+Negative = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with size {\ttfamily size}, while the sum of its elements are a constant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this array should be. \\
+\hline
+{\em sum} & the sum of the elements. \\
+\hline
+{\em Accept\+Zero} & if the array can contain zero or not. \\
+\hline
+{\em Accept\+Negative} & if the array can contain negative values or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a5bd07d001915f8a081c13241cac021b1}\label{class_array_a5bd07d001915f8a081c13241cac021b1} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!decending\_array@{decending\_array}}
+\index{decending\_array@{decending\_array}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{decending\_array()}{decending\_array()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::decending\+\_\+array (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{\+\_\+\+Tp}]{wl,  }\item[{\+\_\+\+Tp}]{wr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with size {\ttfamily size}, while its elements are not increasing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this array should be. \\
+\hline
+{\em wl} & the sub of the elements. \\
+\hline
+{\em wr} & the sup of the elements. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a646cc5a2606302d44bb18cecb884c186}\label{class_array_a646cc5a2606302d44bb18cecb884c186} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!end@{end}}
+\index{end@{end}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+auto \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return the reference of the last element in this array. 
+
+\begin{DoxyReturn}{Returns}
+The reference of the element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_adb709f892260534cb315c528a4681144}\label{class_array_adb709f892260534cb315c528a4681144} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!generate\_function@{generate\_function}}
+\index{generate\_function@{generate\_function}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{generate\_function()}{generate\_function()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::generate\+\_\+function (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int(\texorpdfstring{$\ast$}{*})(int)}]{Generate\+Function,  }\item[{int}]{begin = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with the i-\/th element is f(i + begin). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array. \\
+\hline
+{\em Generate\+Function} & the Generate\+Function of the array. \\
+\hline
+{\em begin} & the begin point of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_abcf5ecb1f3f188c7c5de989cfe902a90}\label{class_array_abcf5ecb1f3f188c7c5de989cfe902a90} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!generate\_iterate\_function@{generate\_iterate\_function}}
+\index{generate\_iterate\_function@{generate\_iterate\_function}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{generate\_iterate\_function()}{generate\_iterate\_function()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::generate\+\_\+iterate\+\_\+function (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int(\texorpdfstring{$\ast$}{*})(int)}]{Iterate\+Function,  }\item[{int}]{begin = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate an array with the i-\/th element is f(a\+\_\+\{i-\/1\}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array. \\
+\hline
+{\em Generate\+Function} & the Generate\+Function of the array. \\
+\hline
+{\em begin} & the begin value of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a4079ff4a65fc1f4a2ad97af98165be0f}\label{class_array_a4079ff4a65fc1f4a2ad97af98165be0f} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!init@{init}}
+\index{init@{init}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::init (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+init the whole array with the size of {\ttfamily size}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & how large this array should be. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+no return. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_ab717ed7ffe253e59ff499fad29906b79}\label{class_array_ab717ed7ffe253e59ff499fad29906b79} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\+\_\+\+Tp \& \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return the reference of the size-\/th element in this array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & the index of the element you requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference of the element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & if idx is an invalid index. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a883b9ef82b241db48b2db03d7c6470e5}\label{class_array_a883b9ef82b241db48b2db03d7c6470e5} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!permutation@{permutation}}
+\index{permutation@{permutation}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{permutation()}{permutation()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::permutation (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a permutation of 1 to size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a511d7e15b6eab71543831e086e373c1c}\label{class_array_a511d7e15b6eab71543831e086e373c1c} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!perturbe@{perturbe}}
+\index{perturbe@{perturbe}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{perturbe()}{perturbe()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::perturbe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Perturbe the current array, keeping the sum of the elements still. 
+
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a8732e434e7bc61b88cdb7dce78d7d36e}\label{class_array_a8732e434e7bc61b88cdb7dce78d7d36e} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!print@{print}}
+\index{print@{print}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::print (\begin{DoxyParamCaption}\item[{char}]{sep = {\ttfamily \textquotesingle{}~\textquotesingle{}},  }\item[{char}]{end = {\ttfamily \textquotesingle{}\textbackslash{}\mbox{\hyperlink{class_array_a47b098457b5a7ab7056d032b4c9644bd}{n}}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Output the current array. 
+
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_aed37bf957607cb12166cb94223cf7a45}\label{class_array_aed37bf957607cb12166cb94223cf7a45} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!reverse@{reverse}}
+\index{reverse@{reverse}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reverse the current array. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a5f2e8fac9186f569126e3c6f711dd11d}\label{class_array_a5f2e8fac9186f569126e3c6f711dd11d} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::shuffle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Shuffle the current array. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_aabb8ec61824f0867f58cd2303950cfde}\label{class_array_aabb8ec61824f0867f58cd2303950cfde} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!sort@{sort}}
+\index{sort@{sort}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::sort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sort the current array. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_a99eba270e5f29cb1054e78d4e7cc4026}\label{class_array_a99eba270e5f29cb1054e78d4e7cc4026} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!sum@{sum}}
+\index{sum@{sum}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\+\_\+\+Tp \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the sum of the elements. 
+
+\begin{DoxyReturn}{Returns}
+The sum of the elements. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_array_ae3ce84779eba9ffd938ec70b8ef10092}\label{class_array_ae3ce84779eba9ffd938ec70b8ef10092} 
+\index{Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}!to\_diffrence@{to\_diffrence}}
+\index{to\_diffrence@{to\_diffrence}!Array$<$ \_Tp $>$@{Array$<$ \_Tp $>$}}
+\doxysubsubsection{\texorpdfstring{to\_diffrence()}{to\_diffrence()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\mbox{\hyperlink{class_array}{\+\_\+\+Self}} \mbox{\hyperlink{class_array}{Array}}$<$ \+\_\+\+Tp $>$\+::to\+\_\+diffrence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Turn this array into the Diffrence array of it. 
+
+\begin{DoxyReturn}{Returns}
+The array itself. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em It} & throws what the \+\_\+\+Sequence throws. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+generator.\+h\end{DoxyCompactItemize}
